@@ -1,0 +1,3160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vacantes y encargados del fin de semana</title>
+
+    <style>
+
+        :root {
+            --rojo: #ed111c;
+            --rojoOscuro: #d80012;
+            --rojoSuave: #ffe5e7;
+
+            --oscuro: #202126;
+
+            --gris: #666666;
+            --grisClaro: #dedede;
+            --fondo: #f5f5f5;
+
+            --turquesa: #0798a5;
+            --turquesaOscuro: #067881;
+            --turquesaSuave: #dbf4f4;
+
+            --naranja: #f57200;
+            --naranjaOscuro: #b85400;
+            --naranjaSuave: #fff0e4;
+
+            --azul: #2563eb;
+            --azulOscuro: #1e4fa7;
+            --azulSuave: #e8f0ff;
+
+            --verdeSuave: #e5f7eb;
+
+            --blanco: #ffffff;
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: var(--fondo);
+            color: var(--oscuro);
+        }
+
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+
+        button {
+            cursor: pointer;
+        }
+
+
+        /* ==========================================
+           ENCABEZADO SIMPLE
+        ========================================== */
+
+        header {
+            background: var(--blanco);
+
+            border-bottom:
+                1px solid var(--grisClaro);
+        }
+
+
+        .header-container {
+            max-width: 1400px;
+
+            margin: auto;
+
+            padding: 20px 30px;
+        }
+
+
+        .marca {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+        }
+
+
+        .marca-linea {
+            width: 7px;
+            min-width: 7px;
+            height: 40px;
+
+            background: var(--rojo);
+
+            border-radius: 10px;
+        }
+
+
+        .marca h1 {
+            font-size: 21px;
+        }
+
+
+        /* ==========================================
+           CONTENIDO
+        ========================================== */
+
+        .contenido {
+            max-width: 1400px;
+
+            margin: auto;
+
+            padding:
+                28px 30px 55px;
+        }
+
+
+        /* ==========================================
+           CARDS DE CONFIGURACIÓN
+        ========================================== */
+
+        .paneles {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 18px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .card {
+            padding: 22px;
+
+            background: var(--blanco);
+
+            border:
+                1px solid var(--grisClaro);
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 3px 12px
+                rgba(0, 0, 0, 0.05);
+        }
+
+
+        .card h3 {
+            font-size: 16px;
+        }
+
+
+        .card-descripcion {
+            min-height: 36px;
+
+            margin-top: 7px;
+            margin-bottom: 17px;
+
+            color: var(--gris);
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+
+        .campos {
+            display: grid;
+
+            gap: 12px;
+        }
+
+
+        .dos-columnas {
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+        }
+
+
+        .campo {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+        }
+
+
+        .campo label {
+            color: var(--gris);
+
+            font-size: 11px;
+
+            font-weight: bold;
+        }
+
+
+        .campo input,
+        .campo select {
+            width: 100%;
+
+            padding: 10px 12px;
+
+            background: var(--blanco);
+
+            border:
+                1px solid var(--grisClaro);
+
+            border-radius: 9px;
+
+            outline: none;
+        }
+
+
+        .campo input:focus,
+        .campo select:focus {
+            border-color: var(--rojo);
+        }
+
+
+        .boton {
+            width: 100%;
+
+            margin-top: 15px;
+            padding: 11px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: var(--oscuro);
+
+            color: var(--blanco);
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+
+        .boton:hover {
+            opacity: 0.90;
+        }
+
+
+        .boton-rojo {
+            background: var(--rojo);
+        }
+
+
+        .boton-azul {
+            background: var(--azul);
+        }
+
+
+        /* ==========================================
+           MENSAJES
+        ========================================== */
+
+        .mensaje {
+            display: none;
+
+            margin-bottom: 20px;
+
+            padding: 14px 17px;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+
+        .mensaje-error {
+            color: var(--rojoOscuro);
+
+            background: var(--rojoSuave);
+        }
+
+
+        .mensaje-exito {
+            color: var(--turquesaOscuro);
+
+            background: var(--turquesaSuave);
+        }
+
+
+        /* ==========================================
+           TABLA
+        ========================================== */
+
+        .tabla-contenedor {
+            overflow-x: auto;
+
+            background: var(--blanco);
+
+            border:
+                1px solid var(--grisClaro);
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 3px 12px
+                rgba(0, 0, 0, 0.05);
+        }
+
+
+        table {
+            width: 100%;
+
+            min-width: 1150px;
+
+            border-collapse: collapse;
+        }
+
+
+        thead {
+            color: var(--blanco);
+
+            background: var(--oscuro);
+        }
+
+
+        th {
+            padding: 16px;
+
+            text-align: left;
+
+            font-size: 12px;
+
+            line-height: 1.4;
+        }
+
+
+        td {
+            padding: 16px;
+
+            border-bottom:
+                1px solid #eeeeee;
+
+            font-size: 13px;
+
+            vertical-align: middle;
+        }
+
+
+        .inicio-fin-semana td {
+            border-top:
+                4px solid var(--rojo);
+        }
+
+
+        /* ==========================================
+           FIN DE SEMANA
+        ========================================== */
+
+        .grupo-semana {
+            min-width: 135px;
+
+            text-align: center;
+
+            background: #fafafa;
+
+            border-right:
+                1px solid #eeeeee;
+        }
+
+
+        .grupo-semana strong {
+            display: block;
+
+            font-size: 14px;
+        }
+
+
+        .ciclo {
+            display: inline-block;
+
+            margin-top: 8px;
+
+            padding: 5px 10px;
+
+            color: var(--blanco);
+
+            background: var(--oscuro);
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: bold;
+        }
+
+
+        /* ==========================================
+           FECHA
+        ========================================== */
+
+        .fecha {
+            display: block;
+
+            font-weight: bold;
+        }
+
+
+        .fecha-natural {
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--gris);
+
+            font-size: 11px;
+        }
+
+
+        .codigo {
+            display: inline-block;
+
+            padding: 6px 9px;
+
+            background: #eeeeee;
+
+            border-radius: 7px;
+
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
+            font-size: 11px;
+
+            font-weight: bold;
+        }
+
+
+        /* ==========================================
+           DÍA
+        ========================================== */
+
+        .dia {
+            display: inline-block;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: bold;
+        }
+
+
+        .sabado {
+            color: var(--rojoOscuro);
+
+            background: var(--rojoSuave);
+        }
+
+
+        .domingo {
+            color: var(--turquesaOscuro);
+
+            background: var(--turquesaSuave);
+        }
+
+
+        /* ==========================================
+           ENCARGADO
+        ========================================== */
+
+        .encargado {
+            font-weight: bold;
+        }
+
+
+        /* ==========================================
+           DESCANSO / VACACIONES
+        ========================================== */
+
+        .descanso-columna {
+            min-width: 165px;
+
+            text-align: center;
+
+            background: #fcfcfc;
+
+            border-left:
+                1px solid #eeeeee;
+
+            border-right:
+                1px solid #eeeeee;
+        }
+
+
+        .badge {
+            display: inline-block;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: bold;
+        }
+
+
+        .badge-descansa {
+            color: #555555;
+
+            background: #eeeeee;
+        }
+
+
+        .badge-vacaciones {
+            color: var(--naranjaOscuro);
+
+            background: var(--naranjaSuave);
+        }
+
+
+        .persona-descanso {
+            display: block;
+
+            margin-top: 7px;
+
+            font-weight: bold;
+        }
+
+
+        /* ==========================================
+           ESTADO
+           SOLO 3 OPCIONES
+        ========================================== */
+
+        .estado {
+            display: inline-block;
+
+            padding: 7px 11px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: bold;
+        }
+
+
+        .estado-normal {
+            color: var(--turquesaOscuro);
+
+            background: var(--turquesaSuave);
+        }
+
+
+        .estado-vacaciones {
+            color: var(--naranjaOscuro);
+
+            background: var(--naranjaSuave);
+        }
+
+
+        .estado-manual {
+            color: var(--azulOscuro);
+
+            background: var(--azulSuave);
+        }
+
+
+        /* ==========================================
+           IMPRESIÓN FINAL
+        ========================================== */
+
+        .fila-resultado td {
+            padding: 0;
+
+            border-bottom:
+                4px solid var(--rojo);
+        }
+
+
+        .impresion {
+            padding: 15px 18px;
+
+            display: grid;
+
+            grid-template-columns:
+                auto
+                repeat(3, minmax(170px, 1fr));
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .impresion-normal {
+            background: var(--verdeSuave);
+        }
+
+
+        .impresion-vacaciones {
+            background: var(--naranjaSuave);
+        }
+
+
+        .impresion-manual {
+            background: var(--azulSuave);
+        }
+
+
+        .impresion-titulo {
+            font-size: 12px;
+
+            font-weight: bold;
+
+            white-space: nowrap;
+        }
+
+
+        .resultado {
+            padding: 11px 13px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            background: var(--blanco);
+
+            border:
+                1px solid var(--grisClaro);
+
+            border-radius: 10px;
+
+            font-size: 12px;
+        }
+
+
+        .punto {
+            width: 9px;
+
+            min-width: 9px;
+
+            height: 9px;
+
+            border-radius: 50%;
+        }
+
+
+        .punto-sabado {
+            background: var(--rojo);
+        }
+
+
+        .punto-domingo {
+            background: var(--turquesa);
+        }
+
+
+        .punto-descanso {
+            background: var(--naranja);
+        }
+
+
+        .resultado span {
+            color: var(--gris);
+        }
+
+
+        .resultado strong {
+            color: var(--oscuro);
+        }
+
+
+        /* ==========================================
+           RESPONSIVE
+        ========================================== */
+
+        @media (max-width: 1000px) {
+
+            .paneles {
+                grid-template-columns: 1fr;
+            }
+
+
+            .impresion {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .header-container,
+            .contenido {
+                padding-left: 18px;
+
+                padding-right: 18px;
+            }
+
+
+            .dos-columnas {
+                grid-template-columns: 1fr;
+            }
+
+
+            .marca h1 {
+                font-size: 17px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     ENCABEZADO
+=========================================== -->
+
+<header>
+
+    <div class="header-container">
+
+        <div class="marca">
+
+            <div class="marca-linea"></div>
+
+            <h1>
+                Vacantes y encargados del fin de semana
+            </h1>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="contenido">
+
+
+    <!-- ==========================================
+         CONTROLES
+    =========================================== -->
+
+    <section class="paneles">
+
+
+        <!-- RANGO -->
+
+        <article class="card">
+
+            <h3>
+                Rango de simulación
+            </h3>
+
+
+            <p class="card-descripcion">
+                Define el período que deseas visualizar.
+            </p>
+
+
+            <div class="campos dos-columnas">
+
+                <div class="campo">
+
+                    <label for="fechaInicio">
+                        Fecha inicial
+                    </label>
+
+
+                    <input
+                        id="fechaInicio"
+                        type="date"
+                        value="2026-10-24"
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="fechaFin">
+                        Fecha final
+                    </label>
+
+
+                    <input
+                        id="fechaFin"
+                        type="date"
+                        value="2026-12-06"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="btnGenerar"
+                class="boton"
+                type="button"
+            >
+                Generar línea de tiempo
+            </button>
+
+        </article>
+
+
+        <!-- VACACIONES -->
+
+        <article class="card">
+
+            <h3>
+                Registrar vacaciones
+            </h3>
+
+
+            <p class="card-descripcion">
+                La rotación se pausa durante el período registrado.
+            </p>
+
+
+            <div class="campos">
+
+                <div class="campo">
+
+                    <label for="vacacionesAsesor">
+                        Asesor
+                    </label>
+
+
+                    <select id="vacacionesAsesor">
+
+                        <option value="">
+                            Seleccionar asesor
+                        </option>
+
+                        <option value="Juan">
+                            Juan
+                        </option>
+
+                        <option value="Marvin">
+                            Marvin
+                        </option>
+
+                        <option value="Eli">
+                            Eli
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campos dos-columnas">
+
+                    <div class="campo">
+
+                        <label for="vacacionesInicio">
+                            Desde
+                        </label>
+
+
+                        <input
+                            id="vacacionesInicio"
+                            type="date"
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="vacacionesFin">
+                            Hasta
+                        </label>
+
+
+                        <input
+                            id="vacacionesFin"
+                            type="date"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="btnVacaciones"
+                class="boton boton-rojo"
+                type="button"
+            >
+                Guardar vacaciones
+            </button>
+
+        </article>
+
+
+        <!-- CAMBIO MANUAL -->
+
+        <article class="card">
+
+            <h3>
+                Cambio manual
+            </h3>
+
+
+            <p class="card-descripcion">
+                Modifica solamente el fin de semana seleccionado.
+            </p>
+
+
+            <div class="campos">
+
+                <div class="campo">
+
+                    <label for="cambioFecha">
+                        Sábado del fin de semana
+                    </label>
+
+
+                    <input
+                        id="cambioFecha"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <div class="campos dos-columnas">
+
+                    <div class="campo">
+
+                        <label for="cambioSabado">
+                            Sábado
+                        </label>
+
+
+                        <select id="cambioSabado">
+
+                            <option value="">
+                                Sin cambio
+                            </option>
+
+                            <option value="Juan">
+                                Juan
+                            </option>
+
+                            <option value="Marvin">
+                                Marvin
+                            </option>
+
+                            <option value="Eli">
+                                Eli
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="cambioDomingo">
+                            Domingo
+                        </label>
+
+
+                        <select id="cambioDomingo">
+
+                            <option value="">
+                                Sin cambio
+                            </option>
+
+                            <option value="Juan">
+                                Juan
+                            </option>
+
+                            <option value="Marvin">
+                                Marvin
+                            </option>
+
+                            <option value="Eli">
+                                Eli
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="cambioMotivo">
+                        Motivo
+                    </label>
+
+
+                    <select id="cambioMotivo">
+
+                        <option value="Cambio operativo">
+                            Cambio operativo
+                        </option>
+
+                        <option value="Motivo personal">
+                            Motivo personal
+                        </option>
+
+                        <option value="Permiso">
+                            Permiso
+                        </option>
+
+                        <option value="Incapacidad">
+                            Incapacidad
+                        </option>
+
+                        <option value="Otro">
+                            Otro
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="btnCambio"
+                class="boton boton-azul"
+                type="button"
+            >
+                Guardar cambio manual
+            </button>
+
+        </article>
+
+    </section>
+
+
+    <!-- MENSAJES -->
+
+    <div
+        id="mensajeError"
+        class="mensaje mensaje-error"
+    ></div>
+
+
+    <div
+        id="mensajeExito"
+        class="mensaje mensaje-exito"
+    ></div>
+
+
+    <!-- ==========================================
+         TABLA
+    =========================================== -->
+
+    <section class="tabla-contenedor">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Fin de semana
+                    </th>
+
+                    <th>
+                        Fecha
+                    </th>
+
+                    <th>
+                        Semana ISO
+                    </th>
+
+                    <th>
+                        Día
+                    </th>
+
+                    <th>
+                        Encargado
+                    </th>
+
+                    <th>
+                        Descansa / Vacaciones
+                    </th>
+
+                    <th>
+                        Estado
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="tablaRotacion"></tbody>
+
+        </table>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        Gestión interna de cobertura de fin de semana
+    </p>
+
+</footer>
+
+
+<script>
+
+"use strict";
+
+
+/* ==========================================
+   CONFIGURACIÓN
+========================================== */
+
+const ASESORES = [
+    "Juan",
+    "Marvin",
+    "Eli"
+];
+
+
+const FECHA_REFERENCIA =
+    "2026-10-24";
+
+
+const ROTACION = [
+
+    {
+        ciclo: "A",
+        sabado: "Marvin",
+        domingo: "Eli",
+        descansa: "Juan"
+    },
+
+    {
+        ciclo: "B",
+        sabado: "Juan",
+        domingo: "Marvin",
+        descansa: "Eli"
+    },
+
+    {
+        ciclo: "C",
+        sabado: "Eli",
+        domingo: "Juan",
+        descansa: "Marvin"
+    }
+
+];
+
+
+const CLAVE_VACACIONES =
+    "sistema_vacaciones";
+
+
+const CLAVE_CAMBIOS =
+    "sistema_cambios";
+
+
+let vacaciones =
+    cargarDatos(
+        CLAVE_VACACIONES
+    );
+
+
+let cambios =
+    cargarDatos(
+        CLAVE_CAMBIOS
+    );
+
+
+/* ==========================================
+   LOCAL STORAGE
+========================================== */
+
+function cargarDatos(clave) {
+
+    try {
+
+        const dato =
+            localStorage.getItem(
+                clave
+            );
+
+
+        if (!dato) {
+            return [];
+        }
+
+
+        const resultado =
+            JSON.parse(
+                dato
+            );
+
+
+        return Array.isArray(
+            resultado
+        )
+            ? resultado
+            : [];
+
+    }
+
+    catch {
+
+        return [];
+
+    }
+
+}
+
+
+function persistir() {
+
+    localStorage.setItem(
+        CLAVE_VACACIONES,
+        JSON.stringify(
+            vacaciones
+        )
+    );
+
+
+    localStorage.setItem(
+        CLAVE_CAMBIOS,
+        JSON.stringify(
+            cambios
+        )
+    );
+
+}
+
+
+/* ==========================================
+   GENERACIÓN PRINCIPAL
+========================================== */
+
+function generarLineaTiempo() {
+
+    limpiarMensajes();
+
+
+    try {
+
+        const inicioISO =
+            document.getElementById(
+                "fechaInicio"
+            ).value;
+
+
+        const finISO =
+            document.getElementById(
+                "fechaFin"
+            ).value;
+
+
+        validarRango(
+            inicioISO,
+            finISO
+        );
+
+
+        const inicio =
+            fechaDesdeISO(
+                inicioISO
+            );
+
+
+        const fin =
+            fechaDesdeISO(
+                finISO
+            );
+
+
+        let indiceRotacion =
+            calcularIndiceInicial(
+                inicio
+            );
+
+
+        let sabado =
+            obtenerProximoSabado(
+                inicio
+            );
+
+
+        let contadorVacaciones =
+            0;
+
+
+        const resultados =
+            [];
+
+
+        while (
+            sabado <= fin
+        ) {
+
+            const domingo =
+                sumarDias(
+                    sabado,
+                    1
+                );
+
+
+            const sabadoISO =
+                formatoISO(
+                    sabado
+                );
+
+
+            const domingoISO =
+                formatoISO(
+                    domingo
+                );
+
+
+            const patron =
+                ROTACION[
+                    indiceRotacion
+                ];
+
+
+            const personasVacaciones =
+                vacacionesFinSemana(
+                    sabadoISO,
+                    domingoISO
+                );
+
+
+            const periodoVacaciones =
+                personasVacaciones.length
+                >
+                0;
+
+
+            let encargadoSabado;
+
+            let encargadoDomingo;
+
+
+            /*
+                VACACIONES
+
+                Se cubre temporalmente,
+                pero NO se mueve el índice.
+            */
+
+            if (
+                periodoVacaciones
+            ) {
+
+                const cobertura =
+                    coberturaVacaciones(
+                        personasVacaciones,
+                        contadorVacaciones
+                    );
+
+
+                encargadoSabado =
+                    cobertura.sabado;
+
+
+                encargadoDomingo =
+                    cobertura.domingo;
+
+
+                contadorVacaciones++;
+
+            }
+
+            else {
+
+                encargadoSabado =
+                    patron.sabado;
+
+
+                encargadoDomingo =
+                    patron.domingo;
+
+
+                contadorVacaciones =
+                    0;
+
+            }
+
+
+            /*
+                CAMBIO MANUAL
+
+                Solo afecta este fin
+                de semana.
+            */
+
+            const cambio =
+                buscarCambio(
+                    sabadoISO
+                );
+
+
+            let cambioSabado =
+                false;
+
+
+            let cambioDomingo =
+                false;
+
+
+            if (cambio) {
+
+                if (
+                    cambio.sabado
+                ) {
+
+                    encargadoSabado =
+                        cambio.sabado;
+
+
+                    cambioSabado =
+                        true;
+
+                }
+
+
+                if (
+                    cambio.domingo
+                ) {
+
+                    encargadoDomingo =
+                        cambio.domingo;
+
+
+                    cambioDomingo =
+                        true;
+
+                }
+
+            }
+
+
+            /*
+                SOLO 3 ESTADOS
+            */
+
+            let estadoSabado =
+                "Rotación normal";
+
+
+            let estadoDomingo =
+                "Rotación normal";
+
+
+            if (
+                periodoVacaciones
+            ) {
+
+                estadoSabado =
+                    "Vacaciones";
+
+
+                estadoDomingo =
+                    "Vacaciones";
+
+            }
+
+
+            if (
+                cambioSabado
+            ) {
+
+                estadoSabado =
+                    "Cambio manual";
+
+            }
+
+
+            if (
+                cambioDomingo
+            ) {
+
+                estadoDomingo =
+                    "Cambio manual";
+
+            }
+
+
+            const descanso =
+                calcularDescanso(
+                    encargadoSabado,
+                    encargadoDomingo,
+                    personasVacaciones,
+                    patron
+                );
+
+
+            resultados.push({
+
+                semana:
+                    semanaGeneralISO(
+                        sabado
+                    ),
+
+                ciclo:
+                    patron.ciclo,
+
+                sabado: {
+
+                    fecha:
+                        sabadoISO,
+
+                    iso:
+                        fechaSemanaISO(
+                            sabado
+                        ),
+
+                    encargado:
+                        encargadoSabado,
+
+                    estado:
+                        estadoSabado
+
+                },
+
+                domingo: {
+
+                    fecha:
+                        domingoISO,
+
+                    iso:
+                        fechaSemanaISO(
+                            domingo
+                        ),
+
+                    encargado:
+                        encargadoDomingo,
+
+                    estado:
+                        estadoDomingo
+
+                },
+
+                vacaciones:
+                    personasVacaciones,
+
+                descanso:
+                    descanso,
+
+                cambio:
+                    cambio || null
+
+            });
+
+
+            /*
+                ÚNICAMENTE las vacaciones
+                pausan la rotación.
+            */
+
+            if (
+                !periodoVacaciones
+            ) {
+
+                indiceRotacion =
+                    (
+                        indiceRotacion
+                        +
+                        1
+                    )
+                    %
+                    ROTACION.length;
+
+            }
+
+
+            sabado =
+                sumarDias(
+                    sabado,
+                    7
+                );
+
+        }
+
+
+        renderizarTabla(
+            resultados
+        );
+
+    }
+
+    catch (error) {
+
+        mostrarError(
+            error.message
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   ÍNDICE INICIAL
+========================================== */
+
+function calcularIndiceInicial(
+    fechaInicio
+) {
+
+    const referencia =
+        fechaDesdeISO(
+            FECHA_REFERENCIA
+        );
+
+
+    if (
+        fechaInicio <=
+        referencia
+    ) {
+
+        return 0;
+
+    }
+
+
+    let indice =
+        0;
+
+
+    let sabado =
+        new Date(
+            referencia.getTime()
+        );
+
+
+    const limite =
+        obtenerProximoSabado(
+            fechaInicio
+        );
+
+
+    while (
+        sabado < limite
+    ) {
+
+        const domingo =
+            sumarDias(
+                sabado,
+                1
+            );
+
+
+        const vacacionesSemana =
+            vacacionesFinSemana(
+                formatoISO(
+                    sabado
+                ),
+                formatoISO(
+                    domingo
+                )
+            );
+
+
+        if (
+            vacacionesSemana.length
+            ===
+            0
+        ) {
+
+            indice =
+                (
+                    indice + 1
+                )
+                %
+                ROTACION.length;
+
+        }
+
+
+        sabado =
+            sumarDias(
+                sabado,
+                7
+            );
+
+    }
+
+
+    return indice;
+
+}
+
+
+/* ==========================================
+   COBERTURA POR VACACIONES
+========================================== */
+
+function coberturaVacaciones(
+    personasVacaciones,
+    contador
+) {
+
+    const disponibles =
+        ASESORES.filter(
+            asesor =>
+                !personasVacaciones.includes(
+                    asesor
+                )
+        );
+
+
+    if (
+        disponibles.length
+        ===
+        0
+    ) {
+
+        return {
+
+            sabado:
+                "Sin cobertura",
+
+            domingo:
+                "Sin cobertura"
+
+        };
+
+    }
+
+
+    if (
+        disponibles.length
+        ===
+        1
+    ) {
+
+        return {
+
+            sabado:
+                disponibles[0],
+
+            domingo:
+                disponibles[0]
+
+        };
+
+    }
+
+
+    if (
+        contador % 2 ===
+        0
+    ) {
+
+        return {
+
+            sabado:
+                disponibles[0],
+
+            domingo:
+                disponibles[1]
+
+        };
+
+    }
+
+
+    return {
+
+        sabado:
+            disponibles[1],
+
+        domingo:
+            disponibles[0]
+
+    };
+
+}
+
+
+/* ==========================================
+   DESCANSO / VACACIONES
+========================================== */
+
+function calcularDescanso(
+    sabado,
+    domingo,
+    personasVacaciones,
+    patron
+) {
+
+    if (
+        personasVacaciones.length
+        >
+        0
+    ) {
+
+        return {
+
+            tipo:
+                "Vacaciones",
+
+            personas:
+                personasVacaciones
+
+        };
+
+    }
+
+
+    const trabajan =
+        new Set([
+            sabado,
+            domingo
+        ]);
+
+
+    const descansan =
+        ASESORES.filter(
+            asesor =>
+                !trabajan.has(
+                    asesor
+                )
+        );
+
+
+    return {
+
+        tipo:
+            "Descansa",
+
+        personas:
+            descansan.length
+            >
+            0
+                ?
+                descansan
+                :
+                [
+                    patron.descansa
+                ]
+
+    };
+
+}
+
+
+/* ==========================================
+   VACACIONES
+========================================== */
+
+function guardarVacaciones() {
+
+    limpiarMensajes();
+
+
+    try {
+
+        const asesor =
+            document.getElementById(
+                "vacacionesAsesor"
+            ).value;
+
+
+        const inicio =
+            document.getElementById(
+                "vacacionesInicio"
+            ).value;
+
+
+        const fin =
+            document.getElementById(
+                "vacacionesFin"
+            ).value;
+
+
+        if (!asesor) {
+
+            throw new Error(
+                "Selecciona un asesor."
+            );
+
+        }
+
+
+        validarRango(
+            inicio,
+            fin
+        );
+
+
+        vacaciones.push({
+
+            id:
+                crearId(),
+
+            asesor:
+                asesor,
+
+            inicio:
+                inicio,
+
+            fin:
+                fin
+
+        });
+
+
+        persistir();
+
+
+        document.getElementById(
+            "vacacionesAsesor"
+        ).value = "";
+
+
+        document.getElementById(
+            "vacacionesInicio"
+        ).value = "";
+
+
+        document.getElementById(
+            "vacacionesFin"
+        ).value = "";
+
+
+        generarLineaTiempo();
+
+
+        mostrarExito(
+            "Vacaciones registradas correctamente."
+        );
+
+    }
+
+    catch (error) {
+
+        mostrarError(
+            error.message
+        );
+
+    }
+
+}
+
+
+function vacacionesFinSemana(
+    sabado,
+    domingo
+) {
+
+    return [
+
+        ...new Set(
+
+            vacaciones
+
+                .filter(
+
+                    item =>
+
+                        (
+                            sabado >=
+                                item.inicio
+                            &&
+                            sabado <=
+                                item.fin
+                        )
+
+                        ||
+
+                        (
+                            domingo >=
+                                item.inicio
+                            &&
+                            domingo <=
+                                item.fin
+                        )
+
+                )
+
+                .map(
+                    item =>
+                        item.asesor
+                )
+
+        )
+
+    ];
+
+}
+
+
+/* ==========================================
+   CAMBIOS MANUALES
+========================================== */
+
+function guardarCambio() {
+
+    limpiarMensajes();
+
+
+    try {
+
+        const fecha =
+            document.getElementById(
+                "cambioFecha"
+            ).value;
+
+
+        const sabado =
+            document.getElementById(
+                "cambioSabado"
+            ).value;
+
+
+        const domingo =
+            document.getElementById(
+                "cambioDomingo"
+            ).value;
+
+
+        const motivo =
+            document.getElementById(
+                "cambioMotivo"
+            ).value;
+
+
+        if (!fecha) {
+
+            throw new Error(
+                "Selecciona el sábado del fin de semana."
+            );
+
+        }
+
+
+        const fechaObjeto =
+            fechaDesdeISO(
+                fecha
+            );
+
+
+        if (
+            fechaObjeto.getDay()
+            !==
+            6
+        ) {
+
+            throw new Error(
+                "La fecha seleccionada debe ser sábado."
+            );
+
+        }
+
+
+        if (
+            !sabado
+            &&
+            !domingo
+        ) {
+
+            throw new Error(
+                "Selecciona al menos un cambio."
+            );
+
+        }
+
+
+        const existente =
+            cambios.find(
+                item =>
+                    item.fecha
+                    ===
+                    fecha
+            );
+
+
+        if (
+            existente
+        ) {
+
+            existente.sabado =
+                sabado;
+
+
+            existente.domingo =
+                domingo;
+
+
+            existente.motivo =
+                motivo;
+
+        }
+
+        else {
+
+            cambios.push({
+
+                id:
+                    crearId(),
+
+                fecha:
+                    fecha,
+
+                sabado:
+                    sabado,
+
+                domingo:
+                    domingo,
+
+                motivo:
+                    motivo
+
+            });
+
+        }
+
+
+        persistir();
+
+
+        document.getElementById(
+            "cambioFecha"
+        ).value = "";
+
+
+        document.getElementById(
+            "cambioSabado"
+        ).value = "";
+
+
+        document.getElementById(
+            "cambioDomingo"
+        ).value = "";
+
+
+        generarLineaTiempo();
+
+
+        mostrarExito(
+            "Cambio manual aplicado correctamente."
+        );
+
+    }
+
+    catch (error) {
+
+        mostrarError(
+            error.message
+        );
+
+    }
+
+}
+
+
+function buscarCambio(
+    sabado
+) {
+
+    return cambios.find(
+        item =>
+            item.fecha
+            ===
+            sabado
+    );
+
+}
+
+
+/* ==========================================
+   TABLA
+========================================== */
+
+function renderizarTabla(
+    resultados
+) {
+
+    const tabla =
+        document.getElementById(
+            "tablaRotacion"
+        );
+
+
+    tabla.innerHTML =
+        resultados
+            .map(
+                fin =>
+                    crearFinSemana(
+                        fin
+                    )
+            )
+            .join("");
+
+}
+
+
+function crearFinSemana(
+    fin
+) {
+
+    let claseImpresion =
+        "impresion-normal";
+
+
+    if (
+        fin.vacaciones.length
+        >
+        0
+    ) {
+
+        claseImpresion =
+            "impresion-vacaciones";
+
+    }
+
+
+    if (
+        fin.cambio
+    ) {
+
+        claseImpresion =
+            "impresion-manual";
+
+    }
+
+
+    const claseDescanso =
+        fin.descanso.tipo
+        ===
+        "Vacaciones"
+
+            ?
+            "badge-vacaciones"
+
+            :
+            "badge-descansa";
+
+
+    return `
+
+        <tr class="inicio-fin-semana">
+
+            <td
+                rowspan="2"
+                class="grupo-semana"
+            >
+
+                <strong>
+                    ${html(
+                        fin.semana
+                    )}
+                </strong>
+
+
+                <span class="ciclo">
+                    Ciclo ${html(
+                        fin.ciclo
+                    )}
+                </span>
+
+            </td>
+
+
+            ${crearDia(
+                fin.sabado,
+                "Sábado"
+            )}
+
+
+            <td
+                rowspan="2"
+                class="descanso-columna"
+            >
+
+                <span
+                    class="badge ${claseDescanso}"
+                >
+
+                    ${html(
+                        fin.descanso.tipo
+                    )}
+
+                </span>
+
+
+                <span
+                    class="persona-descanso"
+                >
+
+                    ${html(
+                        fin.descanso.personas.join(
+                            ", "
+                        )
+                    )}
+
+                </span>
+
+            </td>
+
+
+            ${crearEstado(
+                fin.sabado.estado
+            )}
+
+        </tr>
+
+
+        <tr>
+
+            ${crearDia(
+                fin.domingo,
+                "Domingo"
+            )}
+
+
+            ${crearEstado(
+                fin.domingo.estado
+            )}
+
+        </tr>
+
+
+        <tr class="fila-resultado">
+
+            <td colspan="7">
+
+                <div
+                    class="impresion ${claseImpresion}"
+                >
+
+                    <div
+                        class="impresion-titulo"
+                    >
+
+                        Impresión final:
+
+                    </div>
+
+
+                    <div class="resultado">
+
+                        <span
+                            class="punto punto-sabado"
+                        ></span>
+
+                        <span>
+
+                            Sábado:
+
+                            <strong>
+
+                                ${html(
+                                    fin.sabado.encargado
+                                )}
+
+                            </strong>
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="resultado">
+
+                        <span
+                            class="punto punto-domingo"
+                        ></span>
+
+                        <span>
+
+                            Domingo:
+
+                            <strong>
+
+                                ${html(
+                                    fin.domingo.encargado
+                                )}
+
+                            </strong>
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="resultado">
+
+                        <span
+                            class="punto punto-descanso"
+                        ></span>
+
+                        <span>
+
+                            ${html(
+                                fin.descanso.tipo
+                            )}:
+
+                            <strong>
+
+                                ${html(
+                                    fin.descanso.personas.join(
+                                        ", "
+                                    )
+                                )}
+
+                            </strong>
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+    `;
+
+}
+
+
+function crearDia(
+    registro,
+    nombre
+) {
+
+    const clase =
+        nombre ===
+        "Sábado"
+
+            ?
+            "sabado"
+
+            :
+            "domingo";
+
+
+    return `
+
+        <td>
+
+            <span class="fecha">
+
+                ${html(
+                    registro.fecha
+                )}
+
+            </span>
+
+
+            <span class="fecha-natural">
+
+                ${html(
+
+                    fechaLegible(
+
+                        fechaDesdeISO(
+                            registro.fecha
+                        )
+
+                    )
+
+                )}
+
+            </span>
+
+        </td>
+
+
+        <td>
+
+            <span class="codigo">
+
+                ${html(
+                    registro.iso
+                )}
+
+            </span>
+
+        </td>
+
+
+        <td>
+
+            <span
+                class="dia ${clase}"
+            >
+
+                ${nombre}
+
+            </span>
+
+        </td>
+
+
+        <td>
+
+            <span class="encargado">
+
+                ${html(
+                    registro.encargado
+                )}
+
+            </span>
+
+        </td>
+
+    `;
+
+}
+
+
+function crearEstado(
+    estado
+) {
+
+    let clase =
+        "estado-normal";
+
+
+    if (
+        estado ===
+        "Vacaciones"
+    ) {
+
+        clase =
+            "estado-vacaciones";
+
+    }
+
+
+    else if (
+        estado ===
+        "Cambio manual"
+    ) {
+
+        clase =
+            "estado-manual";
+
+    }
+
+
+    return `
+
+        <td>
+
+            <span
+                class="estado ${clase}"
+            >
+
+                ${html(
+                    estado
+                )}
+
+            </span>
+
+        </td>
+
+    `;
+
+}
+
+
+/* ==========================================
+   FECHAS
+========================================== */
+
+function fechaDesdeISO(
+    iso
+) {
+
+    if (
+        !iso
+        ||
+        !/^\d{4}-\d{2}-\d{2}$/
+            .test(
+                iso
+            )
+    ) {
+
+        throw new Error(
+            "Fecha inválida."
+        );
+
+    }
+
+
+    const [
+        anio,
+        mes,
+        dia
+    ] =
+        iso
+            .split("-")
+            .map(
+                Number
+            );
+
+
+    const fecha =
+        new Date(
+            anio,
+            mes - 1,
+            dia
+        );
+
+
+    fecha.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+
+    return fecha;
+
+}
+
+
+function formatoISO(
+    fecha
+) {
+
+    return (
+
+        fecha.getFullYear()
+
+        +
+
+        "-"
+
+        +
+
+        String(
+            fecha.getMonth()
+            +
+            1
+        ).padStart(
+            2,
+            "0"
+        )
+
+        +
+
+        "-"
+
+        +
+
+        String(
+            fecha.getDate()
+        ).padStart(
+            2,
+            "0"
+        )
+
+    );
+
+}
+
+
+function sumarDias(
+    fecha,
+    cantidad
+) {
+
+    const copia =
+        new Date(
+            fecha
+        );
+
+
+    copia.setDate(
+        copia.getDate()
+        +
+        cantidad
+    );
+
+
+    copia.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+
+    return copia;
+
+}
+
+
+function obtenerProximoSabado(
+    fecha
+) {
+
+    const dias =
+        (
+            6
+            -
+            fecha.getDay()
+            +
+            7
+        )
+        %
+        7;
+
+
+    return sumarDias(
+        fecha,
+        dias
+    );
+
+}
+
+
+function fechaSemanaISO(
+    fecha
+) {
+
+    const utc =
+        new Date(
+
+            Date.UTC(
+
+                fecha.getFullYear(),
+
+                fecha.getMonth(),
+
+                fecha.getDate()
+
+            )
+
+        );
+
+
+    const diaISO =
+        utc.getUTCDay()
+        ||
+        7;
+
+
+    utc.setUTCDate(
+
+        utc.getUTCDate()
+
+        +
+
+        4
+
+        -
+
+        diaISO
+
+    );
+
+
+    const anioISO =
+        utc.getUTCFullYear();
+
+
+    const juevesInicial =
+        new Date(
+
+            Date.UTC(
+                anioISO,
+                0,
+                4
+            )
+
+        );
+
+
+    const primerDia =
+        juevesInicial.getUTCDay()
+        ||
+        7;
+
+
+    juevesInicial.setUTCDate(
+
+        juevesInicial.getUTCDate()
+
+        +
+
+        4
+
+        -
+
+        primerDia
+
+    );
+
+
+    const semana =
+        1
+
+        +
+
+        Math.round(
+
+            (
+                utc
+                -
+                juevesInicial
+            )
+
+            /
+
+            (
+                7
+                *
+                86400000
+            )
+
+        );
+
+
+    return (
+
+        anioISO
+
+        +
+
+        "-W"
+
+        +
+
+        String(
+            semana
+        ).padStart(
+            2,
+            "0"
+        )
+
+        +
+
+        "-"
+
+        +
+
+        diaISO
+
+    );
+
+}
+
+
+function semanaGeneralISO(
+    fecha
+) {
+
+    return fechaSemanaISO(
+        fecha
+    ).slice(
+        0,
+        -2
+    );
+
+}
+
+
+function fechaLegible(
+    fecha
+) {
+
+    return new Intl.DateTimeFormat(
+
+        "es-SV",
+
+        {
+
+            day:
+                "2-digit",
+
+            month:
+                "long",
+
+            year:
+                "numeric"
+
+        }
+
+    ).format(
+        fecha
+    );
+
+}
+
+
+/* ==========================================
+   VALIDACIÓN
+========================================== */
+
+function validarRango(
+    inicio,
+    fin
+) {
+
+    const fechaInicio =
+        fechaDesdeISO(
+            inicio
+        );
+
+
+    const fechaFin =
+        fechaDesdeISO(
+            fin
+        );
+
+
+    if (
+        fechaInicio
+        >
+        fechaFin
+    ) {
+
+        throw new Error(
+            "La fecha inicial no puede ser posterior a la fecha final."
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   MENSAJES
+========================================== */
+
+function mostrarError(
+    texto
+) {
+
+    const elemento =
+        document.getElementById(
+            "mensajeError"
+        );
+
+
+    elemento.textContent =
+        texto;
+
+
+    elemento.style.display =
+        "block";
+
+}
+
+
+function mostrarExito(
+    texto
+) {
+
+    const elemento =
+        document.getElementById(
+            "mensajeExito"
+        );
+
+
+    elemento.textContent =
+        texto;
+
+
+    elemento.style.display =
+        "block";
+
+}
+
+
+function limpiarMensajes() {
+
+    document.getElementById(
+        "mensajeError"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "mensajeExito"
+    ).style.display =
+        "none";
+
+}
+
+
+/* ==========================================
+   UTILIDADES
+========================================== */
+
+function html(
+    valor
+) {
+
+    const entidades = {
+
+        "&":
+            "&amp;",
+
+        "<":
+            "&lt;",
+
+        ">":
+            "&gt;",
+
+        "\"":
+            "&quot;",
+
+        "'":
+            "&#39;"
+
+    };
+
+
+    return String(
+        valor
+    ).replace(
+
+        /[&<>"']/g,
+
+        caracter =>
+            entidades[
+                caracter
+            ]
+
+    );
+
+}
+
+
+function crearId() {
+
+    if (
+        window.crypto
+        &&
+        crypto.randomUUID
+    ) {
+
+        return crypto.randomUUID();
+
+    }
+
+
+    return (
+
+        Date.now()
+            .toString(
+                36
+            )
+
+        +
+
+        Math.random()
+            .toString(
+                36
+            )
+            .slice(
+                2
+            )
+
+    );
+
+}
+
+
+/* ==========================================
+   EVENTOS
+========================================== */
+
+document
+    .getElementById(
+        "btnGenerar"
+    )
+    .addEventListener(
+        "click",
+        generarLineaTiempo
+    );
+
+
+document
+    .getElementById(
+        "btnVacaciones"
+    )
+    .addEventListener(
+        "click",
+        guardarVacaciones
+    );
+
+
+document
+    .getElementById(
+        "btnCambio"
+    )
+    .addEventListener(
+        "click",
+        guardarCambio
+    );
+
+
+/* ==========================================
+   INICIO
+========================================== */
+
+generarLineaTiempo();
+
+
+</script>
+
+</body>
+
+</html>
