@@ -2,11 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Vacantes y encargados del fin de semana</title>
 
@@ -17,7 +13,6 @@
             --rojo-suave: #ffe5e7;
 
             --oscuro: #202126;
-
             --gris: #666666;
             --gris-claro: #dedede;
             --fondo: #f5f5f5;
@@ -46,16 +41,15 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             min-height: 100vh;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            color: var(--oscuro);
+            font-family: Arial, Helvetica, sans-serif;
             background: var(--fondo);
+            color: var(--oscuro);
         }
 
         button,
@@ -73,6 +67,227 @@
             opacity: 0.6;
         }
 
+        .oculto {
+            display: none !important;
+        }
+
+        /* ==========================================
+           PANTALLA DE CARGA
+        ========================================== */
+
+        .pantalla-carga {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background: var(--fondo);
+        }
+
+        .carga-contenido {
+            text-align: center;
+        }
+
+        .carga-circulo {
+            width: 42px;
+            height: 42px;
+
+            margin: 0 auto 14px;
+
+            border: 4px solid var(--gris-claro);
+            border-top-color: var(--rojo);
+            border-radius: 50%;
+
+            animation: girar 0.8s linear infinite;
+        }
+
+        .carga-contenido p {
+            color: var(--gris);
+            font-size: 13px;
+        }
+
+        @keyframes girar {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ==========================================
+           LOGIN
+        ========================================== */
+
+        .pantalla-login {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 24px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7f7f7 0%,
+                    #ededed 100%
+                );
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 420px;
+
+            padding: 34px;
+
+            background: var(--blanco);
+
+            border: 1px solid var(--gris-claro);
+            border-radius: 20px;
+
+            box-shadow:
+                0 18px 45px rgba(0, 0, 0, 0.10);
+        }
+
+        .login-marca {
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            margin-bottom: 28px;
+        }
+
+        .login-linea {
+            width: 7px;
+            min-width: 7px;
+            height: 45px;
+
+            background: var(--rojo);
+
+            border-radius: 10px;
+        }
+
+        .login-marca h1 {
+            font-size: 20px;
+            line-height: 1.3;
+        }
+
+        .login-card h2 {
+            font-size: 23px;
+        }
+
+        .login-descripcion {
+            margin-top: 7px;
+            margin-bottom: 24px;
+
+            color: var(--gris);
+
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .login-campos {
+            display: grid;
+            gap: 16px;
+        }
+
+        .login-campo {
+            display: flex;
+            flex-direction: column;
+
+            gap: 7px;
+        }
+
+        .login-campo label {
+            color: var(--gris);
+
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .login-campo input {
+            width: 100%;
+
+            padding: 12px 13px;
+
+            border: 1px solid var(--gris-claro);
+            border-radius: 9px;
+
+            outline: none;
+        }
+
+        .login-campo input:focus {
+            border-color: var(--rojo);
+
+            box-shadow:
+                0 0 0 3px rgba(237, 17, 28, 0.10);
+        }
+
+        .login-password {
+            position: relative;
+        }
+
+        .login-password input {
+            padding-right: 80px;
+        }
+
+        .mostrar-password {
+            position: absolute;
+            top: 50%;
+            right: 9px;
+
+            transform: translateY(-50%);
+
+            padding: 6px 8px;
+
+            color: var(--gris);
+            background: transparent;
+
+            border: none;
+
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .boton-login {
+            width: 100%;
+
+            margin-top: 20px;
+            padding: 12px;
+
+            color: var(--blanco);
+            background: var(--oscuro);
+
+            border: none;
+            border-radius: 9px;
+
+            font-weight: bold;
+        }
+
+        .boton-login:hover:not(:disabled) {
+            background: var(--rojo);
+        }
+
+        .login-error {
+            display: none;
+
+            margin-top: 15px;
+            padding: 12px 14px;
+
+            color: var(--rojo-oscuro);
+            background: var(--rojo-suave);
+
+            border-radius: 9px;
+
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
         /* ==========================================
            ENCABEZADO
         ========================================== */
@@ -86,7 +301,13 @@
             max-width: 1400px;
 
             margin: auto;
-            padding: 20px 30px;
+            padding: 18px 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
         }
 
         .marca {
@@ -110,6 +331,44 @@
             font-size: 21px;
         }
 
+        .usuario-sesion {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+        }
+
+        .usuario-correo {
+            max-width: 260px;
+
+            overflow: hidden;
+
+            color: var(--gris);
+
+            font-size: 12px;
+            font-weight: bold;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .boton-salir {
+            padding: 9px 14px;
+
+            color: var(--blanco);
+            background: var(--oscuro);
+
+            border: none;
+            border-radius: 9px;
+
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .boton-salir:hover {
+            background: var(--rojo);
+        }
+
         /* ==========================================
            CONTENIDO
         ========================================== */
@@ -120,10 +379,6 @@
             margin: auto;
             padding: 28px 30px 55px;
         }
-
-        /* ==========================================
-           ESTADO DE CONEXIÓN
-        ========================================== */
 
         .conexion {
             margin-bottom: 18px;
@@ -146,11 +401,12 @@
 
         .conexion-punto {
             width: 9px;
+            min-width: 9px;
             height: 9px;
 
-            border-radius: 50%;
-
             background: var(--naranja);
+
+            border-radius: 50%;
         }
 
         .conexion.conectado .conexion-punto {
@@ -356,10 +612,6 @@
             border-top: 4px solid var(--rojo);
         }
 
-        /* ==========================================
-           COLUMNA DE SEMANA
-        ========================================== */
-
         .grupo-semana {
             min-width: 135px;
 
@@ -390,10 +642,6 @@
             font-size: 10px;
             font-weight: bold;
         }
-
-        /* ==========================================
-           FECHA Y DÍA
-        ========================================== */
 
         .fecha {
             display: block;
@@ -454,10 +702,6 @@
             font-weight: bold;
         }
 
-        /* ==========================================
-           DESCANSO Y VACACIONES
-        ========================================== */
-
         .descanso-columna {
             min-width: 165px;
 
@@ -497,10 +741,6 @@
 
             font-weight: bold;
         }
-
-        /* ==========================================
-           ESTADOS
-        ========================================== */
 
         .estado {
             display: inline-block;
@@ -614,9 +854,25 @@
             color: var(--oscuro);
         }
 
-        /* ==========================================
-           RESPONSIVE
-        ========================================== */
+        footer {
+            margin-top: 30px;
+
+            background: var(--blanco);
+
+            border-top: 1px solid var(--gris-claro);
+        }
+
+        footer p {
+            max-width: 1400px;
+
+            margin: auto;
+            padding: 24px;
+
+            color: var(--gris);
+
+            text-align: center;
+            font-size: 12px;
+        }
 
         @media (max-width: 1000px) {
             .paneles {
@@ -629,6 +885,19 @@
 
             .impresion-titulo {
                 white-space: normal;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .header-container {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .usuario-sesion {
+                width: 100%;
+
+                justify-content: space-between;
             }
         }
 
@@ -646,6 +915,10 @@
             .marca h1 {
                 font-size: 17px;
             }
+
+            .login-card {
+                padding: 25px;
+            }
         }
     </style>
 </head>
@@ -653,15 +926,32 @@
 <body>
 
     <!-- ==========================================
-         ENCABEZADO
+         CARGA INICIAL
     =========================================== -->
 
-    <header>
-        <div class="header-container">
+    <section id="pantallaCarga" class="pantalla-carga">
+        <div class="carga-contenido">
 
-            <div class="marca">
+            <div class="carga-circulo"></div>
 
-                <div class="marca-linea"></div>
+            <p>
+                Verificando sesión...
+            </p>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         LOGIN
+    =========================================== -->
+
+    <section id="pantallaLogin" class="pantalla-login oculto">
+
+        <form id="formularioLogin" class="login-card">
+
+            <div class="login-marca">
+
+                <div class="login-linea"></div>
 
                 <h1>
                     Vacantes y encargados del fin de semana
@@ -669,211 +959,211 @@
 
             </div>
 
-        </div>
-    </header>
+            <h2>
+                Iniciar sesión
+            </h2>
+
+            <p class="login-descripcion">
+                Ingresa con la cuenta autorizada para consultar y modificar
+                la planificación de fines de semana.
+            </p>
+
+            <div class="login-campos">
+
+                <div class="login-campo">
+
+                    <label for="loginCorreo">
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        id="loginCorreo"
+                        type="email"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+                <div class="login-campo">
+
+                    <label for="loginPassword">
+                        Contraseña
+                    </label>
+
+                    <div class="login-password">
+
+                        <input
+                            id="loginPassword"
+                            type="password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            id="btnMostrarPassword"
+                            class="mostrar-password"
+                            type="button"
+                        >
+                            Mostrar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button
+                id="btnLogin"
+                class="boton-login"
+                type="submit"
+            >
+                Iniciar sesión
+            </button>
+
+            <div
+                id="loginError"
+                class="login-error"
+            ></div>
+
+        </form>
+
+    </section>
 
     <!-- ==========================================
-         CONTENIDO
+         APLICACIÓN
     =========================================== -->
 
-    <main class="contenido">
+    <div id="aplicacion" class="oculto">
 
-        <!-- Estado de conexión con Firestore -->
+        <header>
 
-        <div id="estadoConexion" class="conexion">
+            <div class="header-container">
 
-            <span class="conexion-punto"></span>
+                <div class="marca">
 
-            <span id="textoConexion">
-                Conectando con Firestore...
-            </span>
+                    <div class="marca-linea"></div>
 
-        </div>
-
-        <!-- ==========================================
-             CONTROLES
-        =========================================== -->
-
-        <section class="paneles">
-
-            <!-- Rango -->
-
-            <article class="card">
-
-                <h2>
-                    Rango de simulación
-                </h2>
-
-                <p class="card-descripcion">
-                    Define el período que deseas visualizar.
-                </p>
-
-                <div class="campos dos-columnas">
-
-                    <div class="campo">
-
-                        <label for="fechaInicio">
-                            Fecha inicial
-                        </label>
-
-                        <input
-                            id="fechaInicio"
-                            type="date"
-                            value="2026-10-24"
-                        >
-
-                    </div>
-
-                    <div class="campo">
-
-                        <label for="fechaFin">
-                            Fecha final
-                        </label>
-
-                        <input
-                            id="fechaFin"
-                            type="date"
-                            value="2026-12-06"
-                        >
-
-                    </div>
+                    <h1>
+                        Vacantes y encargados del fin de semana
+                    </h1>
 
                 </div>
 
-                <button
-                    id="btnGenerar"
-                    class="boton"
-                    type="button"
-                >
-                    Generar línea de tiempo
-                </button>
+                <div class="usuario-sesion">
 
-            </article>
+                    <span
+                        id="usuarioCorreo"
+                        class="usuario-correo"
+                    ></span>
 
-            <!-- Vacaciones -->
+                    <button
+                        id="btnCerrarSesion"
+                        class="boton-salir"
+                        type="button"
+                    >
+                        Cerrar sesión
+                    </button>
 
-            <article class="card">
+                </div>
 
-                <h2>
-                    Registrar vacaciones
-                </h2>
+            </div>
 
-                <p class="card-descripcion">
-                    La rotación se pausa durante el período registrado.
-                </p>
+        </header>
 
-                <div class="campos">
+        <main class="contenido">
 
-                    <div class="campo">
+            <div id="estadoConexion" class="conexion">
 
-                        <label for="vacacionesAsesor">
-                            Asesor
-                        </label>
+                <span class="conexion-punto"></span>
 
-                        <select id="vacacionesAsesor">
+                <span id="textoConexion">
+                    Conectando con Firestore...
+                </span>
 
-                            <option value="">
-                                Seleccionar asesor
-                            </option>
+            </div>
 
-                            <option value="Juan">
-                                Juan
-                            </option>
+            <section class="paneles">
 
-                            <option value="Marvin">
-                                Marvin
-                            </option>
+                <!-- RANGO -->
 
-                            <option value="Eli">
-                                Eli
-                            </option>
+                <article class="card">
 
-                        </select>
+                    <h2>
+                        Rango de simulación
+                    </h2>
 
-                    </div>
+                    <p class="card-descripcion">
+                        Define el período que deseas visualizar.
+                    </p>
 
                     <div class="campos dos-columnas">
 
                         <div class="campo">
 
-                            <label for="vacacionesInicio">
-                                Desde
+                            <label for="fechaInicio">
+                                Fecha inicial
                             </label>
 
                             <input
-                                id="vacacionesInicio"
+                                id="fechaInicio"
                                 type="date"
+                                value="2026-10-24"
                             >
 
                         </div>
 
                         <div class="campo">
 
-                            <label for="vacacionesFin">
-                                Hasta
+                            <label for="fechaFin">
+                                Fecha final
                             </label>
 
                             <input
-                                id="vacacionesFin"
+                                id="fechaFin"
                                 type="date"
+                                value="2026-12-06"
                             >
 
                         </div>
 
                     </div>
 
-                </div>
+                    <button
+                        id="btnGenerar"
+                        class="boton"
+                        type="button"
+                    >
+                        Generar línea de tiempo
+                    </button>
 
-                <button
-                    id="btnVacaciones"
-                    class="boton boton-rojo"
-                    type="button"
-                    disabled
-                >
-                    Guardar vacaciones
-                </button>
+                </article>
 
-            </article>
+                <!-- VACACIONES -->
 
-            <!-- Cambio manual -->
+                <article class="card">
 
-            <article class="card">
+                    <h2>
+                        Registrar vacaciones
+                    </h2>
 
-                <h2>
-                    Cambio manual
-                </h2>
+                    <p class="card-descripcion">
+                        La rotación se pausa durante el período registrado.
+                    </p>
 
-                <p class="card-descripcion">
-                    Modifica solamente el fin de semana seleccionado.
-                </p>
-
-                <div class="campos">
-
-                    <div class="campo">
-
-                        <label for="cambioFecha">
-                            Sábado del fin de semana
-                        </label>
-
-                        <input
-                            id="cambioFecha"
-                            type="date"
-                        >
-
-                    </div>
-
-                    <div class="campos dos-columnas">
+                    <div class="campos">
 
                         <div class="campo">
 
-                            <label for="cambioSabado">
-                                Sábado
+                            <label for="vacacionesAsesor">
+                                Asesor
                             </label>
 
-                            <select id="cambioSabado">
+                            <select id="vacacionesAsesor">
 
                                 <option value="">
-                                    Sin cambio
+                                    Seleccionar asesor
                                 </option>
 
                                 <option value="Juan">
@@ -892,28 +1182,162 @@
 
                         </div>
 
+                        <div class="campos dos-columnas">
+
+                            <div class="campo">
+
+                                <label for="vacacionesInicio">
+                                    Desde
+                                </label>
+
+                                <input
+                                    id="vacacionesInicio"
+                                    type="date"
+                                >
+
+                            </div>
+
+                            <div class="campo">
+
+                                <label for="vacacionesFin">
+                                    Hasta
+                                </label>
+
+                                <input
+                                    id="vacacionesFin"
+                                    type="date"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        id="btnVacaciones"
+                        class="boton boton-rojo"
+                        type="button"
+                        disabled
+                    >
+                        Guardar vacaciones
+                    </button>
+
+                </article>
+
+                <!-- CAMBIO MANUAL -->
+
+                <article class="card">
+
+                    <h2>
+                        Cambio manual
+                    </h2>
+
+                    <p class="card-descripcion">
+                        Modifica solamente el fin de semana seleccionado.
+                    </p>
+
+                    <div class="campos">
+
                         <div class="campo">
 
-                            <label for="cambioDomingo">
-                                Domingo
+                            <label for="cambioFecha">
+                                Sábado del fin de semana
                             </label>
 
-                            <select id="cambioDomingo">
+                            <input
+                                id="cambioFecha"
+                                type="date"
+                            >
 
-                                <option value="">
-                                    Sin cambio
+                        </div>
+
+                        <div class="campos dos-columnas">
+
+                            <div class="campo">
+
+                                <label for="cambioSabado">
+                                    Sábado
+                                </label>
+
+                                <select id="cambioSabado">
+
+                                    <option value="">
+                                        Sin cambio
+                                    </option>
+
+                                    <option value="Juan">
+                                        Juan
+                                    </option>
+
+                                    <option value="Marvin">
+                                        Marvin
+                                    </option>
+
+                                    <option value="Eli">
+                                        Eli
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="campo">
+
+                                <label for="cambioDomingo">
+                                    Domingo
+                                </label>
+
+                                <select id="cambioDomingo">
+
+                                    <option value="">
+                                        Sin cambio
+                                    </option>
+
+                                    <option value="Juan">
+                                        Juan
+                                    </option>
+
+                                    <option value="Marvin">
+                                        Marvin
+                                    </option>
+
+                                    <option value="Eli">
+                                        Eli
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label for="cambioMotivo">
+                                Motivo
+                            </label>
+
+                            <select id="cambioMotivo">
+
+                                <option value="Cambio operativo">
+                                    Cambio operativo
                                 </option>
 
-                                <option value="Juan">
-                                    Juan
+                                <option value="Motivo personal">
+                                    Motivo personal
                                 </option>
 
-                                <option value="Marvin">
-                                    Marvin
+                                <option value="Permiso">
+                                    Permiso
                                 </option>
 
-                                <option value="Eli">
-                                    Eli
+                                <option value="Incapacidad">
+                                    Incapacidad
+                                </option>
+
+                                <option value="Otro">
+                                    Otro
                                 </option>
 
                             </select>
@@ -922,120 +1346,85 @@
 
                     </div>
 
-                    <div class="campo">
+                    <button
+                        id="btnCambio"
+                        class="boton boton-azul"
+                        type="button"
+                        disabled
+                    >
+                        Guardar cambio manual
+                    </button>
 
-                        <label for="cambioMotivo">
-                            Motivo
-                        </label>
+                </article>
 
-                        <select id="cambioMotivo">
+            </section>
 
-                            <option value="Cambio operativo">
-                                Cambio operativo
-                            </option>
+            <div
+                id="mensajeError"
+                class="mensaje mensaje-error"
+            ></div>
 
-                            <option value="Motivo personal">
-                                Motivo personal
-                            </option>
+            <div
+                id="mensajeExito"
+                class="mensaje mensaje-exito"
+            ></div>
 
-                            <option value="Permiso">
-                                Permiso
-                            </option>
+            <section class="tabla-contenedor">
 
-                            <option value="Incapacidad">
-                                Incapacidad
-                            </option>
+                <table>
 
-                            <option value="Otro">
-                                Otro
-                            </option>
+                    <thead>
+                        <tr>
+                            <th>Fin de semana</th>
+                            <th>Fecha</th>
+                            <th>Semana ISO</th>
+                            <th>Día</th>
+                            <th>Encargado</th>
+                            <th>Descansa / Vacaciones</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
 
-                        </select>
+                    <tbody id="tablaRotacion">
 
-                    </div>
+                        <tr>
+                            <td colspan="7">
+                                Cargando información...
+                            </td>
+                        </tr>
 
-                </div>
+                    </tbody>
 
-                <button
-                    id="btnCambio"
-                    class="boton boton-azul"
-                    type="button"
-                    disabled
-                >
-                    Guardar cambio manual
-                </button>
+                </table>
 
-            </article>
+            </section>
 
-        </section>
+        </main>
 
-        <!-- Mensajes -->
+        <footer>
+            <p>
+                Gestión interna de cobertura de fin de semana
+            </p>
+        </footer>
 
-        <div
-            id="mensajeError"
-            class="mensaje mensaje-error"
-        ></div>
-
-        <div
-            id="mensajeExito"
-            class="mensaje mensaje-exito"
-        ></div>
-
-        <!-- ==========================================
-             TABLA
-        =========================================== -->
-
-        <section class="tabla-contenedor">
-
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>Fin de semana</th>
-                        <th>Fecha</th>
-                        <th>Semana ISO</th>
-                        <th>Día</th>
-                        <th>Encargado</th>
-                        <th>Descansa / Vacaciones</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-
-                <tbody id="tablaRotacion">
-
-                    <tr>
-                        <td colspan="7">
-                            Cargando información...
-                        </td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </section>
-
-    </main>
-
-    <footer>
-        <p>
-            Gestión interna de cobertura de fin de semana
-        </p>
-    </footer>
+    </div>
 
     <!-- ==========================================
-         FIREBASE Y LÓGICA DEL SISTEMA
+         FIREBASE
     =========================================== -->
 
     <script type="module">
 
-        /* ==========================================
-           IMPORTAR FIREBASE DESDE CDN
-        ========================================== */
-
         import {
             initializeApp
         } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+
+        import {
+            getAuth,
+            signInWithEmailAndPassword,
+            signOut,
+            onAuthStateChanged
+        } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
 
         import {
             getFirestore,
@@ -1043,7 +1432,6 @@
             addDoc,
             setDoc,
             doc,
-            deleteDoc,
             onSnapshot,
             serverTimestamp
         } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
@@ -1062,11 +1450,14 @@
             measurementId: "G-L01CK8FZLC"
         };
 
-        const app =
+        const firebaseApp =
             initializeApp(firebaseConfig);
 
+        const auth =
+            getAuth(firebaseApp);
+
         const db =
-            getFirestore(app);
+            getFirestore(firebaseApp);
 
         /* ==========================================
            CONFIGURACIÓN DE ROTACIÓN
@@ -1105,84 +1496,401 @@
         let vacaciones = [];
         let cambios = [];
 
+        let cancelarVacaciones = null;
+        let cancelarCambios = null;
+
         let vacacionesCargadas = false;
         let cambiosCargados = false;
 
         /* ==========================================
-           REFERENCIAS DE FIRESTORE
+           ELEMENTOS
         ========================================== */
 
-        const vacacionesRef =
-            collection(db, "vacaciones");
+        const pantallaCarga =
+            document.getElementById(
+                "pantallaCarga"
+            );
 
-        const cambiosRef =
-            collection(db, "cambios");
+        const pantallaLogin =
+            document.getElementById(
+                "pantallaLogin"
+            );
+
+        const aplicacion =
+            document.getElementById(
+                "aplicacion"
+            );
 
         /* ==========================================
-           SINCRONIZACIÓN EN TIEMPO REAL
+           ESTADO DE AUTENTICACIÓN
         ========================================== */
 
-        onSnapshot(
-            vacacionesRef,
+        onAuthStateChanged(
+            auth,
+            function (usuario) {
 
-            function (snapshot) {
-
-                vacaciones =
-                    snapshot.docs.map(
-                        function (documento) {
-
-                            return {
-                                id: documento.id,
-                                ...documento.data()
-                            };
-
-                        }
-                    );
-
-                vacacionesCargadas = true;
-
-                comprobarCargaCompleta();
-            },
-
-            function (error) {
-
-                mostrarErrorConexion(
-                    "No fue posible leer las vacaciones de Firestore.",
-                    error
+                pantallaCarga.classList.add(
+                    "oculto"
                 );
+
+                if (usuario) {
+
+                    mostrarAplicacion(usuario);
+
+                    iniciarFirestore();
+
+                } else {
+
+                    detenerFirestore();
+
+                    mostrarLogin();
+                }
             }
         );
 
-        onSnapshot(
-            cambiosRef,
+        function mostrarLogin() {
 
-            function (snapshot) {
+            aplicacion.classList.add(
+                "oculto"
+            );
 
-                cambios =
-                    snapshot.docs.map(
-                        function (documento) {
+            pantallaLogin.classList.remove(
+                "oculto"
+            );
 
-                            return {
-                                id: documento.id,
-                                ...documento.data()
-                            };
+            document.getElementById(
+                "loginPassword"
+            ).value = "";
 
-                        }
+            ocultarErrorLogin();
+        }
+
+        function mostrarAplicacion(usuario) {
+
+            pantallaLogin.classList.add(
+                "oculto"
+            );
+
+            aplicacion.classList.remove(
+                "oculto"
+            );
+
+            document.getElementById(
+                "usuarioCorreo"
+            ).textContent =
+                usuario.email || "Usuario autenticado";
+        }
+
+        /* ==========================================
+           LOGIN
+        ========================================== */
+
+        async function iniciarSesion(evento) {
+
+            evento.preventDefault();
+
+            ocultarErrorLogin();
+
+            const correo =
+                document.getElementById(
+                    "loginCorreo"
+                ).value.trim();
+
+            const password =
+                document.getElementById(
+                    "loginPassword"
+                ).value;
+
+            const boton =
+                document.getElementById(
+                    "btnLogin"
+                );
+
+            try {
+
+                if (!correo || !password) {
+                    throw new Error(
+                        "Ingresa el correo y la contraseña."
                     );
+                }
 
-                cambiosCargados = true;
+                boton.disabled = true;
+                boton.textContent =
+                    "Ingresando...";
 
-                comprobarCargaCompleta();
-            },
+                await signInWithEmailAndPassword(
+                    auth,
+                    correo,
+                    password
+                );
 
-            function (error) {
+            } catch (error) {
 
-                mostrarErrorConexion(
-                    "No fue posible leer los cambios manuales de Firestore.",
-                    error
+                console.error(error);
+
+                mostrarErrorLogin(
+                    obtenerMensajeLogin(error)
+                );
+
+            } finally {
+
+                boton.disabled = false;
+                boton.textContent =
+                    "Iniciar sesión";
+            }
+        }
+
+        async function cerrarSesion() {
+
+            const boton =
+                document.getElementById(
+                    "btnCerrarSesion"
+                );
+
+            try {
+
+                boton.disabled = true;
+                boton.textContent =
+                    "Cerrando...";
+
+                await signOut(auth);
+
+            } catch (error) {
+
+                console.error(error);
+
+                mostrarError(
+                    "No fue posible cerrar la sesión."
+                );
+
+            } finally {
+
+                boton.disabled = false;
+                boton.textContent =
+                    "Cerrar sesión";
+            }
+        }
+
+        function obtenerMensajeLogin(error) {
+
+            const codigo =
+                error && error.code
+                    ? error.code
+                    : "";
+
+            if (
+                codigo === "auth/invalid-credential" ||
+                codigo === "auth/wrong-password" ||
+                codigo === "auth/user-not-found"
+            ) {
+                return (
+                    "El correo o la contraseña no son correctos."
                 );
             }
-        );
+
+            if (
+                codigo === "auth/invalid-email"
+            ) {
+                return (
+                    "El formato del correo electrónico no es válido."
+                );
+            }
+
+            if (
+                codigo === "auth/too-many-requests"
+            ) {
+                return (
+                    "Se realizaron demasiados intentos. Espera unos minutos e inténtalo nuevamente."
+                );
+            }
+
+            if (
+                codigo === "auth/network-request-failed"
+            ) {
+                return (
+                    "No fue posible conectar con Firebase. Revisa tu conexión a internet."
+                );
+            }
+
+            return (
+                "No fue posible iniciar sesión. Verifica las credenciales."
+            );
+        }
+
+        function mostrarErrorLogin(texto) {
+
+            const elemento =
+                document.getElementById(
+                    "loginError"
+                );
+
+            elemento.textContent = texto;
+
+            elemento.style.display =
+                "block";
+        }
+
+        function ocultarErrorLogin() {
+
+            const elemento =
+                document.getElementById(
+                    "loginError"
+                );
+
+            elemento.textContent = "";
+
+            elemento.style.display =
+                "none";
+        }
+
+        function alternarPassword() {
+
+            const campo =
+                document.getElementById(
+                    "loginPassword"
+                );
+
+            const boton =
+                document.getElementById(
+                    "btnMostrarPassword"
+                );
+
+            if (
+                campo.type === "password"
+            ) {
+                campo.type = "text";
+                boton.textContent = "Ocultar";
+            } else {
+                campo.type = "password";
+                boton.textContent = "Mostrar";
+            }
+        }
+
+        /* ==========================================
+           FIRESTORE
+        ========================================== */
+
+        function iniciarFirestore() {
+
+            detenerFirestore();
+
+            vacaciones = [];
+            cambios = [];
+
+            vacacionesCargadas = false;
+            cambiosCargados = false;
+
+            document.getElementById(
+                "btnVacaciones"
+            ).disabled = true;
+
+            document.getElementById(
+                "btnCambio"
+            ).disabled = true;
+
+            actualizarConexion(
+                "cargando",
+                "Conectando con Firestore..."
+            );
+
+            const vacacionesRef =
+                collection(
+                    db,
+                    "vacaciones"
+                );
+
+            const cambiosRef =
+                collection(
+                    db,
+                    "cambios"
+                );
+
+            cancelarVacaciones =
+                onSnapshot(
+                    vacacionesRef,
+
+                    function (snapshot) {
+
+                        vacaciones =
+                            snapshot.docs.map(
+                                function (documento) {
+
+                                    return {
+                                        id: documento.id,
+                                        ...documento.data()
+                                    };
+                                }
+                            );
+
+                        vacacionesCargadas = true;
+
+                        comprobarCargaCompleta();
+                    },
+
+                    function (error) {
+
+                        manejarErrorFirestore(
+                            error
+                        );
+                    }
+                );
+
+            cancelarCambios =
+                onSnapshot(
+                    cambiosRef,
+
+                    function (snapshot) {
+
+                        cambios =
+                            snapshot.docs.map(
+                                function (documento) {
+
+                                    return {
+                                        id: documento.id,
+                                        ...documento.data()
+                                    };
+                                }
+                            );
+
+                        cambiosCargados = true;
+
+                        comprobarCargaCompleta();
+                    },
+
+                    function (error) {
+
+                        manejarErrorFirestore(
+                            error
+                        );
+                    }
+                );
+        }
+
+        function detenerFirestore() {
+
+            if (
+                typeof cancelarVacaciones ===
+                "function"
+            ) {
+                cancelarVacaciones();
+            }
+
+            if (
+                typeof cancelarCambios ===
+                "function"
+            ) {
+                cancelarCambios();
+            }
+
+            cancelarVacaciones = null;
+            cancelarCambios = null;
+
+            vacaciones = [];
+            cambios = [];
+
+            vacacionesCargadas = false;
+            cambiosCargados = false;
+        }
 
         function comprobarCargaCompleta() {
 
@@ -1193,18 +1901,10 @@
                 return;
             }
 
-            const estadoConexion =
-                document.getElementById(
-                    "estadoConexion"
-                );
-
-            estadoConexion.className =
-                "conexion conectado";
-
-            document.getElementById(
-                "textoConexion"
-            ).textContent =
-                "Conectado con Firestore. Los cambios están sincronizados.";
+            actualizarConexion(
+                "conectado",
+                "Conectado con Firestore. Los cambios están sincronizados."
+            );
 
             document.getElementById(
                 "btnVacaciones"
@@ -1217,36 +1917,81 @@
             generarLineaTiempo();
         }
 
-        function mostrarErrorConexion(
-            mensaje,
-            error
+        function actualizarConexion(
+            estado,
+            texto
         ) {
-            console.error(
-                mensaje,
-                error
-            );
-
-            const estadoConexion =
+            const contenedor =
                 document.getElementById(
                     "estadoConexion"
                 );
 
-            estadoConexion.className =
-                "conexion error";
+            contenedor.className =
+                "conexion";
+
+            if (estado === "conectado") {
+                contenedor.classList.add(
+                    "conectado"
+                );
+            }
+
+            if (estado === "error") {
+                contenedor.classList.add(
+                    "error"
+                );
+            }
 
             document.getElementById(
                 "textoConexion"
-            ).textContent =
-                mensaje;
+            ).textContent = texto;
+        }
+
+        function manejarErrorFirestore(error) {
+
+            console.error(error);
+
+            actualizarConexion(
+                "error",
+                "No fue posible acceder a Firestore."
+            );
 
             mostrarError(
-                mensaje +
-                " Revisa las reglas de Firestore y la consola del navegador."
+                obtenerMensajeFirestore(error)
+            );
+        }
+
+        function obtenerMensajeFirestore(error) {
+
+            if (
+                error &&
+                error.code ===
+                    "permission-denied"
+            ) {
+                return (
+                    "Firestore rechazó el acceso. " +
+                    "Verifica que el usuario esté autenticado y que las reglas se hayan publicado."
+                );
+            }
+
+            if (
+                error &&
+                error.code ===
+                    "unavailable"
+            ) {
+                return (
+                    "Firestore no está disponible temporalmente. Revisa la conexión a internet."
+                );
+            }
+
+            return (
+                error && error.message
+                    ? error.message
+                    : "Ocurrió un error al comunicarse con Firestore."
             );
         }
 
         /* ==========================================
-           GUARDAR VACACIONES EN FIRESTORE
+           GUARDAR VACACIONES
         ========================================== */
 
         async function guardarVacaciones() {
@@ -1259,6 +2004,12 @@
                 );
 
             try {
+
+                if (!auth.currentUser) {
+                    throw new Error(
+                        "La sesión ya no está activa."
+                    );
+                }
 
                 const asesor =
                     document.getElementById(
@@ -1286,7 +2037,7 @@
                     fin
                 );
 
-                const periodoDuplicado =
+                const duplicado =
                     vacaciones.some(
                         function (registro) {
 
@@ -1299,11 +2050,10 @@
                                     fin
                                 )
                             );
-
                         }
                     );
 
-                if (periodoDuplicado) {
+                if (duplicado) {
                     throw new Error(
                         "El asesor ya tiene vacaciones registradas dentro de ese período."
                     );
@@ -1314,12 +2064,18 @@
                     "Guardando...";
 
                 await addDoc(
-                    vacacionesRef,
+                    collection(
+                        db,
+                        "vacaciones"
+                    ),
                     {
                         asesor: asesor,
                         inicio: inicio,
                         fin: fin,
-                        creadoEn: serverTimestamp()
+                        creadoPor:
+                            auth.currentUser.email || "",
+                        creadoEn:
+                            serverTimestamp()
                     }
                 );
 
@@ -1336,7 +2092,7 @@
                 ).value = "";
 
                 mostrarExito(
-                    "Vacaciones guardadas en Firestore. Todos los usuarios podrán ver el cambio."
+                    "Vacaciones guardadas correctamente."
                 );
 
             } catch (error) {
@@ -1344,7 +2100,8 @@
                 console.error(error);
 
                 mostrarError(
-                    obtenerMensajeError(error)
+                    error.message ||
+                    "No fue posible guardar las vacaciones."
                 );
 
             } finally {
@@ -1352,12 +2109,11 @@
                 boton.disabled = false;
                 boton.textContent =
                     "Guardar vacaciones";
-
             }
         }
 
         /* ==========================================
-           GUARDAR CAMBIO MANUAL EN FIRESTORE
+           GUARDAR CAMBIO MANUAL
         ========================================== */
 
         async function guardarCambio() {
@@ -1370,6 +2126,12 @@
                 );
 
             try {
+
+                if (!auth.currentUser) {
+                    throw new Error(
+                        "La sesión ya no está activa."
+                    );
+                }
 
                 const fecha =
                     document.getElementById(
@@ -1417,15 +2179,6 @@
                     );
                 }
 
-                /*
-                    Se utiliza la fecha del sábado como ID.
-
-                    De esta forma solamente puede existir
-                    un cambio por fin de semana.
-
-                    Si ya existe, se actualiza.
-                */
-
                 boton.disabled = true;
                 boton.textContent =
                     "Guardando...";
@@ -1441,6 +2194,8 @@
                         sabado: sabado,
                         domingo: domingo,
                         motivo: motivo,
+                        actualizadoPor:
+                            auth.currentUser.email || "",
                         actualizadoEn:
                             serverTimestamp()
                     }
@@ -1464,7 +2219,7 @@
                     "Cambio operativo";
 
                 mostrarExito(
-                    "Cambio manual guardado en Firestore sin modificar la rotación futura."
+                    "Cambio manual guardado correctamente."
                 );
 
             } catch (error) {
@@ -1472,7 +2227,8 @@
                 console.error(error);
 
                 mostrarError(
-                    obtenerMensajeError(error)
+                    error.message ||
+                    "No fue posible guardar el cambio."
                 );
 
             } finally {
@@ -1480,70 +2236,11 @@
                 boton.disabled = false;
                 boton.textContent =
                     "Guardar cambio manual";
-
             }
         }
 
         /* ==========================================
-           ELIMINAR REGISTROS
-        ========================================== */
-
-        async function eliminarVacacion(
-            id
-        ) {
-            try {
-
-                await deleteDoc(
-                    doc(
-                        db,
-                        "vacaciones",
-                        id
-                    )
-                );
-
-                mostrarExito(
-                    "Vacaciones eliminadas correctamente."
-                );
-
-            } catch (error) {
-
-                console.error(error);
-
-                mostrarError(
-                    obtenerMensajeError(error)
-                );
-            }
-        }
-
-        async function eliminarCambio(
-            id
-        ) {
-            try {
-
-                await deleteDoc(
-                    doc(
-                        db,
-                        "cambios",
-                        id
-                    )
-                );
-
-                mostrarExito(
-                    "Cambio manual eliminado correctamente."
-                );
-
-            } catch (error) {
-
-                console.error(error);
-
-                mostrarError(
-                    obtenerMensajeError(error)
-                );
-            }
-        }
-
-        /* ==========================================
-           GENERAR LÍNEA DE TIEMPO
+           GENERAR ROTACIÓN
         ========================================== */
 
         function generarLineaTiempo() {
@@ -1568,14 +2265,10 @@
                 );
 
                 const inicio =
-                    fechaDesdeISO(
-                        inicioISO
-                    );
+                    fechaDesdeISO(inicioISO);
 
                 const fin =
-                    fechaDesdeISO(
-                        finISO
-                    );
+                    fechaDesdeISO(finISO);
 
                 let indiceRotacion =
                     calcularIndiceInicial(
@@ -1714,33 +2407,25 @@
                             patron.ciclo,
 
                         sabado: {
-                            fecha:
-                                sabadoISO,
-
+                            fecha: sabadoISO,
                             iso:
                                 fechaSemanaISO(
                                     sabado
                                 ),
-
                             encargado:
                                 encargadoSabado,
-
                             estado:
                                 estadoSabado
                         },
 
                         domingo: {
-                            fecha:
-                                domingoISO,
-
+                            fecha: domingoISO,
                             iso:
                                 fechaSemanaISO(
                                     domingo
                                 ),
-
                             encargado:
                                 encargadoDomingo,
-
                             estado:
                                 estadoDomingo
                         },
@@ -1756,14 +2441,11 @@
                     });
 
                     /*
-                        Las vacaciones pausan el ciclo.
-
-                        Los cambios manuales no mueven
-                        la rotación.
+                        Las vacaciones pausan la rotación.
+                        El cambio manual no altera el ciclo.
                     */
 
                     if (!periodoVacaciones) {
-
                         indiceRotacion =
                             (
                                 indiceRotacion + 1
@@ -1787,14 +2469,11 @@
                 console.error(error);
 
                 mostrarError(
-                    obtenerMensajeError(error)
+                    error.message ||
+                    "No fue posible generar la línea de tiempo."
                 );
             }
         }
-
-        /* ==========================================
-           ÍNDICE INICIAL DE LA ROTACIÓN
-        ========================================== */
 
         function calcularIndiceInicial(
             fechaInicio
@@ -1856,10 +2535,6 @@
             return indice;
         }
 
-        /* ==========================================
-           COBERTURA DURANTE VACACIONES
-        ========================================== */
-
         function coberturaVacaciones(
             personasVacaciones,
             contador
@@ -1871,7 +2546,6 @@
                         return !personasVacaciones.includes(
                             asesor
                         );
-
                     }
                 );
 
@@ -1908,10 +2582,6 @@
             };
         }
 
-        /* ==========================================
-           DESCANSO Y VACACIONES
-        ========================================== */
-
         function calcularDescanso(
             sabado,
             domingo,
@@ -1941,7 +2611,6 @@
                         return !trabajan.has(
                             asesor
                         );
-
                     }
                 );
 
@@ -1967,43 +2636,33 @@
 
                                 return (
                                     (
-                                        sabado >=
-                                            registro.inicio &&
-                                        sabado <=
-                                            registro.fin
+                                        sabado >= registro.inicio &&
+                                        sabado <= registro.fin
                                     )
                                     ||
                                     (
-                                        domingo >=
-                                            registro.inicio &&
-                                        domingo <=
-                                            registro.fin
+                                        domingo >= registro.inicio &&
+                                        domingo <= registro.fin
                                     )
                                 );
-
                             }
                         )
                         .map(
                             function (registro) {
 
                                 return registro.asesor;
-
                             }
                         )
                 )
             ];
         }
 
-        function buscarCambio(
-            sabado
-        ) {
+        function buscarCambio(sabado) {
+
             return cambios.find(
                 function (registro) {
 
-                    return (
-                        registro.fecha === sabado
-                    );
-
+                    return registro.fecha === sabado;
                 }
             );
         }
@@ -2042,12 +2701,9 @@
                             return crearFinSemana(
                                 fin
                             );
-
                         }
                     )
                     .join("");
-
-            asignarEventosTabla();
         }
 
         function crearFinSemana(fin) {
@@ -2265,9 +2921,8 @@
             `;
         }
 
-        function crearEstado(
-            estado
-        ) {
+        function crearEstado(estado) {
+
             let clase =
                 "estado-normal";
 
@@ -2294,59 +2949,12 @@
             `;
         }
 
-        function asignarEventosTabla() {
-            document
-                .querySelectorAll(
-                    "[data-eliminar-vacacion]"
-                )
-                .forEach(
-                    function (boton) {
-
-                        boton.addEventListener(
-                            "click",
-                            function () {
-
-                                eliminarVacacion(
-                                    boton.dataset
-                                        .eliminarVacacion
-                                );
-
-                            }
-                        );
-
-                    }
-                );
-
-            document
-                .querySelectorAll(
-                    "[data-eliminar-cambio]"
-                )
-                .forEach(
-                    function (boton) {
-
-                        boton.addEventListener(
-                            "click",
-                            function () {
-
-                                eliminarCambio(
-                                    boton.dataset
-                                        .eliminarCambio
-                                );
-
-                            }
-                        );
-
-                    }
-                );
-        }
-
         /* ==========================================
-           FUNCIONES DE FECHA
+           FECHAS
         ========================================== */
 
-        function fechaDesdeISO(
-            iso
-        ) {
+        function fechaDesdeISO(iso) {
+
             if (
                 !iso ||
                 !/^\d{4}-\d{2}-\d{2}$/.test(
@@ -2354,7 +2962,7 @@
                 )
             ) {
                 throw new Error(
-                    "Fecha inválida."
+                    "La fecha ingresada no es válida."
                 );
             }
 
@@ -2379,16 +2987,15 @@
                 formatoISO(fecha) !== iso
             ) {
                 throw new Error(
-                    "Fecha inválida."
+                    "La fecha ingresada no es válida."
                 );
             }
 
             return fecha;
         }
 
-        function formatoISO(
-            fecha
-        ) {
+        function formatoISO(fecha) {
+
             const anio =
                 fecha.getFullYear();
 
@@ -2410,7 +3017,9 @@
             cantidad
         ) {
             const copia =
-                new Date(fecha.getTime());
+                new Date(
+                    fecha.getTime()
+                );
 
             copia.setDate(
                 copia.getDate() + cantidad
@@ -2426,9 +3035,8 @@
             return copia;
         }
 
-        function obtenerProximoSabado(
-            fecha
-        ) {
+        function obtenerProximoSabado(fecha) {
+
             const dias =
                 (
                     6 -
@@ -2503,17 +3111,15 @@
             );
         }
 
-        function semanaGeneralISO(
-            fecha
-        ) {
+        function semanaGeneralISO(fecha) {
+
             return fechaSemanaISO(
                 fecha
             ).slice(0, -2);
         }
 
-        function fechaLegible(
-            fecha
-        ) {
+        function fechaLegible(fecha) {
+
             return new Intl.DateTimeFormat(
                 "es-SV",
                 {
@@ -2559,52 +3165,27 @@
            MENSAJES Y SEGURIDAD
         ========================================== */
 
-        function obtenerMensajeError(error) {
+        function mostrarError(texto) {
 
-            if (
-                error &&
-                error.code ===
-                    "permission-denied"
-            ) {
-                return (
-                    "Firestore rechazó la operación. " +
-                    "Revisa que las reglas de prueba continúen vigentes."
-                );
-            }
-
-            return (
-                error &&
-                error.message
-                    ? error.message
-                    : "Ocurrió un error inesperado."
-            );
-        }
-
-        function mostrarError(
-            texto
-        ) {
             const elemento =
                 document.getElementById(
                     "mensajeError"
                 );
 
-            elemento.textContent =
-                texto;
+            elemento.textContent = texto;
 
             elemento.style.display =
                 "block";
         }
 
-        function mostrarExito(
-            texto
-        ) {
+        function mostrarExito(texto) {
+
             const elemento =
                 document.getElementById(
                     "mensajeExito"
                 );
 
-            elemento.textContent =
-                texto;
+            elemento.textContent = texto;
 
             elemento.style.display =
                 "block";
@@ -2629,9 +3210,8 @@
             exito.style.display = "none";
         }
 
-        function escaparHTML(
-            valor
-        ) {
+        function escaparHTML(valor) {
+
             const entidades = {
                 "&": "&amp;",
                 "<": "&lt;",
@@ -2645,7 +3225,6 @@
                 function (caracter) {
 
                     return entidades[caracter];
-
                 }
             );
         }
@@ -2653,6 +3232,33 @@
         /* ==========================================
            EVENTOS
         ========================================== */
+
+        document
+            .getElementById(
+                "formularioLogin"
+            )
+            .addEventListener(
+                "submit",
+                iniciarSesion
+            );
+
+        document
+            .getElementById(
+                "btnMostrarPassword"
+            )
+            .addEventListener(
+                "click",
+                alternarPassword
+            );
+
+        document
+            .getElementById(
+                "btnCerrarSesion"
+            )
+            .addEventListener(
+                "click",
+                cerrarSesion
+            );
 
         document
             .getElementById(
