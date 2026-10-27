@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Vacantes y encargados del fin de semana</title>
 
     <style>
-
         :root {
             --rojo: #ed111c;
-            --rojoOscuro: #d80012;
-            --rojoSuave: #ffe5e7;
+            --rojo-oscuro: #d80012;
+            --rojo-suave: #ffe5e7;
 
             --oscuro: #202126;
 
             --gris: #666666;
-            --grisClaro: #dedede;
+            --gris-claro: #dedede;
             --fondo: #f5f5f5;
 
             --turquesa: #0798a5;
-            --turquesaOscuro: #067881;
-            --turquesaSuave: #dbf4f4;
+            --turquesa-oscuro: #067881;
+            --turquesa-suave: #dbf4f4;
 
             --naranja: #f57200;
-            --naranjaOscuro: #b85400;
-            --naranjaSuave: #fff0e4;
+            --naranja-oscuro: #b85400;
+            --naranja-suave: #fff0e4;
 
             --azul: #2563eb;
-            --azulOscuro: #1e4fa7;
-            --azulSuave: #e8f0ff;
+            --azul-oscuro: #1e4fa7;
+            --azul-suave: #e8f0ff;
 
-            --verdeSuave: #e5f7eb;
+            --verde: #16803c;
+            --verde-suave: #e5f7eb;
 
             --blanco: #ffffff;
         }
-
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
 
         body {
             min-height: 100vh;
@@ -54,10 +54,9 @@
                 Helvetica,
                 sans-serif;
 
-            background: var(--fondo);
             color: var(--oscuro);
+            background: var(--fondo);
         }
-
 
         button,
         input,
@@ -65,41 +64,37 @@
             font: inherit;
         }
 
-
         button {
             cursor: pointer;
         }
 
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
 
         /* ==========================================
-           ENCABEZADO SIMPLE
+           ENCABEZADO
         ========================================== */
 
         header {
             background: var(--blanco);
-
-            border-bottom:
-                1px solid var(--grisClaro);
+            border-bottom: 1px solid var(--gris-claro);
         }
-
 
         .header-container {
             max-width: 1400px;
 
             margin: auto;
-
             padding: 20px 30px;
         }
 
-
         .marca {
             display: flex;
-
             align-items: center;
 
             gap: 14px;
         }
-
 
         .marca-linea {
             width: 7px;
@@ -111,11 +106,9 @@
             border-radius: 10px;
         }
 
-
         .marca h1 {
             font-size: 21px;
         }
-
 
         /* ==========================================
            CONTENIDO
@@ -125,14 +118,51 @@
             max-width: 1400px;
 
             margin: auto;
-
-            padding:
-                28px 30px 55px;
+            padding: 28px 30px 55px;
         }
 
+        /* ==========================================
+           ESTADO DE CONEXIÓN
+        ========================================== */
+
+        .conexion {
+            margin-bottom: 18px;
+            padding: 12px 15px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+
+            background: var(--blanco);
+
+            border: 1px solid var(--gris-claro);
+            border-radius: 10px;
+
+            color: var(--gris);
+
+            font-size: 12px;
+        }
+
+        .conexion-punto {
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: var(--naranja);
+        }
+
+        .conexion.conectado .conexion-punto {
+            background: var(--verde);
+        }
+
+        .conexion.error .conexion-punto {
+            background: var(--rojo);
+        }
 
         /* ==========================================
-           CARDS DE CONFIGURACIÓN
+           CARDS
         ========================================== */
 
         .paneles {
@@ -146,27 +176,21 @@
             margin-bottom: 25px;
         }
 
-
         .card {
             padding: 22px;
 
             background: var(--blanco);
 
-            border:
-                1px solid var(--grisClaro);
-
+            border: 1px solid var(--gris-claro);
             border-radius: 16px;
 
             box-shadow:
-                0 3px 12px
-                rgba(0, 0, 0, 0.05);
+                0 3px 12px rgba(0, 0, 0, 0.05);
         }
 
-
-        .card h3 {
+        .card h2 {
             font-size: 16px;
         }
-
 
         .card-descripcion {
             min-height: 36px;
@@ -177,41 +201,32 @@
             color: var(--gris);
 
             font-size: 12px;
-
             line-height: 1.5;
         }
 
-
         .campos {
             display: grid;
-
             gap: 12px;
         }
-
 
         .dos-columnas {
             grid-template-columns:
                 repeat(2, minmax(0, 1fr));
         }
 
-
         .campo {
             display: flex;
-
             flex-direction: column;
 
             gap: 7px;
         }
 
-
         .campo label {
             color: var(--gris);
 
             font-size: 11px;
-
             font-weight: bold;
         }
-
 
         .campo input,
         .campo select {
@@ -219,22 +234,22 @@
 
             padding: 10px 12px;
 
+            color: var(--oscuro);
             background: var(--blanco);
 
-            border:
-                1px solid var(--grisClaro);
-
+            border: 1px solid var(--gris-claro);
             border-radius: 9px;
 
             outline: none;
         }
 
-
         .campo input:focus,
         .campo select:focus {
             border-color: var(--rojo);
-        }
 
+            box-shadow:
+                0 0 0 3px rgba(237, 17, 28, 0.09);
+        }
 
         .boton {
             width: 100%;
@@ -242,34 +257,27 @@
             margin-top: 15px;
             padding: 11px;
 
-            border: none;
-
-            border-radius: 9px;
-
+            color: var(--blanco);
             background: var(--oscuro);
 
-            color: var(--blanco);
+            border: none;
+            border-radius: 9px;
 
             font-size: 12px;
-
             font-weight: bold;
         }
 
-
-        .boton:hover {
-            opacity: 0.90;
+        .boton:hover:not(:disabled) {
+            opacity: 0.9;
         }
-
 
         .boton-rojo {
             background: var(--rojo);
         }
 
-
         .boton-azul {
             background: var(--azul);
         }
-
 
         /* ==========================================
            MENSAJES
@@ -279,30 +287,24 @@
             display: none;
 
             margin-bottom: 20px;
-
             padding: 14px 17px;
 
             border-radius: 10px;
 
             font-size: 13px;
-
             font-weight: bold;
+            line-height: 1.5;
         }
-
 
         .mensaje-error {
-            color: var(--rojoOscuro);
-
-            background: var(--rojoSuave);
+            color: var(--rojo-oscuro);
+            background: var(--rojo-suave);
         }
-
 
         .mensaje-exito {
-            color: var(--turquesaOscuro);
-
-            background: var(--turquesaSuave);
+            color: var(--turquesa-oscuro);
+            background: var(--turquesa-suave);
         }
-
 
         /* ==========================================
            TABLA
@@ -313,32 +315,24 @@
 
             background: var(--blanco);
 
-            border:
-                1px solid var(--grisClaro);
-
+            border: 1px solid var(--gris-claro);
             border-radius: 16px;
 
             box-shadow:
-                0 3px 12px
-                rgba(0, 0, 0, 0.05);
+                0 3px 12px rgba(0, 0, 0, 0.05);
         }
-
 
         table {
             width: 100%;
-
             min-width: 1150px;
 
             border-collapse: collapse;
         }
 
-
         thead {
             color: var(--blanco);
-
             background: var(--oscuro);
         }
-
 
         th {
             padding: 16px;
@@ -346,31 +340,24 @@
             text-align: left;
 
             font-size: 12px;
-
             line-height: 1.4;
         }
-
 
         td {
             padding: 16px;
 
-            border-bottom:
-                1px solid #eeeeee;
+            border-bottom: 1px solid #eeeeee;
 
             font-size: 13px;
-
             vertical-align: middle;
         }
 
-
         .inicio-fin-semana td {
-            border-top:
-                4px solid var(--rojo);
+            border-top: 4px solid var(--rojo);
         }
 
-
         /* ==========================================
-           FIN DE SEMANA
+           COLUMNA DE SEMANA
         ========================================== */
 
         .grupo-semana {
@@ -380,10 +367,8 @@
 
             background: #fafafa;
 
-            border-right:
-                1px solid #eeeeee;
+            border-right: 1px solid #eeeeee;
         }
-
 
         .grupo-semana strong {
             display: block;
@@ -391,28 +376,23 @@
             font-size: 14px;
         }
 
-
         .ciclo {
             display: inline-block;
 
             margin-top: 8px;
-
             padding: 5px 10px;
 
             color: var(--blanco);
-
             background: var(--oscuro);
 
             border-radius: 20px;
 
             font-size: 10px;
-
             font-weight: bold;
         }
 
-
         /* ==========================================
-           FECHA
+           FECHA Y DÍA
         ========================================== */
 
         .fecha {
@@ -420,7 +400,6 @@
 
             font-weight: bold;
         }
-
 
         .fecha-natural {
             display: block;
@@ -431,7 +410,6 @@
 
             font-size: 11px;
         }
-
 
         .codigo {
             display: inline-block;
@@ -448,14 +426,8 @@
                 monospace;
 
             font-size: 11px;
-
             font-weight: bold;
         }
-
-
-        /* ==========================================
-           DÍA
-        ========================================== */
 
         .dia {
             display: inline-block;
@@ -465,36 +437,25 @@
             border-radius: 20px;
 
             font-size: 11px;
-
             font-weight: bold;
         }
 
-
         .sabado {
-            color: var(--rojoOscuro);
-
-            background: var(--rojoSuave);
+            color: var(--rojo-oscuro);
+            background: var(--rojo-suave);
         }
-
 
         .domingo {
-            color: var(--turquesaOscuro);
-
-            background: var(--turquesaSuave);
+            color: var(--turquesa-oscuro);
+            background: var(--turquesa-suave);
         }
-
-
-        /* ==========================================
-           ENCARGADO
-        ========================================== */
 
         .encargado {
             font-weight: bold;
         }
 
-
         /* ==========================================
-           DESCANSO / VACACIONES
+           DESCANSO Y VACACIONES
         ========================================== */
 
         .descanso-columna {
@@ -504,13 +465,9 @@
 
             background: #fcfcfc;
 
-            border-left:
-                1px solid #eeeeee;
-
-            border-right:
-                1px solid #eeeeee;
+            border-left: 1px solid #eeeeee;
+            border-right: 1px solid #eeeeee;
         }
-
 
         .badge {
             display: inline-block;
@@ -520,24 +477,18 @@
             border-radius: 20px;
 
             font-size: 10px;
-
             font-weight: bold;
         }
 
-
         .badge-descansa {
             color: #555555;
-
             background: #eeeeee;
         }
 
-
         .badge-vacaciones {
-            color: var(--naranjaOscuro);
-
-            background: var(--naranjaSuave);
+            color: var(--naranja-oscuro);
+            background: var(--naranja-suave);
         }
-
 
         .persona-descanso {
             display: block;
@@ -547,10 +498,8 @@
             font-weight: bold;
         }
 
-
         /* ==========================================
-           ESTADO
-           SOLO 3 OPCIONES
+           ESTADOS
         ========================================== */
 
         .estado {
@@ -561,31 +510,23 @@
             border-radius: 20px;
 
             font-size: 10px;
-
             font-weight: bold;
         }
 
-
         .estado-normal {
-            color: var(--turquesaOscuro);
-
-            background: var(--turquesaSuave);
+            color: var(--turquesa-oscuro);
+            background: var(--turquesa-suave);
         }
-
 
         .estado-vacaciones {
-            color: var(--naranjaOscuro);
-
-            background: var(--naranjaSuave);
+            color: var(--naranja-oscuro);
+            background: var(--naranja-suave);
         }
-
 
         .estado-manual {
-            color: var(--azulOscuro);
-
-            background: var(--azulSuave);
+            color: var(--azul-oscuro);
+            background: var(--azul-suave);
         }
-
 
         /* ==========================================
            IMPRESIÓN FINAL
@@ -594,10 +535,8 @@
         .fila-resultado td {
             padding: 0;
 
-            border-bottom:
-                4px solid var(--rojo);
+            border-bottom: 4px solid var(--rojo);
         }
-
 
         .impresion {
             padding: 15px 18px;
@@ -605,373 +544,236 @@
             display: grid;
 
             grid-template-columns:
-                auto
-                repeat(3, minmax(170px, 1fr));
+                auto repeat(3, minmax(170px, 1fr));
 
             align-items: center;
 
             gap: 12px;
         }
 
-
         .impresion-normal {
-            background: var(--verdeSuave);
+            background: var(--verde-suave);
         }
-
 
         .impresion-vacaciones {
-            background: var(--naranjaSuave);
+            background: var(--naranja-suave);
         }
-
 
         .impresion-manual {
-            background: var(--azulSuave);
+            background: var(--azul-suave);
         }
-
 
         .impresion-titulo {
             font-size: 12px;
-
             font-weight: bold;
 
             white-space: nowrap;
         }
 
-
         .resultado {
             padding: 11px 13px;
 
             display: flex;
-
             align-items: center;
 
             gap: 9px;
 
             background: var(--blanco);
 
-            border:
-                1px solid var(--grisClaro);
-
+            border: 1px solid var(--gris-claro);
             border-radius: 10px;
 
             font-size: 12px;
         }
 
-
         .punto {
             width: 9px;
-
             min-width: 9px;
-
             height: 9px;
 
             border-radius: 50%;
         }
 
-
         .punto-sabado {
             background: var(--rojo);
         }
-
 
         .punto-domingo {
             background: var(--turquesa);
         }
 
-
         .punto-descanso {
             background: var(--naranja);
         }
-
 
         .resultado span {
             color: var(--gris);
         }
 
-
         .resultado strong {
             color: var(--oscuro);
         }
-
 
         /* ==========================================
            RESPONSIVE
         ========================================== */
 
         @media (max-width: 1000px) {
-
             .paneles {
                 grid-template-columns: 1fr;
             }
-
 
             .impresion {
                 grid-template-columns: 1fr;
             }
 
+            .impresion-titulo {
+                white-space: normal;
+            }
         }
 
-
         @media (max-width: 600px) {
-
             .header-container,
             .contenido {
                 padding-left: 18px;
-
                 padding-right: 18px;
             }
-
 
             .dos-columnas {
                 grid-template-columns: 1fr;
             }
 
-
             .marca h1 {
                 font-size: 17px;
             }
-
         }
-
     </style>
-
 </head>
-
 
 <body>
 
+    <!-- ==========================================
+         ENCABEZADO
+    =========================================== -->
 
-<!-- ==========================================
-     ENCABEZADO
-=========================================== -->
+    <header>
+        <div class="header-container">
 
-<header>
+            <div class="marca">
 
-    <div class="header-container">
+                <div class="marca-linea"></div>
 
-        <div class="marca">
+                <h1>
+                    Vacantes y encargados del fin de semana
+                </h1>
 
-            <div class="marca-linea"></div>
+            </div>
 
-            <h1>
-                Vacantes y encargados del fin de semana
-            </h1>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         CONTENIDO
+    =========================================== -->
+
+    <main class="contenido">
+
+        <!-- Estado de conexión con Firestore -->
+
+        <div id="estadoConexion" class="conexion">
+
+            <span class="conexion-punto"></span>
+
+            <span id="textoConexion">
+                Conectando con Firestore...
+            </span>
 
         </div>
 
-    </div>
+        <!-- ==========================================
+             CONTROLES
+        =========================================== -->
 
-</header>
+        <section class="paneles">
 
+            <!-- Rango -->
 
-<main class="contenido">
+            <article class="card">
 
+                <h2>
+                    Rango de simulación
+                </h2>
 
-    <!-- ==========================================
-         CONTROLES
-    =========================================== -->
-
-    <section class="paneles">
-
-
-        <!-- RANGO -->
-
-        <article class="card">
-
-            <h3>
-                Rango de simulación
-            </h3>
-
-
-            <p class="card-descripcion">
-                Define el período que deseas visualizar.
-            </p>
-
-
-            <div class="campos dos-columnas">
-
-                <div class="campo">
-
-                    <label for="fechaInicio">
-                        Fecha inicial
-                    </label>
-
-
-                    <input
-                        id="fechaInicio"
-                        type="date"
-                        value="2026-10-24"
-                    >
-
-                </div>
-
-
-                <div class="campo">
-
-                    <label for="fechaFin">
-                        Fecha final
-                    </label>
-
-
-                    <input
-                        id="fechaFin"
-                        type="date"
-                        value="2026-12-06"
-                    >
-
-                </div>
-
-            </div>
-
-
-            <button
-                id="btnGenerar"
-                class="boton"
-                type="button"
-            >
-                Generar línea de tiempo
-            </button>
-
-        </article>
-
-
-        <!-- VACACIONES -->
-
-        <article class="card">
-
-            <h3>
-                Registrar vacaciones
-            </h3>
-
-
-            <p class="card-descripcion">
-                La rotación se pausa durante el período registrado.
-            </p>
-
-
-            <div class="campos">
-
-                <div class="campo">
-
-                    <label for="vacacionesAsesor">
-                        Asesor
-                    </label>
-
-
-                    <select id="vacacionesAsesor">
-
-                        <option value="">
-                            Seleccionar asesor
-                        </option>
-
-                        <option value="Juan">
-                            Juan
-                        </option>
-
-                        <option value="Marvin">
-                            Marvin
-                        </option>
-
-                        <option value="Eli">
-                            Eli
-                        </option>
-
-                    </select>
-
-                </div>
-
+                <p class="card-descripcion">
+                    Define el período que deseas visualizar.
+                </p>
 
                 <div class="campos dos-columnas">
 
                     <div class="campo">
 
-                        <label for="vacacionesInicio">
-                            Desde
+                        <label for="fechaInicio">
+                            Fecha inicial
                         </label>
 
-
                         <input
-                            id="vacacionesInicio"
+                            id="fechaInicio"
                             type="date"
+                            value="2026-10-24"
                         >
 
                     </div>
 
-
                     <div class="campo">
 
-                        <label for="vacacionesFin">
-                            Hasta
+                        <label for="fechaFin">
+                            Fecha final
                         </label>
 
-
                         <input
-                            id="vacacionesFin"
+                            id="fechaFin"
                             type="date"
+                            value="2026-12-06"
                         >
 
                     </div>
 
                 </div>
 
-            </div>
+                <button
+                    id="btnGenerar"
+                    class="boton"
+                    type="button"
+                >
+                    Generar línea de tiempo
+                </button>
 
+            </article>
 
-            <button
-                id="btnVacaciones"
-                class="boton boton-rojo"
-                type="button"
-            >
-                Guardar vacaciones
-            </button>
+            <!-- Vacaciones -->
 
-        </article>
+            <article class="card">
 
+                <h2>
+                    Registrar vacaciones
+                </h2>
 
-        <!-- CAMBIO MANUAL -->
+                <p class="card-descripcion">
+                    La rotación se pausa durante el período registrado.
+                </p>
 
-        <article class="card">
-
-            <h3>
-                Cambio manual
-            </h3>
-
-
-            <p class="card-descripcion">
-                Modifica solamente el fin de semana seleccionado.
-            </p>
-
-
-            <div class="campos">
-
-                <div class="campo">
-
-                    <label for="cambioFecha">
-                        Sábado del fin de semana
-                    </label>
-
-
-                    <input
-                        id="cambioFecha"
-                        type="date"
-                    >
-
-                </div>
-
-
-                <div class="campos dos-columnas">
+                <div class="campos">
 
                     <div class="campo">
 
-                        <label for="cambioSabado">
-                            Sábado
+                        <label for="vacacionesAsesor">
+                            Asesor
                         </label>
 
-
-                        <select id="cambioSabado">
+                        <select id="vacacionesAsesor">
 
                             <option value="">
-                                Sin cambio
+                                Seleccionar asesor
                             </option>
 
                             <option value="Juan">
@@ -990,30 +792,162 @@
 
                     </div>
 
+                    <div class="campos dos-columnas">
+
+                        <div class="campo">
+
+                            <label for="vacacionesInicio">
+                                Desde
+                            </label>
+
+                            <input
+                                id="vacacionesInicio"
+                                type="date"
+                            >
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label for="vacacionesFin">
+                                Hasta
+                            </label>
+
+                            <input
+                                id="vacacionesFin"
+                                type="date"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button
+                    id="btnVacaciones"
+                    class="boton boton-rojo"
+                    type="button"
+                    disabled
+                >
+                    Guardar vacaciones
+                </button>
+
+            </article>
+
+            <!-- Cambio manual -->
+
+            <article class="card">
+
+                <h2>
+                    Cambio manual
+                </h2>
+
+                <p class="card-descripcion">
+                    Modifica solamente el fin de semana seleccionado.
+                </p>
+
+                <div class="campos">
 
                     <div class="campo">
 
-                        <label for="cambioDomingo">
-                            Domingo
+                        <label for="cambioFecha">
+                            Sábado del fin de semana
                         </label>
 
+                        <input
+                            id="cambioFecha"
+                            type="date"
+                        >
 
-                        <select id="cambioDomingo">
+                    </div>
 
-                            <option value="">
-                                Sin cambio
+                    <div class="campos dos-columnas">
+
+                        <div class="campo">
+
+                            <label for="cambioSabado">
+                                Sábado
+                            </label>
+
+                            <select id="cambioSabado">
+
+                                <option value="">
+                                    Sin cambio
+                                </option>
+
+                                <option value="Juan">
+                                    Juan
+                                </option>
+
+                                <option value="Marvin">
+                                    Marvin
+                                </option>
+
+                                <option value="Eli">
+                                    Eli
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label for="cambioDomingo">
+                                Domingo
+                            </label>
+
+                            <select id="cambioDomingo">
+
+                                <option value="">
+                                    Sin cambio
+                                </option>
+
+                                <option value="Juan">
+                                    Juan
+                                </option>
+
+                                <option value="Marvin">
+                                    Marvin
+                                </option>
+
+                                <option value="Eli">
+                                    Eli
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label for="cambioMotivo">
+                            Motivo
+                        </label>
+
+                        <select id="cambioMotivo">
+
+                            <option value="Cambio operativo">
+                                Cambio operativo
                             </option>
 
-                            <option value="Juan">
-                                Juan
+                            <option value="Motivo personal">
+                                Motivo personal
                             </option>
 
-                            <option value="Marvin">
-                                Marvin
+                            <option value="Permiso">
+                                Permiso
                             </option>
 
-                            <option value="Eli">
-                                Eli
+                            <option value="Incapacidad">
+                                Incapacidad
+                            </option>
+
+                            <option value="Otro">
+                                Otro
                             </option>
 
                         </select>
@@ -1022,2139 +956,1732 @@
 
                 </div>
 
+                <button
+                    id="btnCambio"
+                    class="boton boton-azul"
+                    type="button"
+                    disabled
+                >
+                    Guardar cambio manual
+                </button>
 
-                <div class="campo">
+            </article>
 
-                    <label for="cambioMotivo">
-                        Motivo
-                    </label>
+        </section>
 
+        <!-- Mensajes -->
 
-                    <select id="cambioMotivo">
+        <div
+            id="mensajeError"
+            class="mensaje mensaje-error"
+        ></div>
 
-                        <option value="Cambio operativo">
-                            Cambio operativo
-                        </option>
+        <div
+            id="mensajeExito"
+            class="mensaje mensaje-exito"
+        ></div>
 
-                        <option value="Motivo personal">
-                            Motivo personal
-                        </option>
+        <!-- ==========================================
+             TABLA
+        =========================================== -->
 
-                        <option value="Permiso">
-                            Permiso
-                        </option>
+        <section class="tabla-contenedor">
 
-                        <option value="Incapacidad">
-                            Incapacidad
-                        </option>
+            <table>
 
-                        <option value="Otro">
-                            Otro
-                        </option>
+                <thead>
+                    <tr>
+                        <th>Fin de semana</th>
+                        <th>Fecha</th>
+                        <th>Semana ISO</th>
+                        <th>Día</th>
+                        <th>Encargado</th>
+                        <th>Descansa / Vacaciones</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
 
-                    </select>
+                <tbody id="tablaRotacion">
 
-                </div>
+                    <tr>
+                        <td colspan="7">
+                            Cargando información...
+                        </td>
+                    </tr>
 
-            </div>
+                </tbody>
 
+            </table>
 
-            <button
-                id="btnCambio"
-                class="boton boton-azul"
-                type="button"
-            >
-                Guardar cambio manual
-            </button>
+        </section>
 
-        </article>
+    </main>
 
-    </section>
-
-
-    <!-- MENSAJES -->
-
-    <div
-        id="mensajeError"
-        class="mensaje mensaje-error"
-    ></div>
-
-
-    <div
-        id="mensajeExito"
-        class="mensaje mensaje-exito"
-    ></div>
-
+    <footer>
+        <p>
+            Gestión interna de cobertura de fin de semana
+        </p>
+    </footer>
 
     <!-- ==========================================
-         TABLA
+         FIREBASE Y LÓGICA DEL SISTEMA
     =========================================== -->
 
-    <section class="tabla-contenedor">
+    <script type="module">
 
-        <table>
+        /* ==========================================
+           IMPORTAR FIREBASE DESDE CDN
+        ========================================== */
 
-            <thead>
+        import {
+            initializeApp
+        } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
 
-                <tr>
+        import {
+            getFirestore,
+            collection,
+            addDoc,
+            setDoc,
+            doc,
+            deleteDoc,
+            onSnapshot,
+            serverTimestamp
+        } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
-                    <th>
-                        Fin de semana
-                    </th>
+        /* ==========================================
+           CONFIGURACIÓN FIREBASE
+        ========================================== */
 
-                    <th>
-                        Fecha
-                    </th>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDqrOJRZ5LVrKdAa20bATeDGYCpiIEfuok",
+            authDomain: "vacantes-fin-semana.firebaseapp.com",
+            projectId: "vacantes-fin-semana",
+            storageBucket: "vacantes-fin-semana.firebasestorage.app",
+            messagingSenderId: "905803785538",
+            appId: "1:905803785538:web:1c15faf37d42edf5f594db",
+            measurementId: "G-L01CK8FZLC"
+        };
 
-                    <th>
-                        Semana ISO
-                    </th>
+        const app =
+            initializeApp(firebaseConfig);
 
-                    <th>
-                        Día
-                    </th>
+        const db =
+            getFirestore(app);
 
-                    <th>
-                        Encargado
-                    </th>
+        /* ==========================================
+           CONFIGURACIÓN DE ROTACIÓN
+        ========================================== */
 
-                    <th>
-                        Descansa / Vacaciones
-                    </th>
+        const ASESORES = [
+            "Juan",
+            "Marvin",
+            "Eli"
+        ];
 
-                    <th>
-                        Estado
-                    </th>
+        const FECHA_REFERENCIA =
+            "2026-10-24";
+
+        const ROTACION = [
+            {
+                ciclo: "A",
+                sabado: "Marvin",
+                domingo: "Eli",
+                descansa: "Juan"
+            },
+            {
+                ciclo: "B",
+                sabado: "Juan",
+                domingo: "Marvin",
+                descansa: "Eli"
+            },
+            {
+                ciclo: "C",
+                sabado: "Eli",
+                domingo: "Juan",
+                descansa: "Marvin"
+            }
+        ];
+
+        let vacaciones = [];
+        let cambios = [];
+
+        let vacacionesCargadas = false;
+        let cambiosCargados = false;
+
+        /* ==========================================
+           REFERENCIAS DE FIRESTORE
+        ========================================== */
+
+        const vacacionesRef =
+            collection(db, "vacaciones");
+
+        const cambiosRef =
+            collection(db, "cambios");
+
+        /* ==========================================
+           SINCRONIZACIÓN EN TIEMPO REAL
+        ========================================== */
+
+        onSnapshot(
+            vacacionesRef,
+
+            function (snapshot) {
+
+                vacaciones =
+                    snapshot.docs.map(
+                        function (documento) {
+
+                            return {
+                                id: documento.id,
+                                ...documento.data()
+                            };
+
+                        }
+                    );
+
+                vacacionesCargadas = true;
+
+                comprobarCargaCompleta();
+            },
+
+            function (error) {
+
+                mostrarErrorConexion(
+                    "No fue posible leer las vacaciones de Firestore.",
+                    error
+                );
+            }
+        );
+
+        onSnapshot(
+            cambiosRef,
+
+            function (snapshot) {
+
+                cambios =
+                    snapshot.docs.map(
+                        function (documento) {
+
+                            return {
+                                id: documento.id,
+                                ...documento.data()
+                            };
+
+                        }
+                    );
+
+                cambiosCargados = true;
+
+                comprobarCargaCompleta();
+            },
+
+            function (error) {
+
+                mostrarErrorConexion(
+                    "No fue posible leer los cambios manuales de Firestore.",
+                    error
+                );
+            }
+        );
+
+        function comprobarCargaCompleta() {
+
+            if (
+                !vacacionesCargadas ||
+                !cambiosCargados
+            ) {
+                return;
+            }
+
+            const estadoConexion =
+                document.getElementById(
+                    "estadoConexion"
+                );
+
+            estadoConexion.className =
+                "conexion conectado";
+
+            document.getElementById(
+                "textoConexion"
+            ).textContent =
+                "Conectado con Firestore. Los cambios están sincronizados.";
+
+            document.getElementById(
+                "btnVacaciones"
+            ).disabled = false;
+
+            document.getElementById(
+                "btnCambio"
+            ).disabled = false;
+
+            generarLineaTiempo();
+        }
+
+        function mostrarErrorConexion(
+            mensaje,
+            error
+        ) {
+            console.error(
+                mensaje,
+                error
+            );
+
+            const estadoConexion =
+                document.getElementById(
+                    "estadoConexion"
+                );
+
+            estadoConexion.className =
+                "conexion error";
+
+            document.getElementById(
+                "textoConexion"
+            ).textContent =
+                mensaje;
+
+            mostrarError(
+                mensaje +
+                " Revisa las reglas de Firestore y la consola del navegador."
+            );
+        }
+
+        /* ==========================================
+           GUARDAR VACACIONES EN FIRESTORE
+        ========================================== */
+
+        async function guardarVacaciones() {
+
+            limpiarMensajes();
+
+            const boton =
+                document.getElementById(
+                    "btnVacaciones"
+                );
+
+            try {
+
+                const asesor =
+                    document.getElementById(
+                        "vacacionesAsesor"
+                    ).value;
+
+                const inicio =
+                    document.getElementById(
+                        "vacacionesInicio"
+                    ).value;
+
+                const fin =
+                    document.getElementById(
+                        "vacacionesFin"
+                    ).value;
+
+                if (!asesor) {
+                    throw new Error(
+                        "Selecciona un asesor."
+                    );
+                }
+
+                validarRango(
+                    inicio,
+                    fin
+                );
+
+                const periodoDuplicado =
+                    vacaciones.some(
+                        function (registro) {
+
+                            return (
+                                registro.asesor === asesor &&
+                                rangosSeCruzan(
+                                    registro.inicio,
+                                    registro.fin,
+                                    inicio,
+                                    fin
+                                )
+                            );
+
+                        }
+                    );
+
+                if (periodoDuplicado) {
+                    throw new Error(
+                        "El asesor ya tiene vacaciones registradas dentro de ese período."
+                    );
+                }
+
+                boton.disabled = true;
+                boton.textContent =
+                    "Guardando...";
+
+                await addDoc(
+                    vacacionesRef,
+                    {
+                        asesor: asesor,
+                        inicio: inicio,
+                        fin: fin,
+                        creadoEn: serverTimestamp()
+                    }
+                );
+
+                document.getElementById(
+                    "vacacionesAsesor"
+                ).value = "";
+
+                document.getElementById(
+                    "vacacionesInicio"
+                ).value = "";
+
+                document.getElementById(
+                    "vacacionesFin"
+                ).value = "";
+
+                mostrarExito(
+                    "Vacaciones guardadas en Firestore. Todos los usuarios podrán ver el cambio."
+                );
+
+            } catch (error) {
+
+                console.error(error);
+
+                mostrarError(
+                    obtenerMensajeError(error)
+                );
+
+            } finally {
+
+                boton.disabled = false;
+                boton.textContent =
+                    "Guardar vacaciones";
+
+            }
+        }
+
+        /* ==========================================
+           GUARDAR CAMBIO MANUAL EN FIRESTORE
+        ========================================== */
+
+        async function guardarCambio() {
+
+            limpiarMensajes();
+
+            const boton =
+                document.getElementById(
+                    "btnCambio"
+                );
+
+            try {
+
+                const fecha =
+                    document.getElementById(
+                        "cambioFecha"
+                    ).value;
+
+                const sabado =
+                    document.getElementById(
+                        "cambioSabado"
+                    ).value;
+
+                const domingo =
+                    document.getElementById(
+                        "cambioDomingo"
+                    ).value;
+
+                const motivo =
+                    document.getElementById(
+                        "cambioMotivo"
+                    ).value;
+
+                if (!fecha) {
+                    throw new Error(
+                        "Selecciona el sábado del fin de semana."
+                    );
+                }
+
+                const fechaObjeto =
+                    fechaDesdeISO(fecha);
+
+                if (
+                    fechaObjeto.getDay() !== 6
+                ) {
+                    throw new Error(
+                        "La fecha seleccionada debe ser sábado."
+                    );
+                }
+
+                if (
+                    !sabado &&
+                    !domingo
+                ) {
+                    throw new Error(
+                        "Selecciona al menos un cambio."
+                    );
+                }
+
+                /*
+                    Se utiliza la fecha del sábado como ID.
+
+                    De esta forma solamente puede existir
+                    un cambio por fin de semana.
+
+                    Si ya existe, se actualiza.
+                */
+
+                boton.disabled = true;
+                boton.textContent =
+                    "Guardando...";
+
+                await setDoc(
+                    doc(
+                        db,
+                        "cambios",
+                        fecha
+                    ),
+                    {
+                        fecha: fecha,
+                        sabado: sabado,
+                        domingo: domingo,
+                        motivo: motivo,
+                        actualizadoEn:
+                            serverTimestamp()
+                    }
+                );
+
+                document.getElementById(
+                    "cambioFecha"
+                ).value = "";
+
+                document.getElementById(
+                    "cambioSabado"
+                ).value = "";
+
+                document.getElementById(
+                    "cambioDomingo"
+                ).value = "";
+
+                document.getElementById(
+                    "cambioMotivo"
+                ).value =
+                    "Cambio operativo";
+
+                mostrarExito(
+                    "Cambio manual guardado en Firestore sin modificar la rotación futura."
+                );
+
+            } catch (error) {
+
+                console.error(error);
+
+                mostrarError(
+                    obtenerMensajeError(error)
+                );
+
+            } finally {
+
+                boton.disabled = false;
+                boton.textContent =
+                    "Guardar cambio manual";
+
+            }
+        }
+
+        /* ==========================================
+           ELIMINAR REGISTROS
+        ========================================== */
+
+        async function eliminarVacacion(
+            id
+        ) {
+            try {
+
+                await deleteDoc(
+                    doc(
+                        db,
+                        "vacaciones",
+                        id
+                    )
+                );
+
+                mostrarExito(
+                    "Vacaciones eliminadas correctamente."
+                );
+
+            } catch (error) {
+
+                console.error(error);
+
+                mostrarError(
+                    obtenerMensajeError(error)
+                );
+            }
+        }
+
+        async function eliminarCambio(
+            id
+        ) {
+            try {
+
+                await deleteDoc(
+                    doc(
+                        db,
+                        "cambios",
+                        id
+                    )
+                );
+
+                mostrarExito(
+                    "Cambio manual eliminado correctamente."
+                );
+
+            } catch (error) {
+
+                console.error(error);
+
+                mostrarError(
+                    obtenerMensajeError(error)
+                );
+            }
+        }
+
+        /* ==========================================
+           GENERAR LÍNEA DE TIEMPO
+        ========================================== */
+
+        function generarLineaTiempo() {
+
+            limpiarMensajes();
+
+            try {
+
+                const inicioISO =
+                    document.getElementById(
+                        "fechaInicio"
+                    ).value;
+
+                const finISO =
+                    document.getElementById(
+                        "fechaFin"
+                    ).value;
+
+                validarRango(
+                    inicioISO,
+                    finISO
+                );
+
+                const inicio =
+                    fechaDesdeISO(
+                        inicioISO
+                    );
+
+                const fin =
+                    fechaDesdeISO(
+                        finISO
+                    );
+
+                let indiceRotacion =
+                    calcularIndiceInicial(
+                        inicio
+                    );
+
+                let sabado =
+                    obtenerProximoSabado(
+                        inicio
+                    );
+
+                let contadorVacaciones = 0;
+
+                const resultados = [];
+
+                while (sabado <= fin) {
+
+                    const domingo =
+                        sumarDias(
+                            sabado,
+                            1
+                        );
+
+                    const sabadoISO =
+                        formatoISO(sabado);
+
+                    const domingoISO =
+                        formatoISO(domingo);
+
+                    const patron =
+                        ROTACION[indiceRotacion];
+
+                    const personasVacaciones =
+                        vacacionesFinSemana(
+                            sabadoISO,
+                            domingoISO
+                        );
+
+                    const periodoVacaciones =
+                        personasVacaciones.length > 0;
+
+                    let encargadoSabado;
+                    let encargadoDomingo;
+
+                    if (periodoVacaciones) {
+
+                        const cobertura =
+                            coberturaVacaciones(
+                                personasVacaciones,
+                                contadorVacaciones
+                            );
+
+                        encargadoSabado =
+                            cobertura.sabado;
+
+                        encargadoDomingo =
+                            cobertura.domingo;
+
+                        contadorVacaciones++;
+
+                    } else {
+
+                        encargadoSabado =
+                            patron.sabado;
+
+                        encargadoDomingo =
+                            patron.domingo;
+
+                        contadorVacaciones = 0;
+                    }
+
+                    const cambio =
+                        buscarCambio(
+                            sabadoISO
+                        );
+
+                    let cambioSabado = false;
+                    let cambioDomingo = false;
+
+                    if (cambio) {
+
+                        if (cambio.sabado) {
+                            encargadoSabado =
+                                cambio.sabado;
+
+                            cambioSabado = true;
+                        }
+
+                        if (cambio.domingo) {
+                            encargadoDomingo =
+                                cambio.domingo;
+
+                            cambioDomingo = true;
+                        }
+                    }
+
+                    let estadoSabado =
+                        "Rotación normal";
+
+                    let estadoDomingo =
+                        "Rotación normal";
+
+                    if (periodoVacaciones) {
+                        estadoSabado =
+                            "Vacaciones";
+
+                        estadoDomingo =
+                            "Vacaciones";
+                    }
+
+                    if (cambioSabado) {
+                        estadoSabado =
+                            "Cambio manual";
+                    }
+
+                    if (cambioDomingo) {
+                        estadoDomingo =
+                            "Cambio manual";
+                    }
+
+                    const descanso =
+                        calcularDescanso(
+                            encargadoSabado,
+                            encargadoDomingo,
+                            personasVacaciones,
+                            patron
+                        );
+
+                    resultados.push({
+                        semana:
+                            semanaGeneralISO(
+                                sabado
+                            ),
+
+                        ciclo:
+                            patron.ciclo,
+
+                        sabado: {
+                            fecha:
+                                sabadoISO,
+
+                            iso:
+                                fechaSemanaISO(
+                                    sabado
+                                ),
+
+                            encargado:
+                                encargadoSabado,
+
+                            estado:
+                                estadoSabado
+                        },
+
+                        domingo: {
+                            fecha:
+                                domingoISO,
+
+                            iso:
+                                fechaSemanaISO(
+                                    domingo
+                                ),
+
+                            encargado:
+                                encargadoDomingo,
+
+                            estado:
+                                estadoDomingo
+                        },
+
+                        vacaciones:
+                            personasVacaciones,
+
+                        descanso:
+                            descanso,
+
+                        cambio:
+                            cambio || null
+                    });
+
+                    /*
+                        Las vacaciones pausan el ciclo.
+
+                        Los cambios manuales no mueven
+                        la rotación.
+                    */
+
+                    if (!periodoVacaciones) {
+
+                        indiceRotacion =
+                            (
+                                indiceRotacion + 1
+                            ) %
+                            ROTACION.length;
+                    }
+
+                    sabado =
+                        sumarDias(
+                            sabado,
+                            7
+                        );
+                }
+
+                renderizarTabla(
+                    resultados
+                );
+
+            } catch (error) {
+
+                console.error(error);
+
+                mostrarError(
+                    obtenerMensajeError(error)
+                );
+            }
+        }
+
+        /* ==========================================
+           ÍNDICE INICIAL DE LA ROTACIÓN
+        ========================================== */
+
+        function calcularIndiceInicial(
+            fechaInicio
+        ) {
+            const referencia =
+                fechaDesdeISO(
+                    FECHA_REFERENCIA
+                );
+
+            if (
+                fechaInicio <= referencia
+            ) {
+                return 0;
+            }
+
+            let indice = 0;
+
+            let sabado =
+                new Date(
+                    referencia.getTime()
+                );
+
+            const limite =
+                obtenerProximoSabado(
+                    fechaInicio
+                );
+
+            while (sabado < limite) {
+
+                const domingo =
+                    sumarDias(
+                        sabado,
+                        1
+                    );
+
+                const vacacionesSemana =
+                    vacacionesFinSemana(
+                        formatoISO(sabado),
+                        formatoISO(domingo)
+                    );
+
+                if (
+                    vacacionesSemana.length === 0
+                ) {
+                    indice =
+                        (
+                            indice + 1
+                        ) %
+                        ROTACION.length;
+                }
+
+                sabado =
+                    sumarDias(
+                        sabado,
+                        7
+                    );
+            }
+
+            return indice;
+        }
+
+        /* ==========================================
+           COBERTURA DURANTE VACACIONES
+        ========================================== */
+
+        function coberturaVacaciones(
+            personasVacaciones,
+            contador
+        ) {
+            const disponibles =
+                ASESORES.filter(
+                    function (asesor) {
+
+                        return !personasVacaciones.includes(
+                            asesor
+                        );
+
+                    }
+                );
+
+            if (
+                disponibles.length === 0
+            ) {
+                return {
+                    sabado: "Sin cobertura",
+                    domingo: "Sin cobertura"
+                };
+            }
+
+            if (
+                disponibles.length === 1
+            ) {
+                return {
+                    sabado: disponibles[0],
+                    domingo: disponibles[0]
+                };
+            }
+
+            if (
+                contador % 2 === 0
+            ) {
+                return {
+                    sabado: disponibles[0],
+                    domingo: disponibles[1]
+                };
+            }
+
+            return {
+                sabado: disponibles[1],
+                domingo: disponibles[0]
+            };
+        }
+
+        /* ==========================================
+           DESCANSO Y VACACIONES
+        ========================================== */
+
+        function calcularDescanso(
+            sabado,
+            domingo,
+            personasVacaciones,
+            patron
+        ) {
+            if (
+                personasVacaciones.length > 0
+            ) {
+                return {
+                    tipo: "Vacaciones",
+                    personas:
+                        personasVacaciones
+                };
+            }
+
+            const trabajan =
+                new Set([
+                    sabado,
+                    domingo
+                ]);
+
+            const descansan =
+                ASESORES.filter(
+                    function (asesor) {
+
+                        return !trabajan.has(
+                            asesor
+                        );
+
+                    }
+                );
+
+            return {
+                tipo: "Descansa",
+
+                personas:
+                    descansan.length > 0
+                        ? descansan
+                        : [patron.descansa]
+            };
+        }
+
+        function vacacionesFinSemana(
+            sabado,
+            domingo
+        ) {
+            return [
+                ...new Set(
+                    vacaciones
+                        .filter(
+                            function (registro) {
+
+                                return (
+                                    (
+                                        sabado >=
+                                            registro.inicio &&
+                                        sabado <=
+                                            registro.fin
+                                    )
+                                    ||
+                                    (
+                                        domingo >=
+                                            registro.inicio &&
+                                        domingo <=
+                                            registro.fin
+                                    )
+                                );
+
+                            }
+                        )
+                        .map(
+                            function (registro) {
+
+                                return registro.asesor;
+
+                            }
+                        )
+                )
+            ];
+        }
+
+        function buscarCambio(
+            sabado
+        ) {
+            return cambios.find(
+                function (registro) {
+
+                    return (
+                        registro.fecha === sabado
+                    );
+
+                }
+            );
+        }
+
+        /* ==========================================
+           RENDERIZAR TABLA
+        ========================================== */
+
+        function renderizarTabla(
+            resultados
+        ) {
+            const tabla =
+                document.getElementById(
+                    "tablaRotacion"
+                );
+
+            if (
+                resultados.length === 0
+            ) {
+                tabla.innerHTML = `
+                    <tr>
+                        <td colspan="7">
+                            No hay fines de semana dentro del rango seleccionado.
+                        </td>
+                    </tr>
+                `;
+
+                return;
+            }
+
+            tabla.innerHTML =
+                resultados
+                    .map(
+                        function (fin) {
+
+                            return crearFinSemana(
+                                fin
+                            );
+
+                        }
+                    )
+                    .join("");
+
+            asignarEventosTabla();
+        }
+
+        function crearFinSemana(fin) {
+
+            let claseImpresion =
+                "impresion-normal";
+
+            if (
+                fin.vacaciones.length > 0
+            ) {
+                claseImpresion =
+                    "impresion-vacaciones";
+            }
+
+            if (fin.cambio) {
+                claseImpresion =
+                    "impresion-manual";
+            }
+
+            const claseDescanso =
+                fin.descanso.tipo ===
+                "Vacaciones"
+                    ? "badge-vacaciones"
+                    : "badge-descansa";
+
+            return `
+                <tr class="inicio-fin-semana">
+
+                    <td
+                        rowspan="2"
+                        class="grupo-semana"
+                    >
+                        <strong>
+                            ${escaparHTML(
+                                fin.semana
+                            )}
+                        </strong>
+
+                        <span class="ciclo">
+                            Ciclo
+                            ${escaparHTML(
+                                fin.ciclo
+                            )}
+                        </span>
+                    </td>
+
+                    ${crearDia(
+                        fin.sabado,
+                        "Sábado"
+                    )}
+
+                    <td
+                        rowspan="2"
+                        class="descanso-columna"
+                    >
+                        <span
+                            class="badge ${claseDescanso}"
+                        >
+                            ${escaparHTML(
+                                fin.descanso.tipo
+                            )}
+                        </span>
+
+                        <span class="persona-descanso">
+                            ${escaparHTML(
+                                fin.descanso.personas.join(
+                                    ", "
+                                )
+                            )}
+                        </span>
+                    </td>
+
+                    ${crearEstado(
+                        fin.sabado.estado
+                    )}
 
                 </tr>
 
-            </thead>
+                <tr>
 
+                    ${crearDia(
+                        fin.domingo,
+                        "Domingo"
+                    )}
 
-            <tbody id="tablaRotacion"></tbody>
+                    ${crearEstado(
+                        fin.domingo.estado
+                    )}
 
-        </table>
+                </tr>
 
-    </section>
+                <tr class="fila-resultado">
 
+                    <td colspan="7">
 
-</main>
+                        <div
+                            class="impresion ${claseImpresion}"
+                        >
+                            <div class="impresion-titulo">
+                                Impresión final:
+                            </div>
 
+                            <div class="resultado">
 
-<footer>
+                                <span
+                                    class="punto punto-sabado"
+                                ></span>
 
-    <p>
-        Gestión interna de cobertura de fin de semana
-    </p>
+                                <span>
+                                    Sábado:
+                                    <strong>
+                                        ${escaparHTML(
+                                            fin.sabado.encargado
+                                        )}
+                                    </strong>
+                                </span>
 
-</footer>
+                            </div>
 
+                            <div class="resultado">
 
-<script>
+                                <span
+                                    class="punto punto-domingo"
+                                ></span>
 
-"use strict";
+                                <span>
+                                    Domingo:
+                                    <strong>
+                                        ${escaparHTML(
+                                            fin.domingo.encargado
+                                        )}
+                                    </strong>
+                                </span>
 
+                            </div>
 
-/* ==========================================
-   CONFIGURACIÓN
-========================================== */
+                            <div class="resultado">
 
-const ASESORES = [
-    "Juan",
-    "Marvin",
-    "Eli"
-];
+                                <span
+                                    class="punto punto-descanso"
+                                ></span>
 
+                                <span>
+                                    ${escaparHTML(
+                                        fin.descanso.tipo
+                                    )}:
+                                    <strong>
+                                        ${escaparHTML(
+                                            fin.descanso.personas.join(
+                                                ", "
+                                            )
+                                        )}
+                                    </strong>
+                                </span>
 
-const FECHA_REFERENCIA =
-    "2026-10-24";
+                            </div>
 
+                        </div>
 
-const ROTACION = [
+                    </td>
 
-    {
-        ciclo: "A",
-        sabado: "Marvin",
-        domingo: "Eli",
-        descansa: "Juan"
-    },
-
-    {
-        ciclo: "B",
-        sabado: "Juan",
-        domingo: "Marvin",
-        descansa: "Eli"
-    },
-
-    {
-        ciclo: "C",
-        sabado: "Eli",
-        domingo: "Juan",
-        descansa: "Marvin"
-    }
-
-];
-
-
-const CLAVE_VACACIONES =
-    "sistema_vacaciones";
-
-
-const CLAVE_CAMBIOS =
-    "sistema_cambios";
-
-
-let vacaciones =
-    cargarDatos(
-        CLAVE_VACACIONES
-    );
-
-
-let cambios =
-    cargarDatos(
-        CLAVE_CAMBIOS
-    );
-
-
-/* ==========================================
-   LOCAL STORAGE
-========================================== */
-
-function cargarDatos(clave) {
-
-    try {
-
-        const dato =
-            localStorage.getItem(
-                clave
-            );
-
-
-        if (!dato) {
-            return [];
+                </tr>
+            `;
         }
 
-
-        const resultado =
-            JSON.parse(
-                dato
-            );
-
-
-        return Array.isArray(
-            resultado
-        )
-            ? resultado
-            : [];
-
-    }
-
-    catch {
-
-        return [];
-
-    }
-
-}
-
-
-function persistir() {
-
-    localStorage.setItem(
-        CLAVE_VACACIONES,
-        JSON.stringify(
-            vacaciones
-        )
-    );
-
-
-    localStorage.setItem(
-        CLAVE_CAMBIOS,
-        JSON.stringify(
-            cambios
-        )
-    );
-
-}
-
-
-/* ==========================================
-   GENERACIÓN PRINCIPAL
-========================================== */
-
-function generarLineaTiempo() {
-
-    limpiarMensajes();
-
-
-    try {
-
-        const inicioISO =
-            document.getElementById(
-                "fechaInicio"
-            ).value;
-
-
-        const finISO =
-            document.getElementById(
-                "fechaFin"
-            ).value;
-
-
-        validarRango(
-            inicioISO,
-            finISO
-        );
-
-
-        const inicio =
-            fechaDesdeISO(
-                inicioISO
-            );
-
-
-        const fin =
-            fechaDesdeISO(
-                finISO
-            );
-
-
-        let indiceRotacion =
-            calcularIndiceInicial(
-                inicio
-            );
-
-
-        let sabado =
-            obtenerProximoSabado(
-                inicio
-            );
-
-
-        let contadorVacaciones =
-            0;
-
-
-        const resultados =
-            [];
-
-
-        while (
-            sabado <= fin
+        function crearDia(
+            registro,
+            nombre
         ) {
-
-            const domingo =
-                sumarDias(
-                    sabado,
-                    1
-                );
-
-
-            const sabadoISO =
-                formatoISO(
-                    sabado
-                );
-
-
-            const domingoISO =
-                formatoISO(
-                    domingo
-                );
-
-
-            const patron =
-                ROTACION[
-                    indiceRotacion
-                ];
-
-
-            const personasVacaciones =
-                vacacionesFinSemana(
-                    sabadoISO,
-                    domingoISO
-                );
-
-
-            const periodoVacaciones =
-                personasVacaciones.length
-                >
-                0;
-
-
-            let encargadoSabado;
-
-            let encargadoDomingo;
-
-
-            /*
-                VACACIONES
-
-                Se cubre temporalmente,
-                pero NO se mueve el índice.
-            */
-
-            if (
-                periodoVacaciones
-            ) {
-
-                const cobertura =
-                    coberturaVacaciones(
-                        personasVacaciones,
-                        contadorVacaciones
-                    );
-
-
-                encargadoSabado =
-                    cobertura.sabado;
-
-
-                encargadoDomingo =
-                    cobertura.domingo;
-
-
-                contadorVacaciones++;
-
-            }
-
-            else {
-
-                encargadoSabado =
-                    patron.sabado;
-
-
-                encargadoDomingo =
-                    patron.domingo;
-
-
-                contadorVacaciones =
-                    0;
-
-            }
-
-
-            /*
-                CAMBIO MANUAL
-
-                Solo afecta este fin
-                de semana.
-            */
-
-            const cambio =
-                buscarCambio(
-                    sabadoISO
-                );
-
-
-            let cambioSabado =
-                false;
-
-
-            let cambioDomingo =
-                false;
-
-
-            if (cambio) {
-
-                if (
-                    cambio.sabado
-                ) {
-
-                    encargadoSabado =
-                        cambio.sabado;
-
-
-                    cambioSabado =
-                        true;
-
-                }
-
-
-                if (
-                    cambio.domingo
-                ) {
-
-                    encargadoDomingo =
-                        cambio.domingo;
-
-
-                    cambioDomingo =
-                        true;
-
-                }
-
-            }
-
-
-            /*
-                SOLO 3 ESTADOS
-            */
-
-            let estadoSabado =
-                "Rotación normal";
-
-
-            let estadoDomingo =
-                "Rotación normal";
-
-
-            if (
-                periodoVacaciones
-            ) {
-
-                estadoSabado =
-                    "Vacaciones";
-
-
-                estadoDomingo =
-                    "Vacaciones";
-
-            }
-
-
-            if (
-                cambioSabado
-            ) {
-
-                estadoSabado =
-                    "Cambio manual";
-
-            }
-
-
-            if (
-                cambioDomingo
-            ) {
-
-                estadoDomingo =
-                    "Cambio manual";
-
-            }
-
-
-            const descanso =
-                calcularDescanso(
-                    encargadoSabado,
-                    encargadoDomingo,
-                    personasVacaciones,
-                    patron
-                );
-
-
-            resultados.push({
-
-                semana:
-                    semanaGeneralISO(
-                        sabado
-                    ),
-
-                ciclo:
-                    patron.ciclo,
-
-                sabado: {
-
-                    fecha:
-                        sabadoISO,
-
-                    iso:
-                        fechaSemanaISO(
-                            sabado
-                        ),
-
-                    encargado:
-                        encargadoSabado,
-
-                    estado:
-                        estadoSabado
-
-                },
-
-                domingo: {
-
-                    fecha:
-                        domingoISO,
-
-                    iso:
-                        fechaSemanaISO(
-                            domingo
-                        ),
-
-                    encargado:
-                        encargadoDomingo,
-
-                    estado:
-                        estadoDomingo
-
-                },
-
-                vacaciones:
-                    personasVacaciones,
-
-                descanso:
-                    descanso,
-
-                cambio:
-                    cambio || null
-
-            });
-
-
-            /*
-                ÚNICAMENTE las vacaciones
-                pausan la rotación.
-            */
-
-            if (
-                !periodoVacaciones
-            ) {
-
-                indiceRotacion =
-                    (
-                        indiceRotacion
-                        +
-                        1
-                    )
-                    %
-                    ROTACION.length;
-
-            }
-
-
-            sabado =
-                sumarDias(
-                    sabado,
-                    7
-                );
-
+            const clase =
+                nombre === "Sábado"
+                    ? "sabado"
+                    : "domingo";
+
+            return `
+                <td>
+                    <span class="fecha">
+                        ${escaparHTML(
+                            registro.fecha
+                        )}
+                    </span>
+
+                    <span class="fecha-natural">
+                        ${escaparHTML(
+                            fechaLegible(
+                                fechaDesdeISO(
+                                    registro.fecha
+                                )
+                            )
+                        )}
+                    </span>
+                </td>
+
+                <td>
+                    <span class="codigo">
+                        ${escaparHTML(
+                            registro.iso
+                        )}
+                    </span>
+                </td>
+
+                <td>
+                    <span class="dia ${clase}">
+                        ${escaparHTML(nombre)}
+                    </span>
+                </td>
+
+                <td>
+                    <span class="encargado">
+                        ${escaparHTML(
+                            registro.encargado
+                        )}
+                    </span>
+                </td>
+            `;
         }
 
+        function crearEstado(
+            estado
+        ) {
+            let clase =
+                "estado-normal";
 
-        renderizarTabla(
-            resultados
-        );
+            if (
+                estado === "Vacaciones"
+            ) {
+                clase =
+                    "estado-vacaciones";
+            }
 
-    }
+            if (
+                estado === "Cambio manual"
+            ) {
+                clase =
+                    "estado-manual";
+            }
 
-    catch (error) {
+            return `
+                <td>
+                    <span class="estado ${clase}">
+                        ${escaparHTML(estado)}
+                    </span>
+                </td>
+            `;
+        }
 
-        mostrarError(
-            error.message
-        );
-
-    }
-
-}
-
-
-/* ==========================================
-   ÍNDICE INICIAL
-========================================== */
-
-function calcularIndiceInicial(
-    fechaInicio
-) {
-
-    const referencia =
-        fechaDesdeISO(
-            FECHA_REFERENCIA
-        );
-
-
-    if (
-        fechaInicio <=
-        referencia
-    ) {
-
-        return 0;
-
-    }
-
-
-    let indice =
-        0;
-
-
-    let sabado =
-        new Date(
-            referencia.getTime()
-        );
-
-
-    const limite =
-        obtenerProximoSabado(
-            fechaInicio
-        );
-
-
-    while (
-        sabado < limite
-    ) {
-
-        const domingo =
-            sumarDias(
-                sabado,
-                1
-            );
-
-
-        const vacacionesSemana =
-            vacacionesFinSemana(
-                formatoISO(
-                    sabado
-                ),
-                formatoISO(
-                    domingo
+        function asignarEventosTabla() {
+            document
+                .querySelectorAll(
+                    "[data-eliminar-vacacion]"
                 )
+                .forEach(
+                    function (boton) {
+
+                        boton.addEventListener(
+                            "click",
+                            function () {
+
+                                eliminarVacacion(
+                                    boton.dataset
+                                        .eliminarVacacion
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+            document
+                .querySelectorAll(
+                    "[data-eliminar-cambio]"
+                )
+                .forEach(
+                    function (boton) {
+
+                        boton.addEventListener(
+                            "click",
+                            function () {
+
+                                eliminarCambio(
+                                    boton.dataset
+                                        .eliminarCambio
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+        }
+
+        /* ==========================================
+           FUNCIONES DE FECHA
+        ========================================== */
+
+        function fechaDesdeISO(
+            iso
+        ) {
+            if (
+                !iso ||
+                !/^\d{4}-\d{2}-\d{2}$/.test(
+                    iso
+                )
+            ) {
+                throw new Error(
+                    "Fecha inválida."
+                );
+            }
+
+            const partes =
+                iso.split("-").map(Number);
+
+            const fecha =
+                new Date(
+                    partes[0],
+                    partes[1] - 1,
+                    partes[2]
+                );
+
+            fecha.setHours(
+                0,
+                0,
+                0,
+                0
             );
 
+            if (
+                formatoISO(fecha) !== iso
+            ) {
+                throw new Error(
+                    "Fecha inválida."
+                );
+            }
 
-        if (
-            vacacionesSemana.length
-            ===
-            0
+            return fecha;
+        }
+
+        function formatoISO(
+            fecha
         ) {
+            const anio =
+                fecha.getFullYear();
 
-            indice =
+            const mes =
+                String(
+                    fecha.getMonth() + 1
+                ).padStart(2, "0");
+
+            const dia =
+                String(
+                    fecha.getDate()
+                ).padStart(2, "0");
+
+            return `${anio}-${mes}-${dia}`;
+        }
+
+        function sumarDias(
+            fecha,
+            cantidad
+        ) {
+            const copia =
+                new Date(fecha.getTime());
+
+            copia.setDate(
+                copia.getDate() + cantidad
+            );
+
+            copia.setHours(
+                0,
+                0,
+                0,
+                0
+            );
+
+            return copia;
+        }
+
+        function obtenerProximoSabado(
+            fecha
+        ) {
+            const dias =
                 (
-                    indice + 1
-                )
-                %
-                ROTACION.length;
+                    6 -
+                    fecha.getDay() +
+                    7
+                ) % 7;
 
+            return sumarDias(
+                fecha,
+                dias
+            );
         }
 
+        function fechaSemanaISO(fecha) {
 
-        sabado =
-            sumarDias(
-                sabado,
-                7
+            const utc =
+                new Date(
+                    Date.UTC(
+                        fecha.getFullYear(),
+                        fecha.getMonth(),
+                        fecha.getDate()
+                    )
+                );
+
+            const diaISO =
+                utc.getUTCDay() || 7;
+
+            utc.setUTCDate(
+                utc.getUTCDate() +
+                4 -
+                diaISO
             );
 
-    }
-
-
-    return indice;
-
-}
-
-
-/* ==========================================
-   COBERTURA POR VACACIONES
-========================================== */
-
-function coberturaVacaciones(
-    personasVacaciones,
-    contador
-) {
-
-    const disponibles =
-        ASESORES.filter(
-            asesor =>
-                !personasVacaciones.includes(
-                    asesor
-                )
-        );
-
-
-    if (
-        disponibles.length
-        ===
-        0
-    ) {
-
-        return {
-
-            sabado:
-                "Sin cobertura",
-
-            domingo:
-                "Sin cobertura"
-
-        };
-
-    }
-
-
-    if (
-        disponibles.length
-        ===
-        1
-    ) {
-
-        return {
-
-            sabado:
-                disponibles[0],
-
-            domingo:
-                disponibles[0]
-
-        };
-
-    }
-
-
-    if (
-        contador % 2 ===
-        0
-    ) {
-
-        return {
-
-            sabado:
-                disponibles[0],
-
-            domingo:
-                disponibles[1]
-
-        };
-
-    }
-
-
-    return {
-
-        sabado:
-            disponibles[1],
-
-        domingo:
-            disponibles[0]
-
-    };
-
-}
-
-
-/* ==========================================
-   DESCANSO / VACACIONES
-========================================== */
-
-function calcularDescanso(
-    sabado,
-    domingo,
-    personasVacaciones,
-    patron
-) {
-
-    if (
-        personasVacaciones.length
-        >
-        0
-    ) {
-
-        return {
-
-            tipo:
-                "Vacaciones",
-
-            personas:
-                personasVacaciones
-
-        };
-
-    }
-
-
-    const trabajan =
-        new Set([
-            sabado,
-            domingo
-        ]);
-
-
-    const descansan =
-        ASESORES.filter(
-            asesor =>
-                !trabajan.has(
-                    asesor
-                )
-        );
-
-
-    return {
-
-        tipo:
-            "Descansa",
-
-        personas:
-            descansan.length
-            >
-            0
-                ?
-                descansan
-                :
-                [
-                    patron.descansa
-                ]
-
-    };
-
-}
-
-
-/* ==========================================
-   VACACIONES
-========================================== */
-
-function guardarVacaciones() {
-
-    limpiarMensajes();
-
-
-    try {
-
-        const asesor =
-            document.getElementById(
-                "vacacionesAsesor"
-            ).value;
-
-
-        const inicio =
-            document.getElementById(
-                "vacacionesInicio"
-            ).value;
-
-
-        const fin =
-            document.getElementById(
-                "vacacionesFin"
-            ).value;
-
-
-        if (!asesor) {
-
-            throw new Error(
-                "Selecciona un asesor."
+            const anioISO =
+                utc.getUTCFullYear();
+
+            const juevesInicial =
+                new Date(
+                    Date.UTC(
+                        anioISO,
+                        0,
+                        4
+                    )
+                );
+
+            const primerDia =
+                juevesInicial.getUTCDay() || 7;
+
+            juevesInicial.setUTCDate(
+                juevesInicial.getUTCDate() +
+                4 -
+                primerDia
             );
 
+            const semana =
+                1 +
+                Math.round(
+                    (
+                        utc -
+                        juevesInicial
+                    ) /
+                    (
+                        7 *
+                        86400000
+                    )
+                );
+
+            return (
+                `${anioISO}-W` +
+                `${String(semana).padStart(2, "0")}-` +
+                `${diaISO}`
+            );
         }
 
+        function semanaGeneralISO(
+            fecha
+        ) {
+            return fechaSemanaISO(
+                fecha
+            ).slice(0, -2);
+        }
 
-        validarRango(
+        function fechaLegible(
+            fecha
+        ) {
+            return new Intl.DateTimeFormat(
+                "es-SV",
+                {
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric"
+                }
+            ).format(fecha);
+        }
+
+        function validarRango(
             inicio,
             fin
-        );
-
-
-        vacaciones.push({
-
-            id:
-                crearId(),
-
-            asesor:
-                asesor,
-
-            inicio:
-                inicio,
-
-            fin:
-                fin
-
-        });
-
-
-        persistir();
-
-
-        document.getElementById(
-            "vacacionesAsesor"
-        ).value = "";
-
-
-        document.getElementById(
-            "vacacionesInicio"
-        ).value = "";
-
-
-        document.getElementById(
-            "vacacionesFin"
-        ).value = "";
-
-
-        generarLineaTiempo();
-
-
-        mostrarExito(
-            "Vacaciones registradas correctamente."
-        );
-
-    }
-
-    catch (error) {
-
-        mostrarError(
-            error.message
-        );
-
-    }
-
-}
-
-
-function vacacionesFinSemana(
-    sabado,
-    domingo
-) {
-
-    return [
-
-        ...new Set(
-
-            vacaciones
-
-                .filter(
-
-                    item =>
-
-                        (
-                            sabado >=
-                                item.inicio
-                            &&
-                            sabado <=
-                                item.fin
-                        )
-
-                        ||
-
-                        (
-                            domingo >=
-                                item.inicio
-                            &&
-                            domingo <=
-                                item.fin
-                        )
-
-                )
-
-                .map(
-                    item =>
-                        item.asesor
-                )
-
-        )
-
-    ];
-
-}
-
-
-/* ==========================================
-   CAMBIOS MANUALES
-========================================== */
-
-function guardarCambio() {
-
-    limpiarMensajes();
-
-
-    try {
-
-        const fecha =
-            document.getElementById(
-                "cambioFecha"
-            ).value;
-
-
-        const sabado =
-            document.getElementById(
-                "cambioSabado"
-            ).value;
-
-
-        const domingo =
-            document.getElementById(
-                "cambioDomingo"
-            ).value;
-
-
-        const motivo =
-            document.getElementById(
-                "cambioMotivo"
-            ).value;
-
-
-        if (!fecha) {
-
-            throw new Error(
-                "Selecciona el sábado del fin de semana."
-            );
-
-        }
-
-
-        const fechaObjeto =
-            fechaDesdeISO(
-                fecha
-            );
-
-
-        if (
-            fechaObjeto.getDay()
-            !==
-            6
         ) {
+            const fechaInicio =
+                fechaDesdeISO(inicio);
 
-            throw new Error(
-                "La fecha seleccionada debe ser sábado."
-            );
+            const fechaFin =
+                fechaDesdeISO(fin);
 
+            if (
+                fechaInicio > fechaFin
+            ) {
+                throw new Error(
+                    "La fecha inicial no puede ser posterior a la fecha final."
+                );
+            }
         }
 
-
-        if (
-            !sabado
-            &&
-            !domingo
+        function rangosSeCruzan(
+            inicioA,
+            finA,
+            inicioB,
+            finB
         ) {
-
-            throw new Error(
-                "Selecciona al menos un cambio."
+            return (
+                inicioA <= finB &&
+                inicioB <= finA
             );
-
         }
 
+        /* ==========================================
+           MENSAJES Y SEGURIDAD
+        ========================================== */
 
-        const existente =
-            cambios.find(
-                item =>
-                    item.fecha
-                    ===
-                    fecha
+        function obtenerMensajeError(error) {
+
+            if (
+                error &&
+                error.code ===
+                    "permission-denied"
+            ) {
+                return (
+                    "Firestore rechazó la operación. " +
+                    "Revisa que las reglas de prueba continúen vigentes."
+                );
+            }
+
+            return (
+                error &&
+                error.message
+                    ? error.message
+                    : "Ocurrió un error inesperado."
             );
+        }
 
-
-        if (
-            existente
+        function mostrarError(
+            texto
         ) {
+            const elemento =
+                document.getElementById(
+                    "mensajeError"
+                );
 
-            existente.sabado =
-                sabado;
+            elemento.textContent =
+                texto;
 
-
-            existente.domingo =
-                domingo;
-
-
-            existente.motivo =
-                motivo;
-
+            elemento.style.display =
+                "block";
         }
 
-        else {
+        function mostrarExito(
+            texto
+        ) {
+            const elemento =
+                document.getElementById(
+                    "mensajeExito"
+                );
 
-            cambios.push({
+            elemento.textContent =
+                texto;
 
-                id:
-                    crearId(),
-
-                fecha:
-                    fecha,
-
-                sabado:
-                    sabado,
-
-                domingo:
-                    domingo,
-
-                motivo:
-                    motivo
-
-            });
-
+            elemento.style.display =
+                "block";
         }
 
+        function limpiarMensajes() {
 
-        persistir();
+            const error =
+                document.getElementById(
+                    "mensajeError"
+                );
 
+            const exito =
+                document.getElementById(
+                    "mensajeExito"
+                );
 
-        document.getElementById(
-            "cambioFecha"
-        ).value = "";
+            error.textContent = "";
+            error.style.display = "none";
 
+            exito.textContent = "";
+            exito.style.display = "none";
+        }
 
-        document.getElementById(
-            "cambioSabado"
-        ).value = "";
+        function escaparHTML(
+            valor
+        ) {
+            const entidades = {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                "\"": "&quot;",
+                "'": "&#39;"
+            };
 
+            return String(valor).replace(
+                /[&<>"']/g,
+                function (caracter) {
 
-        document.getElementById(
-            "cambioDomingo"
-        ).value = "";
+                    return entidades[caracter];
 
+                }
+            );
+        }
 
-        generarLineaTiempo();
+        /* ==========================================
+           EVENTOS
+        ========================================== */
 
-
-        mostrarExito(
-            "Cambio manual aplicado correctamente."
-        );
-
-    }
-
-    catch (error) {
-
-        mostrarError(
-            error.message
-        );
-
-    }
-
-}
-
-
-function buscarCambio(
-    sabado
-) {
-
-    return cambios.find(
-        item =>
-            item.fecha
-            ===
-            sabado
-    );
-
-}
-
-
-/* ==========================================
-   TABLA
-========================================== */
-
-function renderizarTabla(
-    resultados
-) {
-
-    const tabla =
-        document.getElementById(
-            "tablaRotacion"
-        );
-
-
-    tabla.innerHTML =
-        resultados
-            .map(
-                fin =>
-                    crearFinSemana(
-                        fin
-                    )
+        document
+            .getElementById(
+                "btnGenerar"
             )
-            .join("");
-
-}
-
-
-function crearFinSemana(
-    fin
-) {
-
-    let claseImpresion =
-        "impresion-normal";
-
-
-    if (
-        fin.vacaciones.length
-        >
-        0
-    ) {
-
-        claseImpresion =
-            "impresion-vacaciones";
-
-    }
-
-
-    if (
-        fin.cambio
-    ) {
-
-        claseImpresion =
-            "impresion-manual";
-
-    }
-
-
-    const claseDescanso =
-        fin.descanso.tipo
-        ===
-        "Vacaciones"
-
-            ?
-            "badge-vacaciones"
-
-            :
-            "badge-descansa";
-
-
-    return `
-
-        <tr class="inicio-fin-semana">
-
-            <td
-                rowspan="2"
-                class="grupo-semana"
-            >
-
-                <strong>
-                    ${html(
-                        fin.semana
-                    )}
-                </strong>
-
-
-                <span class="ciclo">
-                    Ciclo ${html(
-                        fin.ciclo
-                    )}
-                </span>
-
-            </td>
-
-
-            ${crearDia(
-                fin.sabado,
-                "Sábado"
-            )}
-
-
-            <td
-                rowspan="2"
-                class="descanso-columna"
-            >
-
-                <span
-                    class="badge ${claseDescanso}"
-                >
-
-                    ${html(
-                        fin.descanso.tipo
-                    )}
-
-                </span>
-
-
-                <span
-                    class="persona-descanso"
-                >
-
-                    ${html(
-                        fin.descanso.personas.join(
-                            ", "
-                        )
-                    )}
-
-                </span>
-
-            </td>
-
-
-            ${crearEstado(
-                fin.sabado.estado
-            )}
-
-        </tr>
-
-
-        <tr>
-
-            ${crearDia(
-                fin.domingo,
-                "Domingo"
-            )}
-
-
-            ${crearEstado(
-                fin.domingo.estado
-            )}
-
-        </tr>
-
-
-        <tr class="fila-resultado">
-
-            <td colspan="7">
-
-                <div
-                    class="impresion ${claseImpresion}"
-                >
-
-                    <div
-                        class="impresion-titulo"
-                    >
-
-                        Impresión final:
-
-                    </div>
-
-
-                    <div class="resultado">
-
-                        <span
-                            class="punto punto-sabado"
-                        ></span>
-
-                        <span>
-
-                            Sábado:
-
-                            <strong>
-
-                                ${html(
-                                    fin.sabado.encargado
-                                )}
-
-                            </strong>
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="resultado">
-
-                        <span
-                            class="punto punto-domingo"
-                        ></span>
-
-                        <span>
-
-                            Domingo:
-
-                            <strong>
-
-                                ${html(
-                                    fin.domingo.encargado
-                                )}
-
-                            </strong>
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="resultado">
-
-                        <span
-                            class="punto punto-descanso"
-                        ></span>
-
-                        <span>
-
-                            ${html(
-                                fin.descanso.tipo
-                            )}:
-
-                            <strong>
-
-                                ${html(
-                                    fin.descanso.personas.join(
-                                        ", "
-                                    )
-                                )}
-
-                            </strong>
-
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </td>
-
-        </tr>
-
-    `;
-
-}
-
-
-function crearDia(
-    registro,
-    nombre
-) {
-
-    const clase =
-        nombre ===
-        "Sábado"
-
-            ?
-            "sabado"
-
-            :
-            "domingo";
-
-
-    return `
-
-        <td>
-
-            <span class="fecha">
-
-                ${html(
-                    registro.fecha
-                )}
-
-            </span>
-
-
-            <span class="fecha-natural">
-
-                ${html(
-
-                    fechaLegible(
-
-                        fechaDesdeISO(
-                            registro.fecha
-                        )
-
-                    )
-
-                )}
-
-            </span>
-
-        </td>
-
-
-        <td>
-
-            <span class="codigo">
-
-                ${html(
-                    registro.iso
-                )}
-
-            </span>
-
-        </td>
-
-
-        <td>
-
-            <span
-                class="dia ${clase}"
-            >
-
-                ${nombre}
-
-            </span>
-
-        </td>
-
-
-        <td>
-
-            <span class="encargado">
-
-                ${html(
-                    registro.encargado
-                )}
-
-            </span>
-
-        </td>
-
-    `;
-
-}
-
-
-function crearEstado(
-    estado
-) {
-
-    let clase =
-        "estado-normal";
-
-
-    if (
-        estado ===
-        "Vacaciones"
-    ) {
-
-        clase =
-            "estado-vacaciones";
-
-    }
-
-
-    else if (
-        estado ===
-        "Cambio manual"
-    ) {
-
-        clase =
-            "estado-manual";
-
-    }
-
-
-    return `
-
-        <td>
-
-            <span
-                class="estado ${clase}"
-            >
-
-                ${html(
-                    estado
-                )}
-
-            </span>
-
-        </td>
-
-    `;
-
-}
-
-
-/* ==========================================
-   FECHAS
-========================================== */
-
-function fechaDesdeISO(
-    iso
-) {
-
-    if (
-        !iso
-        ||
-        !/^\d{4}-\d{2}-\d{2}$/
-            .test(
-                iso
-            )
-    ) {
-
-        throw new Error(
-            "Fecha inválida."
-        );
-
-    }
-
-
-    const [
-        anio,
-        mes,
-        dia
-    ] =
-        iso
-            .split("-")
-            .map(
-                Number
+            .addEventListener(
+                "click",
+                generarLineaTiempo
             );
 
-
-    const fecha =
-        new Date(
-            anio,
-            mes - 1,
-            dia
-        );
-
-
-    fecha.setHours(
-        0,
-        0,
-        0,
-        0
-    );
-
-
-    return fecha;
-
-}
-
-
-function formatoISO(
-    fecha
-) {
-
-    return (
-
-        fecha.getFullYear()
-
-        +
-
-        "-"
-
-        +
-
-        String(
-            fecha.getMonth()
-            +
-            1
-        ).padStart(
-            2,
-            "0"
-        )
-
-        +
-
-        "-"
-
-        +
-
-        String(
-            fecha.getDate()
-        ).padStart(
-            2,
-            "0"
-        )
-
-    );
-
-}
-
-
-function sumarDias(
-    fecha,
-    cantidad
-) {
-
-    const copia =
-        new Date(
-            fecha
-        );
-
-
-    copia.setDate(
-        copia.getDate()
-        +
-        cantidad
-    );
-
-
-    copia.setHours(
-        0,
-        0,
-        0,
-        0
-    );
-
-
-    return copia;
-
-}
-
-
-function obtenerProximoSabado(
-    fecha
-) {
-
-    const dias =
-        (
-            6
-            -
-            fecha.getDay()
-            +
-            7
-        )
-        %
-        7;
-
-
-    return sumarDias(
-        fecha,
-        dias
-    );
-
-}
-
-
-function fechaSemanaISO(
-    fecha
-) {
-
-    const utc =
-        new Date(
-
-            Date.UTC(
-
-                fecha.getFullYear(),
-
-                fecha.getMonth(),
-
-                fecha.getDate()
-
+        document
+            .getElementById(
+                "btnVacaciones"
             )
+            .addEventListener(
+                "click",
+                guardarVacaciones
+            );
 
-        );
-
-
-    const diaISO =
-        utc.getUTCDay()
-        ||
-        7;
-
-
-    utc.setUTCDate(
-
-        utc.getUTCDate()
-
-        +
-
-        4
-
-        -
-
-        diaISO
-
-    );
-
-
-    const anioISO =
-        utc.getUTCFullYear();
-
-
-    const juevesInicial =
-        new Date(
-
-            Date.UTC(
-                anioISO,
-                0,
-                4
+        document
+            .getElementById(
+                "btnCambio"
             )
-
-        );
-
-
-    const primerDia =
-        juevesInicial.getUTCDay()
-        ||
-        7;
-
-
-    juevesInicial.setUTCDate(
-
-        juevesInicial.getUTCDate()
-
-        +
-
-        4
-
-        -
-
-        primerDia
-
-    );
-
-
-    const semana =
-        1
-
-        +
-
-        Math.round(
-
-            (
-                utc
-                -
-                juevesInicial
-            )
-
-            /
-
-            (
-                7
-                *
-                86400000
-            )
-
-        );
-
-
-    return (
-
-        anioISO
-
-        +
-
-        "-W"
-
-        +
-
-        String(
-            semana
-        ).padStart(
-            2,
-            "0"
-        )
-
-        +
-
-        "-"
-
-        +
-
-        diaISO
-
-    );
-
-}
-
-
-function semanaGeneralISO(
-    fecha
-) {
-
-    return fechaSemanaISO(
-        fecha
-    ).slice(
-        0,
-        -2
-    );
-
-}
-
-
-function fechaLegible(
-    fecha
-) {
-
-    return new Intl.DateTimeFormat(
-
-        "es-SV",
-
-        {
-
-            day:
-                "2-digit",
-
-            month:
-                "long",
-
-            year:
-                "numeric"
-
-        }
-
-    ).format(
-        fecha
-    );
-
-}
-
-
-/* ==========================================
-   VALIDACIÓN
-========================================== */
-
-function validarRango(
-    inicio,
-    fin
-) {
-
-    const fechaInicio =
-        fechaDesdeISO(
-            inicio
-        );
-
-
-    const fechaFin =
-        fechaDesdeISO(
-            fin
-        );
-
-
-    if (
-        fechaInicio
-        >
-        fechaFin
-    ) {
-
-        throw new Error(
-            "La fecha inicial no puede ser posterior a la fecha final."
-        );
-
-    }
-
-}
-
-
-/* ==========================================
-   MENSAJES
-========================================== */
-
-function mostrarError(
-    texto
-) {
-
-    const elemento =
-        document.getElementById(
-            "mensajeError"
-        );
-
-
-    elemento.textContent =
-        texto;
-
-
-    elemento.style.display =
-        "block";
-
-}
-
-
-function mostrarExito(
-    texto
-) {
-
-    const elemento =
-        document.getElementById(
-            "mensajeExito"
-        );
-
-
-    elemento.textContent =
-        texto;
-
-
-    elemento.style.display =
-        "block";
-
-}
-
-
-function limpiarMensajes() {
-
-    document.getElementById(
-        "mensajeError"
-    ).style.display =
-        "none";
-
-
-    document.getElementById(
-        "mensajeExito"
-    ).style.display =
-        "none";
-
-}
-
-
-/* ==========================================
-   UTILIDADES
-========================================== */
-
-function html(
-    valor
-) {
-
-    const entidades = {
-
-        "&":
-            "&amp;",
-
-        "<":
-            "&lt;",
-
-        ">":
-            "&gt;",
-
-        "\"":
-            "&quot;",
-
-        "'":
-            "&#39;"
-
-    };
-
-
-    return String(
-        valor
-    ).replace(
-
-        /[&<>"']/g,
-
-        caracter =>
-            entidades[
-                caracter
-            ]
-
-    );
-
-}
-
-
-function crearId() {
-
-    if (
-        window.crypto
-        &&
-        crypto.randomUUID
-    ) {
-
-        return crypto.randomUUID();
-
-    }
-
-
-    return (
-
-        Date.now()
-            .toString(
-                36
-            )
-
-        +
-
-        Math.random()
-            .toString(
-                36
-            )
-            .slice(
-                2
-            )
-
-    );
-
-}
-
-
-/* ==========================================
-   EVENTOS
-========================================== */
-
-document
-    .getElementById(
-        "btnGenerar"
-    )
-    .addEventListener(
-        "click",
-        generarLineaTiempo
-    );
-
-
-document
-    .getElementById(
-        "btnVacaciones"
-    )
-    .addEventListener(
-        "click",
-        guardarVacaciones
-    );
-
-
-document
-    .getElementById(
-        "btnCambio"
-    )
-    .addEventListener(
-        "click",
-        guardarCambio
-    );
-
-
-/* ==========================================
-   INICIO
-========================================== */
-
-generarLineaTiempo();
-
-
-</script>
+            .addEventListener(
+                "click",
+                guardarCambio
+            );
+
+    </script>
 
 </body>
-
 </html>
