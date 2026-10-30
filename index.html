@@ -11,27 +11,21 @@
             --rojo: #ed111c;
             --rojo-oscuro: #d80012;
             --rojo-suave: #ffe5e7;
-
             --oscuro: #202126;
             --gris: #666666;
             --gris-claro: #dedede;
             --fondo: #f5f5f5;
-
             --turquesa: #0798a5;
             --turquesa-oscuro: #067881;
             --turquesa-suave: #dbf4f4;
-
             --naranja: #f57200;
             --naranja-oscuro: #b85400;
             --naranja-suave: #fff0e4;
-
             --azul: #2563eb;
             --azul-oscuro: #1e4fa7;
             --azul-suave: #e8f0ff;
-
             --verde: #16803c;
             --verde-suave: #e5f7eb;
-
             --blanco: #ffffff;
         }
 
@@ -79,13 +73,10 @@
             position: fixed;
             inset: 0;
             z-index: 1000;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             padding: 20px;
-
             background: var(--fondo);
         }
 
@@ -96,13 +87,10 @@
         .carga-circulo {
             width: 42px;
             height: 42px;
-
             margin: 0 auto 14px;
-
             border: 4px solid var(--gris-claro);
             border-top-color: var(--rojo);
             border-radius: 50%;
-
             animation: girar 0.8s linear infinite;
         }
 
@@ -123,52 +111,40 @@
 
         .pantalla-login {
             min-height: 100vh;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             padding: 24px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #f7f7f7 0%,
-                    #ededed 100%
-                );
+            background: linear-gradient(
+                135deg,
+                #f7f7f7 0%,
+                #ededed 100%
+            );
         }
 
         .login-card {
             width: 100%;
             max-width: 420px;
-
             padding: 34px;
-
             background: var(--blanco);
-
             border: 1px solid var(--gris-claro);
             border-radius: 20px;
-
-            box-shadow:
-                0 18px 45px rgba(0, 0, 0, 0.10);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.10);
         }
 
         .login-marca {
             display: flex;
             align-items: center;
-
             gap: 13px;
-
             margin-bottom: 28px;
         }
 
-        .login-linea {
+        .login-linea,
+        .marca-linea {
             width: 7px;
             min-width: 7px;
-            height: 45px;
-
+            height: 42px;
             background: var(--rojo);
-
             border-radius: 10px;
         }
 
@@ -184,9 +160,7 @@
         .login-descripcion {
             margin-top: 7px;
             margin-bottom: 24px;
-
             color: var(--gris);
-
             font-size: 13px;
             line-height: 1.5;
         }
@@ -199,33 +173,26 @@
         .login-campo {
             display: flex;
             flex-direction: column;
-
             gap: 7px;
         }
 
         .login-campo label {
             color: var(--gris);
-
             font-size: 12px;
             font-weight: bold;
         }
 
         .login-campo input {
             width: 100%;
-
             padding: 12px 13px;
-
             border: 1px solid var(--gris-claro);
             border-radius: 9px;
-
             outline: none;
         }
 
         .login-campo input:focus {
             border-color: var(--rojo);
-
-            box-shadow:
-                0 0 0 3px rgba(237, 17, 28, 0.10);
+            box-shadow: 0 0 0 3px rgba(237, 17, 28, 0.10);
         }
 
         .login-password {
@@ -240,32 +207,23 @@
             position: absolute;
             top: 50%;
             right: 9px;
-
             transform: translateY(-50%);
-
             padding: 6px 8px;
-
             color: var(--gris);
             background: transparent;
-
             border: none;
-
             font-size: 11px;
             font-weight: bold;
         }
 
         .boton-login {
             width: 100%;
-
             margin-top: 20px;
             padding: 12px;
-
             color: var(--blanco);
             background: var(--oscuro);
-
             border: none;
             border-radius: 9px;
-
             font-weight: bold;
         }
 
@@ -275,15 +233,11 @@
 
         .login-error {
             display: none;
-
             margin-top: 15px;
             padding: 12px 14px;
-
             color: var(--rojo-oscuro);
             background: var(--rojo-suave);
-
             border-radius: 9px;
-
             font-size: 12px;
             line-height: 1.5;
         }
@@ -299,32 +253,18 @@
 
         .header-container {
             max-width: 1400px;
-
             margin: auto;
             padding: 18px 30px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             gap: 20px;
         }
 
         .marca {
             display: flex;
             align-items: center;
-
             gap: 14px;
-        }
-
-        .marca-linea {
-            width: 7px;
-            min-width: 7px;
-            height: 40px;
-
-            background: var(--rojo);
-
-            border-radius: 10px;
         }
 
         .marca h1 {
@@ -334,33 +274,25 @@
         .usuario-sesion {
             display: flex;
             align-items: center;
-
             gap: 12px;
         }
 
         .usuario-correo {
             max-width: 260px;
-
             overflow: hidden;
-
             color: var(--gris);
-
             font-size: 12px;
             font-weight: bold;
-
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
         .boton-salir {
             padding: 9px 14px;
-
             color: var(--blanco);
             background: var(--oscuro);
-
             border: none;
             border-radius: 9px;
-
             font-size: 11px;
             font-weight: bold;
         }
@@ -375,7 +307,6 @@
 
         .contenido {
             max-width: 1400px;
-
             margin: auto;
             padding: 28px 30px 55px;
         }
@@ -383,19 +314,13 @@
         .conexion {
             margin-bottom: 18px;
             padding: 12px 15px;
-
             display: flex;
             align-items: center;
-
             gap: 9px;
-
             background: var(--blanco);
-
             border: 1px solid var(--gris-claro);
             border-radius: 10px;
-
             color: var(--gris);
-
             font-size: 12px;
         }
 
@@ -403,9 +328,7 @@
             width: 9px;
             min-width: 9px;
             height: 9px;
-
             background: var(--naranja);
-
             border-radius: 50%;
         }
 
@@ -423,41 +346,36 @@
 
         .paneles {
             display: grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
-
             margin-bottom: 25px;
         }
 
-        .card {
+        .card,
+        .administracion-card {
             padding: 22px;
-
             background: var(--blanco);
-
             border: 1px solid var(--gris-claro);
             border-radius: 16px;
-
-            box-shadow:
-                0 3px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
         }
 
-        .card h2 {
+        .card h2,
+        .administracion-card h2 {
             font-size: 16px;
+        }
+
+        .card-descripcion,
+        .administracion-descripcion {
+            margin-top: 7px;
+            margin-bottom: 17px;
+            color: var(--gris);
+            font-size: 12px;
+            line-height: 1.5;
         }
 
         .card-descripcion {
             min-height: 36px;
-
-            margin-top: 7px;
-            margin-bottom: 17px;
-
-            color: var(--gris);
-
-            font-size: 12px;
-            line-height: 1.5;
         }
 
         .campos {
@@ -466,20 +384,17 @@
         }
 
         .dos-columnas {
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .campo {
             display: flex;
             flex-direction: column;
-
             gap: 7px;
         }
 
         .campo label {
             color: var(--gris);
-
             font-size: 11px;
             font-weight: bold;
         }
@@ -487,38 +402,28 @@
         .campo input,
         .campo select {
             width: 100%;
-
             padding: 10px 12px;
-
             color: var(--oscuro);
             background: var(--blanco);
-
             border: 1px solid var(--gris-claro);
             border-radius: 9px;
-
             outline: none;
         }
 
         .campo input:focus,
         .campo select:focus {
             border-color: var(--rojo);
-
-            box-shadow:
-                0 0 0 3px rgba(237, 17, 28, 0.09);
+            box-shadow: 0 0 0 3px rgba(237, 17, 28, 0.09);
         }
 
         .boton {
             width: 100%;
-
             margin-top: 15px;
             padding: 11px;
-
             color: var(--blanco);
             background: var(--oscuro);
-
             border: none;
             border-radius: 9px;
-
             font-size: 12px;
             font-weight: bold;
         }
@@ -536,17 +441,110 @@
         }
 
         /* ==========================================
+           ADMINISTRACIÓN DE REGISTROS
+        ========================================== */
+
+        .administracion {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .administracion-encabezado {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .contador-registros {
+            min-width: 28px;
+            padding: 5px 9px;
+            color: var(--blanco);
+            background: var(--oscuro);
+            border-radius: 20px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .lista-registros {
+            display: grid;
+            gap: 9px;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+
+        .registro-item {
+            padding: 12px 13px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            background: #f8f8f8;
+            border: 1px solid #eeeeee;
+            border-radius: 10px;
+        }
+
+        .registro-info {
+            min-width: 0;
+        }
+
+        .registro-info strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+
+        .registro-info span {
+            display: block;
+            color: var(--gris);
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .registro-info .registro-secundario {
+            margin-top: 3px;
+            color: #888888;
+            font-size: 10px;
+        }
+
+        .boton-eliminar {
+            flex-shrink: 0;
+            padding: 8px 11px;
+            color: var(--rojo-oscuro);
+            background: var(--rojo-suave);
+            border: 1px solid #ffc8cc;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .boton-eliminar:hover:not(:disabled) {
+            color: var(--blanco);
+            background: var(--rojo);
+        }
+
+        .lista-vacia {
+            padding: 18px;
+            color: var(--gris);
+            background: #f8f8f8;
+            border: 1px dashed var(--gris-claro);
+            border-radius: 10px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* ==========================================
            MENSAJES
         ========================================== */
 
         .mensaje {
             display: none;
-
             margin-bottom: 20px;
             padding: 14px 17px;
-
             border-radius: 10px;
-
             font-size: 13px;
             font-weight: bold;
             line-height: 1.5;
@@ -568,20 +566,15 @@
 
         .tabla-contenedor {
             overflow-x: auto;
-
             background: var(--blanco);
-
             border: 1px solid var(--gris-claro);
             border-radius: 16px;
-
-            box-shadow:
-                0 3px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
         }
 
         table {
             width: 100%;
             min-width: 1150px;
-
             border-collapse: collapse;
         }
 
@@ -592,18 +585,14 @@
 
         th {
             padding: 16px;
-
             text-align: left;
-
             font-size: 12px;
             line-height: 1.4;
         }
 
         td {
             padding: 16px;
-
             border-bottom: 1px solid #eeeeee;
-
             font-size: 13px;
             vertical-align: middle;
         }
@@ -614,76 +603,53 @@
 
         .grupo-semana {
             min-width: 135px;
-
             text-align: center;
-
             background: #fafafa;
-
             border-right: 1px solid #eeeeee;
         }
 
         .grupo-semana strong {
             display: block;
-
             font-size: 14px;
         }
 
         .ciclo {
             display: inline-block;
-
             margin-top: 8px;
             padding: 5px 10px;
-
             color: var(--blanco);
             background: var(--oscuro);
-
             border-radius: 20px;
-
             font-size: 10px;
             font-weight: bold;
         }
 
         .fecha {
             display: block;
-
             font-weight: bold;
         }
 
         .fecha-natural {
             display: block;
-
             margin-top: 4px;
-
             color: var(--gris);
-
             font-size: 11px;
         }
 
         .codigo {
             display: inline-block;
-
             padding: 6px 9px;
-
             background: #eeeeee;
-
             border-radius: 7px;
-
-            font-family:
-                Consolas,
-                "Courier New",
-                monospace;
-
+            font-family: Consolas, "Courier New", monospace;
             font-size: 11px;
             font-weight: bold;
         }
 
         .dia {
             display: inline-block;
-
             padding: 6px 10px;
-
             border-radius: 20px;
-
             font-size: 11px;
             font-weight: bold;
         }
@@ -704,22 +670,16 @@
 
         .descanso-columna {
             min-width: 165px;
-
             text-align: center;
-
             background: #fcfcfc;
-
             border-left: 1px solid #eeeeee;
             border-right: 1px solid #eeeeee;
         }
 
         .badge {
             display: inline-block;
-
             padding: 6px 10px;
-
             border-radius: 20px;
-
             font-size: 10px;
             font-weight: bold;
         }
@@ -736,19 +696,14 @@
 
         .persona-descanso {
             display: block;
-
             margin-top: 7px;
-
             font-weight: bold;
         }
 
         .estado {
             display: inline-block;
-
             padding: 7px 11px;
-
             border-radius: 20px;
-
             font-size: 10px;
             font-weight: bold;
         }
@@ -774,20 +729,15 @@
 
         .fila-resultado td {
             padding: 0;
-
             border-bottom: 4px solid var(--rojo);
         }
 
         .impresion {
             padding: 15px 18px;
-
             display: grid;
-
             grid-template-columns:
                 auto repeat(3, minmax(170px, 1fr));
-
             align-items: center;
-
             gap: 12px;
         }
 
@@ -806,23 +756,17 @@
         .impresion-titulo {
             font-size: 12px;
             font-weight: bold;
-
             white-space: nowrap;
         }
 
         .resultado {
             padding: 11px 13px;
-
             display: flex;
             align-items: center;
-
             gap: 9px;
-
             background: var(--blanco);
-
             border: 1px solid var(--gris-claro);
             border-radius: 10px;
-
             font-size: 12px;
         }
 
@@ -830,7 +774,6 @@
             width: 9px;
             min-width: 9px;
             height: 9px;
-
             border-radius: 50%;
         }
 
@@ -856,26 +799,26 @@
 
         footer {
             margin-top: 30px;
-
             background: var(--blanco);
-
             border-top: 1px solid var(--gris-claro);
         }
 
         footer p {
             max-width: 1400px;
-
             margin: auto;
             padding: 24px;
-
             color: var(--gris);
-
             text-align: center;
             font-size: 12px;
         }
 
+        /* ==========================================
+           RESPONSIVE
+        ========================================== */
+
         @media (max-width: 1000px) {
-            .paneles {
+            .paneles,
+            .administracion {
                 grid-template-columns: 1fr;
             }
 
@@ -896,7 +839,6 @@
 
             .usuario-sesion {
                 width: 100%;
-
                 justify-content: space-between;
             }
         }
@@ -919,59 +861,54 @@
             .login-card {
                 padding: 25px;
             }
+
+            .registro-item {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .boton-eliminar {
+                width: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- ==========================================
-         CARGA INICIAL
-    =========================================== -->
+    <!-- CARGA INICIAL -->
 
     <section id="pantallaCarga" class="pantalla-carga">
         <div class="carga-contenido">
-
             <div class="carga-circulo"></div>
-
-            <p>
-                Verificando sesión...
-            </p>
-
+            <p>Verificando sesión...</p>
         </div>
     </section>
 
-    <!-- ==========================================
-         LOGIN
-    =========================================== -->
+    <!-- LOGIN -->
 
     <section id="pantallaLogin" class="pantalla-login oculto">
 
         <form id="formularioLogin" class="login-card">
 
             <div class="login-marca">
-
                 <div class="login-linea"></div>
 
                 <h1>
                     Vacantes y encargados del fin de semana
                 </h1>
-
             </div>
 
-            <h2>
-                Iniciar sesión
-            </h2>
+            <h2>Iniciar sesión</h2>
 
             <p class="login-descripcion">
-                Ingresa con la cuenta autorizada para consultar y modificar
-                la planificación de fines de semana.
+                Ingresa con una cuenta autorizada para consultar y modificar
+                la planificación.
             </p>
 
             <div class="login-campos">
 
                 <div class="login-campo">
-
                     <label for="loginCorreo">
                         Correo electrónico
                     </label>
@@ -982,17 +919,14 @@
                         autocomplete="username"
                         required
                     >
-
                 </div>
 
                 <div class="login-campo">
-
                     <label for="loginPassword">
                         Contraseña
                     </label>
 
                     <div class="login-password">
-
                         <input
                             id="loginPassword"
                             type="password"
@@ -1007,9 +941,7 @@
                         >
                             Mostrar
                         </button>
-
                     </div>
-
                 </div>
 
             </div>
@@ -1031,24 +963,19 @@
 
     </section>
 
-    <!-- ==========================================
-         APLICACIÓN
-    =========================================== -->
+    <!-- APLICACIÓN -->
 
     <div id="aplicacion" class="oculto">
 
         <header>
-
             <div class="header-container">
 
                 <div class="marca">
-
                     <div class="marca-linea"></div>
 
                     <h1>
                         Vacantes y encargados del fin de semana
                     </h1>
-
                 </div>
 
                 <div class="usuario-sesion">
@@ -1069,30 +996,25 @@
                 </div>
 
             </div>
-
         </header>
 
         <main class="contenido">
 
             <div id="estadoConexion" class="conexion">
-
                 <span class="conexion-punto"></span>
 
                 <span id="textoConexion">
                     Conectando con Firestore...
                 </span>
-
             </div>
+
+            <!-- FORMULARIOS -->
 
             <section class="paneles">
 
-                <!-- RANGO -->
-
                 <article class="card">
 
-                    <h2>
-                        Rango de simulación
-                    </h2>
+                    <h2>Rango de simulación</h2>
 
                     <p class="card-descripcion">
                         Define el período que deseas visualizar.
@@ -1101,7 +1023,6 @@
                     <div class="campos dos-columnas">
 
                         <div class="campo">
-
                             <label for="fechaInicio">
                                 Fecha inicial
                             </label>
@@ -1111,11 +1032,9 @@
                                 type="date"
                                 value="2026-10-24"
                             >
-
                         </div>
 
                         <div class="campo">
-
                             <label for="fechaFin">
                                 Fecha final
                             </label>
@@ -1125,7 +1044,6 @@
                                 type="date"
                                 value="2026-12-06"
                             >
-
                         </div>
 
                     </div>
@@ -1140,13 +1058,9 @@
 
                 </article>
 
-                <!-- VACACIONES -->
-
                 <article class="card">
 
-                    <h2>
-                        Registrar vacaciones
-                    </h2>
+                    <h2>Registrar vacaciones</h2>
 
                     <p class="card-descripcion">
                         La rotación se pausa durante el período registrado.
@@ -1155,37 +1069,23 @@
                     <div class="campos">
 
                         <div class="campo">
-
                             <label for="vacacionesAsesor">
                                 Asesor
                             </label>
 
                             <select id="vacacionesAsesor">
-
                                 <option value="">
                                     Seleccionar asesor
                                 </option>
-
-                                <option value="Juan">
-                                    Juan
-                                </option>
-
-                                <option value="Marvin">
-                                    Marvin
-                                </option>
-
-                                <option value="Eli">
-                                    Eli
-                                </option>
-
+                                <option value="Juan">Juan</option>
+                                <option value="Marvin">Marvin</option>
+                                <option value="Eli">Eli</option>
                             </select>
-
                         </div>
 
                         <div class="campos dos-columnas">
 
                             <div class="campo">
-
                                 <label for="vacacionesInicio">
                                     Desde
                                 </label>
@@ -1194,11 +1094,9 @@
                                     id="vacacionesInicio"
                                     type="date"
                                 >
-
                             </div>
 
                             <div class="campo">
-
                                 <label for="vacacionesFin">
                                     Hasta
                                 </label>
@@ -1207,7 +1105,6 @@
                                     id="vacacionesFin"
                                     type="date"
                                 >
-
                             </div>
 
                         </div>
@@ -1225,13 +1122,9 @@
 
                 </article>
 
-                <!-- CAMBIO MANUAL -->
-
                 <article class="card">
 
-                    <h2>
-                        Cambio manual
-                    </h2>
+                    <h2>Cambio manual</h2>
 
                     <p class="card-descripcion">
                         Modifica solamente el fin de semana seleccionado.
@@ -1240,7 +1133,6 @@
                     <div class="campos">
 
                         <div class="campo">
-
                             <label for="cambioFecha">
                                 Sábado del fin de semana
                             </label>
@@ -1249,99 +1141,60 @@
                                 id="cambioFecha"
                                 type="date"
                             >
-
                         </div>
 
                         <div class="campos dos-columnas">
 
                             <div class="campo">
-
                                 <label for="cambioSabado">
                                     Sábado
                                 </label>
 
                                 <select id="cambioSabado">
-
-                                    <option value="">
-                                        Sin cambio
-                                    </option>
-
-                                    <option value="Juan">
-                                        Juan
-                                    </option>
-
-                                    <option value="Marvin">
-                                        Marvin
-                                    </option>
-
-                                    <option value="Eli">
-                                        Eli
-                                    </option>
-
+                                    <option value="">Sin cambio</option>
+                                    <option value="Juan">Juan</option>
+                                    <option value="Marvin">Marvin</option>
+                                    <option value="Eli">Eli</option>
                                 </select>
-
                             </div>
 
                             <div class="campo">
-
                                 <label for="cambioDomingo">
                                     Domingo
                                 </label>
 
                                 <select id="cambioDomingo">
-
-                                    <option value="">
-                                        Sin cambio
-                                    </option>
-
-                                    <option value="Juan">
-                                        Juan
-                                    </option>
-
-                                    <option value="Marvin">
-                                        Marvin
-                                    </option>
-
-                                    <option value="Eli">
-                                        Eli
-                                    </option>
-
+                                    <option value="">Sin cambio</option>
+                                    <option value="Juan">Juan</option>
+                                    <option value="Marvin">Marvin</option>
+                                    <option value="Eli">Eli</option>
                                 </select>
-
                             </div>
 
                         </div>
 
                         <div class="campo">
-
                             <label for="cambioMotivo">
                                 Motivo
                             </label>
 
                             <select id="cambioMotivo">
-
                                 <option value="Cambio operativo">
                                     Cambio operativo
                                 </option>
-
                                 <option value="Motivo personal">
                                     Motivo personal
                                 </option>
-
                                 <option value="Permiso">
                                     Permiso
                                 </option>
-
                                 <option value="Incapacidad">
                                     Incapacidad
                                 </option>
-
                                 <option value="Otro">
                                     Otro
                                 </option>
-
                             </select>
-
                         </div>
 
                     </div>
@@ -1359,6 +1212,70 @@
 
             </section>
 
+            <!-- ADMINISTRACIÓN -->
+
+            <section class="administracion">
+
+                <article class="administracion-card">
+
+                    <div class="administracion-encabezado">
+                        <h2>Vacaciones registradas</h2>
+
+                        <span
+                            id="contadorVacaciones"
+                            class="contador-registros"
+                        >
+                            0
+                        </span>
+                    </div>
+
+                    <p class="administracion-descripcion">
+                        Consulta y elimina períodos registrados incorrectamente.
+                    </p>
+
+                    <div
+                        id="listaVacaciones"
+                        class="lista-registros"
+                    >
+                        <div class="lista-vacia">
+                            No hay vacaciones registradas.
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="administracion-card">
+
+                    <div class="administracion-encabezado">
+                        <h2>Cambios manuales registrados</h2>
+
+                        <span
+                            id="contadorCambios"
+                            class="contador-registros"
+                        >
+                            0
+                        </span>
+                    </div>
+
+                    <p class="administracion-descripcion">
+                        Consulta y elimina modificaciones puntuales.
+                    </p>
+
+                    <div
+                        id="listaCambios"
+                        class="lista-registros"
+                    >
+                        <div class="lista-vacia">
+                            No hay cambios manuales registrados.
+                        </div>
+                    </div>
+
+                </article>
+
+            </section>
+
+            <!-- MENSAJES -->
+
             <div
                 id="mensajeError"
                 class="mensaje mensaje-error"
@@ -1368,6 +1285,8 @@
                 id="mensajeExito"
                 class="mensaje mensaje-exito"
             ></div>
+
+            <!-- TABLA -->
 
             <section class="tabla-contenedor">
 
@@ -1386,13 +1305,11 @@
                     </thead>
 
                     <tbody id="tablaRotacion">
-
                         <tr>
                             <td colspan="7">
                                 Cargando información...
                             </td>
                         </tr>
-
                     </tbody>
 
                 </table>
@@ -1409,9 +1326,7 @@
 
     </div>
 
-    <!-- ==========================================
-         FIREBASE
-    =========================================== -->
+    <!-- FIREBASE -->
 
     <script type="module">
 
@@ -1432,12 +1347,13 @@
             addDoc,
             setDoc,
             doc,
+            deleteDoc,
             onSnapshot,
             serverTimestamp
         } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
         /* ==========================================
-           CONFIGURACIÓN FIREBASE
+           FIREBASE
         ========================================== */
 
         const firebaseConfig = {
@@ -1460,7 +1376,7 @@
             getFirestore(firebaseApp);
 
         /* ==========================================
-           CONFIGURACIÓN DE ROTACIÓN
+           ROTACIÓN
         ========================================== */
 
         const ASESORES = [
@@ -1502,61 +1418,38 @@
         let vacacionesCargadas = false;
         let cambiosCargados = false;
 
-        /* ==========================================
-           ELEMENTOS
-        ========================================== */
-
         const pantallaCarga =
-            document.getElementById(
-                "pantallaCarga"
-            );
+            document.getElementById("pantallaCarga");
 
         const pantallaLogin =
-            document.getElementById(
-                "pantallaLogin"
-            );
+            document.getElementById("pantallaLogin");
 
         const aplicacion =
-            document.getElementById(
-                "aplicacion"
-            );
+            document.getElementById("aplicacion");
 
         /* ==========================================
-           ESTADO DE AUTENTICACIÓN
+           AUTENTICACIÓN
         ========================================== */
 
         onAuthStateChanged(
             auth,
             function (usuario) {
 
-                pantallaCarga.classList.add(
-                    "oculto"
-                );
+                pantallaCarga.classList.add("oculto");
 
                 if (usuario) {
-
                     mostrarAplicacion(usuario);
-
                     iniciarFirestore();
-
                 } else {
-
                     detenerFirestore();
-
                     mostrarLogin();
                 }
             }
         );
 
         function mostrarLogin() {
-
-            aplicacion.classList.add(
-                "oculto"
-            );
-
-            pantallaLogin.classList.remove(
-                "oculto"
-            );
+            aplicacion.classList.add("oculto");
+            pantallaLogin.classList.remove("oculto");
 
             document.getElementById(
                 "loginPassword"
@@ -1566,14 +1459,8 @@
         }
 
         function mostrarAplicacion(usuario) {
-
-            pantallaLogin.classList.add(
-                "oculto"
-            );
-
-            aplicacion.classList.remove(
-                "oculto"
-            );
+            pantallaLogin.classList.add("oculto");
+            aplicacion.classList.remove("oculto");
 
             document.getElementById(
                 "usuarioCorreo"
@@ -1581,14 +1468,8 @@
                 usuario.email || "Usuario autenticado";
         }
 
-        /* ==========================================
-           LOGIN
-        ========================================== */
-
         async function iniciarSesion(evento) {
-
             evento.preventDefault();
-
             ocultarErrorLogin();
 
             const correo =
@@ -1607,7 +1488,6 @@
                 );
 
             try {
-
                 if (!correo || !password) {
                     throw new Error(
                         "Ingresa el correo y la contraseña."
@@ -1615,8 +1495,7 @@
                 }
 
                 boton.disabled = true;
-                boton.textContent =
-                    "Ingresando...";
+                boton.textContent = "Ingresando...";
 
                 await signInWithEmailAndPassword(
                     auth,
@@ -1625,7 +1504,6 @@
                 );
 
             } catch (error) {
-
                 console.error(error);
 
                 mostrarErrorLogin(
@@ -1633,30 +1511,24 @@
                 );
 
             } finally {
-
                 boton.disabled = false;
-                boton.textContent =
-                    "Iniciar sesión";
+                boton.textContent = "Iniciar sesión";
             }
         }
 
         async function cerrarSesion() {
-
             const boton =
                 document.getElementById(
                     "btnCerrarSesion"
                 );
 
             try {
-
                 boton.disabled = true;
-                boton.textContent =
-                    "Cerrando...";
+                boton.textContent = "Cerrando...";
 
                 await signOut(auth);
 
             } catch (error) {
-
                 console.error(error);
 
                 mostrarError(
@@ -1664,15 +1536,12 @@
                 );
 
             } finally {
-
                 boton.disabled = false;
-                boton.textContent =
-                    "Cerrar sesión";
+                boton.textContent = "Cerrar sesión";
             }
         }
 
         function obtenerMensajeLogin(error) {
-
             const codigo =
                 error && error.code
                     ? error.code
@@ -1688,63 +1557,51 @@
                 );
             }
 
-            if (
-                codigo === "auth/invalid-email"
-            ) {
+            if (codigo === "auth/invalid-email") {
                 return (
-                    "El formato del correo electrónico no es válido."
+                    "El correo electrónico no es válido."
                 );
             }
 
-            if (
-                codigo === "auth/too-many-requests"
-            ) {
+            if (codigo === "auth/too-many-requests") {
                 return (
-                    "Se realizaron demasiados intentos. Espera unos minutos e inténtalo nuevamente."
+                    "Se realizaron demasiados intentos. " +
+                    "Espera unos minutos."
                 );
             }
 
-            if (
-                codigo === "auth/network-request-failed"
-            ) {
+            if (codigo === "auth/network-request-failed") {
                 return (
-                    "No fue posible conectar con Firebase. Revisa tu conexión a internet."
+                    "No fue posible conectar con Firebase."
                 );
             }
 
             return (
-                "No fue posible iniciar sesión. Verifica las credenciales."
+                "No fue posible iniciar sesión."
             );
         }
 
         function mostrarErrorLogin(texto) {
-
             const elemento =
                 document.getElementById(
                     "loginError"
                 );
 
             elemento.textContent = texto;
-
-            elemento.style.display =
-                "block";
+            elemento.style.display = "block";
         }
 
         function ocultarErrorLogin() {
-
             const elemento =
                 document.getElementById(
                     "loginError"
                 );
 
             elemento.textContent = "";
-
-            elemento.style.display =
-                "none";
+            elemento.style.display = "none";
         }
 
         function alternarPassword() {
-
             const campo =
                 document.getElementById(
                     "loginPassword"
@@ -1755,9 +1612,7 @@
                     "btnMostrarPassword"
                 );
 
-            if (
-                campo.type === "password"
-            ) {
+            if (campo.type === "password") {
                 campo.type = "text";
                 boton.textContent = "Ocultar";
             } else {
@@ -1771,7 +1626,6 @@
         ========================================== */
 
         function iniciarFirestore() {
-
             detenerFirestore();
 
             vacaciones = [];
@@ -1793,28 +1647,14 @@
                 "Conectando con Firestore..."
             );
 
-            const vacacionesRef =
-                collection(
-                    db,
-                    "vacaciones"
-                );
-
-            const cambiosRef =
-                collection(
-                    db,
-                    "cambios"
-                );
-
             cancelarVacaciones =
                 onSnapshot(
-                    vacacionesRef,
+                    collection(db, "vacaciones"),
 
                     function (snapshot) {
-
                         vacaciones =
                             snapshot.docs.map(
                                 function (documento) {
-
                                     return {
                                         id: documento.id,
                                         ...documento.data()
@@ -1827,24 +1667,17 @@
                         comprobarCargaCompleta();
                     },
 
-                    function (error) {
-
-                        manejarErrorFirestore(
-                            error
-                        );
-                    }
+                    manejarErrorFirestore
                 );
 
             cancelarCambios =
                 onSnapshot(
-                    cambiosRef,
+                    collection(db, "cambios"),
 
                     function (snapshot) {
-
                         cambios =
                             snapshot.docs.map(
                                 function (documento) {
-
                                     return {
                                         id: documento.id,
                                         ...documento.data()
@@ -1857,17 +1690,11 @@
                         comprobarCargaCompleta();
                     },
 
-                    function (error) {
-
-                        manejarErrorFirestore(
-                            error
-                        );
-                    }
+                    manejarErrorFirestore
                 );
         }
 
         function detenerFirestore() {
-
             if (
                 typeof cancelarVacaciones ===
                 "function"
@@ -1893,7 +1720,6 @@
         }
 
         function comprobarCargaCompleta() {
-
             if (
                 !vacacionesCargadas ||
                 !cambiosCargados
@@ -1914,6 +1740,7 @@
                 "btnCambio"
             ).disabled = false;
 
+            renderizarAdministracion();
             generarLineaTiempo();
         }
 
@@ -1926,8 +1753,7 @@
                     "estadoConexion"
                 );
 
-            contenedor.className =
-                "conexion";
+            contenedor.className = "conexion";
 
             if (estado === "conectado") {
                 contenedor.classList.add(
@@ -1947,7 +1773,6 @@
         }
 
         function manejarErrorFirestore(error) {
-
             console.error(error);
 
             actualizarConexion(
@@ -1961,32 +1786,20 @@
         }
 
         function obtenerMensajeFirestore(error) {
-
             if (
                 error &&
-                error.code ===
-                    "permission-denied"
+                error.code === "permission-denied"
             ) {
                 return (
                     "Firestore rechazó el acceso. " +
-                    "Verifica que el usuario esté autenticado y que las reglas se hayan publicado."
-                );
-            }
-
-            if (
-                error &&
-                error.code ===
-                    "unavailable"
-            ) {
-                return (
-                    "Firestore no está disponible temporalmente. Revisa la conexión a internet."
+                    "Verifica la sesión y las reglas."
                 );
             }
 
             return (
                 error && error.message
                     ? error.message
-                    : "Ocurrió un error al comunicarse con Firestore."
+                    : "Ocurrió un error con Firestore."
             );
         }
 
@@ -1995,7 +1808,6 @@
         ========================================== */
 
         async function guardarVacaciones() {
-
             limpiarMensajes();
 
             const boton =
@@ -2004,7 +1816,6 @@
                 );
 
             try {
-
                 if (!auth.currentUser) {
                     throw new Error(
                         "La sesión ya no está activa."
@@ -2032,15 +1843,11 @@
                     );
                 }
 
-                validarRango(
-                    inicio,
-                    fin
-                );
+                validarRango(inicio, fin);
 
                 const duplicado =
                     vacaciones.some(
                         function (registro) {
-
                             return (
                                 registro.asesor === asesor &&
                                 rangosSeCruzan(
@@ -2055,19 +1862,16 @@
 
                 if (duplicado) {
                     throw new Error(
-                        "El asesor ya tiene vacaciones registradas dentro de ese período."
+                        "El asesor ya tiene vacaciones " +
+                        "registradas dentro de ese período."
                     );
                 }
 
                 boton.disabled = true;
-                boton.textContent =
-                    "Guardando...";
+                boton.textContent = "Guardando...";
 
                 await addDoc(
-                    collection(
-                        db,
-                        "vacaciones"
-                    ),
+                    collection(db, "vacaciones"),
                     {
                         asesor: asesor,
                         inicio: inicio,
@@ -2096,7 +1900,6 @@
                 );
 
             } catch (error) {
-
                 console.error(error);
 
                 mostrarError(
@@ -2105,7 +1908,6 @@
                 );
 
             } finally {
-
                 boton.disabled = false;
                 boton.textContent =
                     "Guardar vacaciones";
@@ -2113,11 +1915,10 @@
         }
 
         /* ==========================================
-           GUARDAR CAMBIO MANUAL
+           GUARDAR CAMBIO
         ========================================== */
 
         async function guardarCambio() {
-
             limpiarMensajes();
 
             const boton =
@@ -2126,7 +1927,6 @@
                 );
 
             try {
-
                 if (!auth.currentUser) {
                     throw new Error(
                         "La sesión ya no está activa."
@@ -2162,33 +1962,23 @@
                 const fechaObjeto =
                     fechaDesdeISO(fecha);
 
-                if (
-                    fechaObjeto.getDay() !== 6
-                ) {
+                if (fechaObjeto.getDay() !== 6) {
                     throw new Error(
                         "La fecha seleccionada debe ser sábado."
                     );
                 }
 
-                if (
-                    !sabado &&
-                    !domingo
-                ) {
+                if (!sabado && !domingo) {
                     throw new Error(
                         "Selecciona al menos un cambio."
                     );
                 }
 
                 boton.disabled = true;
-                boton.textContent =
-                    "Guardando...";
+                boton.textContent = "Guardando...";
 
                 await setDoc(
-                    doc(
-                        db,
-                        "cambios",
-                        fecha
-                    ),
+                    doc(db, "cambios", fecha),
                     {
                         fecha: fecha,
                         sabado: sabado,
@@ -2223,7 +2013,6 @@
                 );
 
             } catch (error) {
-
                 console.error(error);
 
                 mostrarError(
@@ -2232,7 +2021,6 @@
                 );
 
             } finally {
-
                 boton.disabled = false;
                 boton.textContent =
                     "Guardar cambio manual";
@@ -2240,15 +2028,317 @@
         }
 
         /* ==========================================
-           GENERAR ROTACIÓN
+           ELIMINACIÓN
         ========================================== */
 
-        function generarLineaTiempo() {
+        async function eliminarVacacion(
+            id,
+            asesor,
+            inicio,
+            fin
+        ) {
+            const confirmado =
+                window.confirm(
+                    `¿Seguro que deseas eliminar las vacaciones de ${asesor} ` +
+                    `del ${inicio} al ${fin}?`
+                );
+
+            if (!confirmado) {
+                return;
+            }
 
             limpiarMensajes();
 
             try {
+                await deleteDoc(
+                    doc(db, "vacaciones", id)
+                );
 
+                mostrarExito(
+                    "Las vacaciones fueron eliminadas correctamente."
+                );
+
+            } catch (error) {
+                console.error(error);
+
+                mostrarError(
+                    obtenerMensajeFirestore(error)
+                );
+            }
+        }
+
+        async function eliminarCambio(
+            id,
+            fecha
+        ) {
+            const confirmado =
+                window.confirm(
+                    `¿Seguro que deseas eliminar el cambio manual ` +
+                    `del fin de semana ${fecha}?`
+                );
+
+            if (!confirmado) {
+                return;
+            }
+
+            limpiarMensajes();
+
+            try {
+                await deleteDoc(
+                    doc(db, "cambios", id)
+                );
+
+                mostrarExito(
+                    "El cambio manual fue eliminado correctamente."
+                );
+
+            } catch (error) {
+                console.error(error);
+
+                mostrarError(
+                    obtenerMensajeFirestore(error)
+                );
+            }
+        }
+
+        /* ==========================================
+           ADMINISTRACIÓN
+        ========================================== */
+
+        function renderizarAdministracion() {
+            renderizarListaVacaciones();
+            renderizarListaCambios();
+        }
+
+        function renderizarListaVacaciones() {
+            const contenedor =
+                document.getElementById(
+                    "listaVacaciones"
+                );
+
+            const contador =
+                document.getElementById(
+                    "contadorVacaciones"
+                );
+
+            contador.textContent =
+                vacaciones.length;
+
+            if (vacaciones.length === 0) {
+                contenedor.innerHTML = `
+                    <div class="lista-vacia">
+                        No hay vacaciones registradas.
+                    </div>
+                `;
+
+                return;
+            }
+
+            const ordenadas =
+                [...vacaciones].sort(
+                    function (a, b) {
+                        return String(a.inicio)
+                            .localeCompare(
+                                String(b.inicio)
+                            );
+                    }
+                );
+
+            contenedor.innerHTML =
+                ordenadas.map(
+                    function (registro) {
+                        const creadoPor =
+                            registro.creadoPor
+                                ? `Registrado por: ${registro.creadoPor}`
+                                : "";
+
+                        return `
+                            <div class="registro-item">
+
+                                <div class="registro-info">
+                                    <strong>
+                                        ${escaparHTML(
+                                            registro.asesor
+                                        )}
+                                    </strong>
+
+                                    <span>
+                                        ${escaparHTML(
+                                            registro.inicio
+                                        )}
+                                        al
+                                        ${escaparHTML(
+                                            registro.fin
+                                        )}
+                                    </span>
+
+                                    ${
+                                        creadoPor
+                                            ? `
+                                                <span class="registro-secundario">
+                                                    ${escaparHTML(
+                                                        creadoPor
+                                                    )}
+                                                </span>
+                                            `
+                                            : ""
+                                    }
+                                </div>
+
+                                <button
+                                    class="boton-eliminar"
+                                    type="button"
+                                    data-accion="eliminar-vacacion"
+                                    data-id="${escaparHTML(registro.id)}"
+                                    data-asesor="${escaparHTML(registro.asesor)}"
+                                    data-inicio="${escaparHTML(registro.inicio)}"
+                                    data-fin="${escaparHTML(registro.fin)}"
+                                >
+                                    Eliminar
+                                </button>
+
+                            </div>
+                        `;
+                    }
+                ).join("");
+
+            contenedor
+                .querySelectorAll(
+                    '[data-accion="eliminar-vacacion"]'
+                )
+                .forEach(
+                    function (boton) {
+                        boton.addEventListener(
+                            "click",
+                            function () {
+                                eliminarVacacion(
+                                    boton.dataset.id,
+                                    boton.dataset.asesor,
+                                    boton.dataset.inicio,
+                                    boton.dataset.fin
+                                );
+                            }
+                        );
+                    }
+                );
+        }
+
+        function renderizarListaCambios() {
+            const contenedor =
+                document.getElementById(
+                    "listaCambios"
+                );
+
+            const contador =
+                document.getElementById(
+                    "contadorCambios"
+                );
+
+            contador.textContent =
+                cambios.length;
+
+            if (cambios.length === 0) {
+                contenedor.innerHTML = `
+                    <div class="lista-vacia">
+                        No hay cambios manuales registrados.
+                    </div>
+                `;
+
+                return;
+            }
+
+            const ordenados =
+                [...cambios].sort(
+                    function (a, b) {
+                        return String(a.fecha)
+                            .localeCompare(
+                                String(b.fecha)
+                            );
+                    }
+                );
+
+            contenedor.innerHTML =
+                ordenados.map(
+                    function (registro) {
+                        const sabado =
+                            registro.sabado ||
+                            "Sin cambio";
+
+                        const domingo =
+                            registro.domingo ||
+                            "Sin cambio";
+
+                        const motivo =
+                            registro.motivo ||
+                            "Sin motivo especificado";
+
+                        return `
+                            <div class="registro-item">
+
+                                <div class="registro-info">
+                                    <strong>
+                                        Fin de semana:
+                                        ${escaparHTML(
+                                            registro.fecha
+                                        )}
+                                    </strong>
+
+                                    <span>
+                                        Sábado:
+                                        ${escaparHTML(sabado)}
+                                        ·
+                                        Domingo:
+                                        ${escaparHTML(domingo)}
+                                    </span>
+
+                                    <span class="registro-secundario">
+                                        Motivo:
+                                        ${escaparHTML(motivo)}
+                                    </span>
+                                </div>
+
+                                <button
+                                    class="boton-eliminar"
+                                    type="button"
+                                    data-accion="eliminar-cambio"
+                                    data-id="${escaparHTML(registro.id)}"
+                                    data-fecha="${escaparHTML(registro.fecha)}"
+                                >
+                                    Eliminar
+                                </button>
+
+                            </div>
+                        `;
+                    }
+                ).join("");
+
+            contenedor
+                .querySelectorAll(
+                    '[data-accion="eliminar-cambio"]'
+                )
+                .forEach(
+                    function (boton) {
+                        boton.addEventListener(
+                            "click",
+                            function () {
+                                eliminarCambio(
+                                    boton.dataset.id,
+                                    boton.dataset.fecha
+                                );
+                            }
+                        );
+                    }
+                );
+        }
+
+        /* ==========================================
+           GENERAR ROTACIÓN
+        ========================================== */
+
+        function generarLineaTiempo() {
+            limpiarMensajes();
+
+            try {
                 const inicioISO =
                     document.getElementById(
                         "fechaInicio"
@@ -2271,26 +2361,18 @@
                     fechaDesdeISO(finISO);
 
                 let indiceRotacion =
-                    calcularIndiceInicial(
-                        inicio
-                    );
+                    calcularIndiceInicial(inicio);
 
                 let sabado =
-                    obtenerProximoSabado(
-                        inicio
-                    );
+                    obtenerProximoSabado(inicio);
 
                 let contadorVacaciones = 0;
 
                 const resultados = [];
 
                 while (sabado <= fin) {
-
                     const domingo =
-                        sumarDias(
-                            sabado,
-                            1
-                        );
+                        sumarDias(sabado, 1);
 
                     const sabadoISO =
                         formatoISO(sabado);
@@ -2314,7 +2396,6 @@
                     let encargadoDomingo;
 
                     if (periodoVacaciones) {
-
                         const cobertura =
                             coberturaVacaciones(
                                 personasVacaciones,
@@ -2330,7 +2411,6 @@
                         contadorVacaciones++;
 
                     } else {
-
                         encargadoSabado =
                             patron.sabado;
 
@@ -2341,15 +2421,12 @@
                     }
 
                     const cambio =
-                        buscarCambio(
-                            sabadoISO
-                        );
+                        buscarCambio(sabadoISO);
 
                     let cambioSabado = false;
                     let cambioDomingo = false;
 
                     if (cambio) {
-
                         if (cambio.sabado) {
                             encargadoSabado =
                                 cambio.sabado;
@@ -2372,21 +2449,16 @@
                         "Rotación normal";
 
                     if (periodoVacaciones) {
-                        estadoSabado =
-                            "Vacaciones";
-
-                        estadoDomingo =
-                            "Vacaciones";
+                        estadoSabado = "Vacaciones";
+                        estadoDomingo = "Vacaciones";
                     }
 
                     if (cambioSabado) {
-                        estadoSabado =
-                            "Cambio manual";
+                        estadoSabado = "Cambio manual";
                     }
 
                     if (cambioDomingo) {
-                        estadoDomingo =
-                            "Cambio manual";
+                        estadoDomingo = "Cambio manual";
                     }
 
                     const descanso =
@@ -2399,9 +2471,7 @@
 
                     resultados.push({
                         semana:
-                            semanaGeneralISO(
-                                sabado
-                            ),
+                            semanaGeneralISO(sabado),
 
                         ciclo:
                             patron.ciclo,
@@ -2409,9 +2479,7 @@
                         sabado: {
                             fecha: sabadoISO,
                             iso:
-                                fechaSemanaISO(
-                                    sabado
-                                ),
+                                fechaSemanaISO(sabado),
                             encargado:
                                 encargadoSabado,
                             estado:
@@ -2421,9 +2489,7 @@
                         domingo: {
                             fecha: domingoISO,
                             iso:
-                                fechaSemanaISO(
-                                    domingo
-                                ),
+                                fechaSemanaISO(domingo),
                             encargado:
                                 encargadoDomingo,
                             estado:
@@ -2442,7 +2508,7 @@
 
                     /*
                         Las vacaciones pausan la rotación.
-                        El cambio manual no altera el ciclo.
+                        Los cambios manuales no alteran el ciclo.
                     */
 
                     if (!periodoVacaciones) {
@@ -2454,18 +2520,12 @@
                     }
 
                     sabado =
-                        sumarDias(
-                            sabado,
-                            7
-                        );
+                        sumarDias(sabado, 7);
                 }
 
-                renderizarTabla(
-                    resultados
-                );
+                renderizarTabla(resultados);
 
             } catch (error) {
-
                 console.error(error);
 
                 mostrarError(
@@ -2483,9 +2543,7 @@
                     FECHA_REFERENCIA
                 );
 
-            if (
-                fechaInicio <= referencia
-            ) {
+            if (fechaInicio <= referencia) {
                 return 0;
             }
 
@@ -2502,12 +2560,8 @@
                 );
 
             while (sabado < limite) {
-
                 const domingo =
-                    sumarDias(
-                        sabado,
-                        1
-                    );
+                    sumarDias(sabado, 1);
 
                 const vacacionesSemana =
                     vacacionesFinSemana(
@@ -2526,10 +2580,7 @@
                 }
 
                 sabado =
-                    sumarDias(
-                        sabado,
-                        7
-                    );
+                    sumarDias(sabado, 7);
             }
 
             return indice;
@@ -2542,34 +2593,27 @@
             const disponibles =
                 ASESORES.filter(
                     function (asesor) {
-
                         return !personasVacaciones.includes(
                             asesor
                         );
                     }
                 );
 
-            if (
-                disponibles.length === 0
-            ) {
+            if (disponibles.length === 0) {
                 return {
                     sabado: "Sin cobertura",
                     domingo: "Sin cobertura"
                 };
             }
 
-            if (
-                disponibles.length === 1
-            ) {
+            if (disponibles.length === 1) {
                 return {
                     sabado: disponibles[0],
                     domingo: disponibles[0]
                 };
             }
 
-            if (
-                contador % 2 === 0
-            ) {
+            if (contador % 2 === 0) {
                 return {
                     sabado: disponibles[0],
                     domingo: disponibles[1]
@@ -2588,9 +2632,7 @@
             personasVacaciones,
             patron
         ) {
-            if (
-                personasVacaciones.length > 0
-            ) {
+            if (personasVacaciones.length > 0) {
                 return {
                     tipo: "Vacaciones",
                     personas:
@@ -2607,7 +2649,6 @@
             const descansan =
                 ASESORES.filter(
                     function (asesor) {
-
                         return !trabajan.has(
                             asesor
                         );
@@ -2633,7 +2674,6 @@
                     vacaciones
                         .filter(
                             function (registro) {
-
                                 return (
                                     (
                                         sabado >= registro.inicio &&
@@ -2649,7 +2689,6 @@
                         )
                         .map(
                             function (registro) {
-
                                 return registro.asesor;
                             }
                         )
@@ -2658,17 +2697,15 @@
         }
 
         function buscarCambio(sabado) {
-
             return cambios.find(
                 function (registro) {
-
                     return registro.fecha === sabado;
                 }
             );
         }
 
         /* ==========================================
-           RENDERIZAR TABLA
+           TABLA
         ========================================== */
 
         function renderizarTabla(
@@ -2679,9 +2716,7 @@
                     "tablaRotacion"
                 );
 
-            if (
-                resultados.length === 0
-            ) {
+            if (resultados.length === 0) {
                 tabla.innerHTML = `
                     <tr>
                         <td colspan="7">
@@ -2694,26 +2729,18 @@
             }
 
             tabla.innerHTML =
-                resultados
-                    .map(
-                        function (fin) {
-
-                            return crearFinSemana(
-                                fin
-                            );
-                        }
-                    )
-                    .join("");
+                resultados.map(
+                    function (fin) {
+                        return crearFinSemana(fin);
+                    }
+                ).join("");
         }
 
         function crearFinSemana(fin) {
-
             let claseImpresion =
                 "impresion-normal";
 
-            if (
-                fin.vacaciones.length > 0
-            ) {
+            if (fin.vacaciones.length > 0) {
                 claseImpresion =
                     "impresion-vacaciones";
             }
@@ -2737,16 +2764,12 @@
                         class="grupo-semana"
                     >
                         <strong>
-                            ${escaparHTML(
-                                fin.semana
-                            )}
+                            ${escaparHTML(fin.semana)}
                         </strong>
 
                         <span class="ciclo">
                             Ciclo
-                            ${escaparHTML(
-                                fin.ciclo
-                            )}
+                            ${escaparHTML(fin.ciclo)}
                         </span>
                     </td>
 
@@ -2769,9 +2792,7 @@
 
                         <span class="persona-descanso">
                             ${escaparHTML(
-                                fin.descanso.personas.join(
-                                    ", "
-                                )
+                                fin.descanso.personas.join(", ")
                             )}
                         </span>
                     </td>
@@ -2807,7 +2828,6 @@
                             </div>
 
                             <div class="resultado">
-
                                 <span
                                     class="punto punto-sabado"
                                 ></span>
@@ -2820,11 +2840,9 @@
                                         )}
                                     </strong>
                                 </span>
-
                             </div>
 
                             <div class="resultado">
-
                                 <span
                                     class="punto punto-domingo"
                                 ></span>
@@ -2837,11 +2855,9 @@
                                         )}
                                     </strong>
                                 </span>
-
                             </div>
 
                             <div class="resultado">
-
                                 <span
                                     class="punto punto-descanso"
                                 ></span>
@@ -2852,13 +2868,10 @@
                                     )}:
                                     <strong>
                                         ${escaparHTML(
-                                            fin.descanso.personas.join(
-                                                ", "
-                                            )
+                                            fin.descanso.personas.join(", ")
                                         )}
                                     </strong>
                                 </span>
-
                             </div>
 
                         </div>
@@ -2922,20 +2935,15 @@
         }
 
         function crearEstado(estado) {
-
             let clase =
                 "estado-normal";
 
-            if (
-                estado === "Vacaciones"
-            ) {
+            if (estado === "Vacaciones") {
                 clase =
                     "estado-vacaciones";
             }
 
-            if (
-                estado === "Cambio manual"
-            ) {
+            if (estado === "Cambio manual") {
                 clase =
                     "estado-manual";
             }
@@ -2954,12 +2962,9 @@
         ========================================== */
 
         function fechaDesdeISO(iso) {
-
             if (
                 !iso ||
-                !/^\d{4}-\d{2}-\d{2}$/.test(
-                    iso
-                )
+                !/^\d{4}-\d{2}-\d{2}$/.test(iso)
             ) {
                 throw new Error(
                     "La fecha ingresada no es válida."
@@ -2976,16 +2981,9 @@
                     partes[2]
                 );
 
-            fecha.setHours(
-                0,
-                0,
-                0,
-                0
-            );
+            fecha.setHours(0, 0, 0, 0);
 
-            if (
-                formatoISO(fecha) !== iso
-            ) {
+            if (formatoISO(fecha) !== iso) {
                 throw new Error(
                     "La fecha ingresada no es válida."
                 );
@@ -2995,7 +2993,6 @@
         }
 
         function formatoISO(fecha) {
-
             const anio =
                 fecha.getFullYear();
 
@@ -3017,26 +3014,18 @@
             cantidad
         ) {
             const copia =
-                new Date(
-                    fecha.getTime()
-                );
+                new Date(fecha.getTime());
 
             copia.setDate(
                 copia.getDate() + cantidad
             );
 
-            copia.setHours(
-                0,
-                0,
-                0,
-                0
-            );
+            copia.setHours(0, 0, 0, 0);
 
             return copia;
         }
 
         function obtenerProximoSabado(fecha) {
-
             const dias =
                 (
                     6 -
@@ -3044,14 +3033,10 @@
                     7
                 ) % 7;
 
-            return sumarDias(
-                fecha,
-                dias
-            );
+            return sumarDias(fecha, dias);
         }
 
         function fechaSemanaISO(fecha) {
-
             const utc =
                 new Date(
                     Date.UTC(
@@ -3112,14 +3097,12 @@
         }
 
         function semanaGeneralISO(fecha) {
-
             return fechaSemanaISO(
                 fecha
             ).slice(0, -2);
         }
 
         function fechaLegible(fecha) {
-
             return new Intl.DateTimeFormat(
                 "es-SV",
                 {
@@ -3140,9 +3123,7 @@
             const fechaFin =
                 fechaDesdeISO(fin);
 
-            if (
-                fechaInicio > fechaFin
-            ) {
+            if (fechaInicio > fechaFin) {
                 throw new Error(
                     "La fecha inicial no puede ser posterior a la fecha final."
                 );
@@ -3166,33 +3147,26 @@
         ========================================== */
 
         function mostrarError(texto) {
-
             const elemento =
                 document.getElementById(
                     "mensajeError"
                 );
 
             elemento.textContent = texto;
-
-            elemento.style.display =
-                "block";
+            elemento.style.display = "block";
         }
 
         function mostrarExito(texto) {
-
             const elemento =
                 document.getElementById(
                     "mensajeExito"
                 );
 
             elemento.textContent = texto;
-
-            elemento.style.display =
-                "block";
+            elemento.style.display = "block";
         }
 
         function limpiarMensajes() {
-
             const error =
                 document.getElementById(
                     "mensajeError"
@@ -3211,7 +3185,6 @@
         }
 
         function escaparHTML(valor) {
-
             const entidades = {
                 "&": "&amp;",
                 "<": "&lt;",
@@ -3223,7 +3196,6 @@
             return String(valor).replace(
                 /[&<>"']/g,
                 function (caracter) {
-
                     return entidades[caracter];
                 }
             );
@@ -3234,54 +3206,42 @@
         ========================================== */
 
         document
-            .getElementById(
-                "formularioLogin"
-            )
+            .getElementById("formularioLogin")
             .addEventListener(
                 "submit",
                 iniciarSesion
             );
 
         document
-            .getElementById(
-                "btnMostrarPassword"
-            )
+            .getElementById("btnMostrarPassword")
             .addEventListener(
                 "click",
                 alternarPassword
             );
 
         document
-            .getElementById(
-                "btnCerrarSesion"
-            )
+            .getElementById("btnCerrarSesion")
             .addEventListener(
                 "click",
                 cerrarSesion
             );
 
         document
-            .getElementById(
-                "btnGenerar"
-            )
+            .getElementById("btnGenerar")
             .addEventListener(
                 "click",
                 generarLineaTiempo
             );
 
         document
-            .getElementById(
-                "btnVacaciones"
-            )
+            .getElementById("btnVacaciones")
             .addEventListener(
                 "click",
                 guardarVacaciones
             );
 
         document
-            .getElementById(
-                "btnCambio"
-            )
+            .getElementById("btnCambio")
             .addEventListener(
                 "click",
                 guardarCambio
